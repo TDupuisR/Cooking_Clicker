@@ -563,7 +563,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 505669505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719525467}
+        m_TargetAssemblyTypeName: SwitchScript, Assembly-CSharp
+        m_MethodName: StartSwitchScreen
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &505669505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,7 +1297,7 @@ MonoBehaviour:
   ServiceGameObject: {fileID: 2000889768}
   CookingGameObject: {fileID: 982482175}
   ProductionGameObject: {fileID: 805643474}
-  m_transitionSpeed: 0
+  m_transitionSpeed: 1
 --- !u!1 &1734942008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1380,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1734942011}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719525467}
+        m_TargetAssemblyTypeName: SwitchScript, Assembly-CSharp
+        m_MethodName: StartSwitchScreen
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1734942011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,7 +1628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2070785338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1719525467}
+        m_TargetAssemblyTypeName: SwitchScript, Assembly-CSharp
+        m_MethodName: StartSwitchScreen
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2070785338
 MonoBehaviour:
   m_ObjectHideFlags: 0
