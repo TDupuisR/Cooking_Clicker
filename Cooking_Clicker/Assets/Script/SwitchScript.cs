@@ -6,14 +6,17 @@ using UnityEngine;
 public class SwitchScript : MonoBehaviour
 {
     [Header("Screens")]
-    [SerializeField] private RectTransform ServiceGameObject;
-    [SerializeField] private RectTransform CookingGameObject;
-    [SerializeField] private RectTransform ProductionGameObject;
+    [SerializeField] private Transform ServiceGameObject;
+    [SerializeField] private Transform CookingGameObject;
+    [SerializeField] private Transform ProductionGameObject;
 
     [Space(5)]
     [SerializeField] private float m_transitionSpeed;
     bool IsBusy;
 
+    float m_universalYPosition;
+    
+    
     /*
      PAS ENCORE FINI !
      */
@@ -22,6 +25,12 @@ public class SwitchScript : MonoBehaviour
     //-360
     //360
     //720
+
+    private void Start()
+    {
+       print(Camera.main.scaledPixelWidth);
+       m_universalYPosition = CookingGameObject.position.y;
+    }
     public void StartSwitchScreen(int Screen) { if (!IsBusy) StartCoroutine(SwitchScreen(Screen)); }
 
     IEnumerator SwitchScreen(int Offset)
@@ -31,13 +40,13 @@ public class SwitchScript : MonoBehaviour
 
         //Determine start and ending position of each Screens
         Vector3 startServicePosition = ServiceGameObject.position;
-        Vector3 endServicePosition = new Vector3(-720 * Offset + 360, 640f, 0f);
+        Vector3 endServicePosition = new Vector3(-720 * Offset + 360, m_universalYPosition, 0f);
 
         Vector3 startCookingPosition = CookingGameObject.position;
-        Vector3 endCookingPosition = new Vector3(-720 * Offset + 1080, 640f, 0f);
+        Vector3 endCookingPosition = new Vector3(-720 * Offset + 1080, m_universalYPosition, 0f);
 
         Vector3 startProductionPosition = ProductionGameObject.position;
-        Vector3 endProductionPosition = new Vector3(-720 * Offset + 1800, 640f, 0f);
+        Vector3 endProductionPosition = new Vector3(-720 * Offset + 1800, m_universalYPosition, 0f);
 
         print(endServicePosition);
 
