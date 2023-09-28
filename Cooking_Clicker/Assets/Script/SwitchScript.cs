@@ -13,21 +13,11 @@ public class SwitchScript : MonoBehaviour
     [Space(5)]
     [SerializeField] private float m_transitionSpeed;
     bool IsBusy;
-    
-    /*
-     PAS ENCORE FINI !
-     */
 
     float i = 1;
-    //-360
-    //360
-    //720
 
-    private void Start()
-    {
-       print(ServiceGameObject.position.x);
-       print(ProductionGameObject.position.x - CookingGameObject.position.x);
-    }
+   
+    
     public void StartSwitchScreen(int Screen) { if (!IsBusy) StartCoroutine(SwitchScreen(Screen)); }
 
     IEnumerator SwitchScreen(int Offset)
@@ -36,7 +26,7 @@ public class SwitchScript : MonoBehaviour
         
         //Definition de PLEIN de variables importantes
         float timeElapsed = 0;
-        float m_universalYPosition = CookingGameObject.position.y; //Determine la position y des écrans
+        float m_universalYPosition = CookingGameObject.position.y; //Determine la position y des Ã©crans
         float m_startingOffset = Camera.main.pixelWidth / 2;
 
         //Determine start and ending position of each Screens
@@ -49,7 +39,7 @@ public class SwitchScript : MonoBehaviour
         Vector3 startProductionPosition = ProductionGameObject.position;
         Vector3 endProductionPosition = new Vector3(-Camera.main.pixelWidth * Offset + m_startingOffset * 5, m_universalYPosition, 0f);
 
-        print(endServicePosition);
+        
 
         while (timeElapsed < m_transitionSpeed)
         {
