@@ -11,9 +11,7 @@ public class RessourceManager : MonoBehaviour
         Tomate, Carotte, Pomme_de_terre, Petit_pois, Haricot, Veau, Boeuf, Poulet, Canard, Mouton,
         Lait, Beurre, Riz, Pates, Oeufs
     }
-    private int[] m_ressourcesAmount = new int[15];
-
-    //penser a mettre propriété de RessourcesAmount
+    public int[] m_ressourcesAmount = new int[15];
 
     private void Awake()
     {
