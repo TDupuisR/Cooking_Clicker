@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class RessourceManager : MonoBehaviour
 {
-    private static RessourceManager Instance;
+    public static RessourceManager instance;
 
-    private enum RessourcesNames
+    public enum RessourcesNames
     {
         Tomate, Carotte, Pomme_de_terre, Petit_pois, Haricot, Veau, Boeuf, Poulet, Canard, Mouton,
         Lait, Beurre, Riz, Pates, Oeufs
     }
-    public int[] m_ressourcesAmount = new int[15];
+    public int[] ressourcesAmount = new int[15];
+    
+    private List<Sprite> m_productImage;
+    public List<Sprite> productImage { get => m_productImage;}
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (instance == null) instance = this;
         else Destroy(gameObject);
+    }
+
+
+    public string GetProductName(int id)
+    {
+        RessourcesNames name = (RessourcesNames)id;
+        return name.ToString();
     }
 }

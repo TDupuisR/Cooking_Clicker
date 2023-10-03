@@ -12,11 +12,7 @@ public class SwitchScript : MonoBehaviour
 
     [Space(5)]
     [SerializeField] private float m_transitionSpeed;
-    bool IsBusy;
-
-    float i = 1;
-
-   
+    bool IsBusy;   
     
     public void StartSwitchScreen(int Screen) { if (!IsBusy) StartCoroutine(SwitchScreen(Screen)); }
 
