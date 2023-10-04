@@ -672,6 +672,8 @@ MonoBehaviour:
   m_productAmount: {fileID: 5371838947950053163}
   m_progressionSlider: {fileID: 1604327472146660174}
   m_productType: 0
+  m_progression: 0
+  m_progressionTime: 1
 --- !u!1 &8880934598127220021
 GameObject:
   m_ObjectHideFlags: 0
