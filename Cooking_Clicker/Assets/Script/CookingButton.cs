@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CookingButton : MonoBehaviour
@@ -19,6 +20,10 @@ public class CookingButton : MonoBehaviour
     [SerializeField] float m_preparationTime;
     [SerializeField] float m_cookingTime;
 
+    [Header("Event")]
+    [SerializeField] UnityEvent OnProgression;
+    [SerializeField] UnityEvent OnCompletion;
+
     private void Awake()
     {
         recepie = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_cookingTime);
@@ -27,7 +32,7 @@ public class CookingButton : MonoBehaviour
     }
 
     public void StartPreparation() => StartCoroutine(AutoPreparation());
-    public void AddProgress(int amount) => recepie.progress += amount;
+    public void AddProgress(int amount) { recepie.progress += amount; OnProgression.Invoke(); }
     IEnumerator AutoPreparation()
     {
         while (recepie.progress < 100)

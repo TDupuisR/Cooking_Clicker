@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ProductionButton : MonoBehaviour
@@ -16,6 +17,10 @@ public class ProductionButton : MonoBehaviour
     [SerializeField] int m_productType;
     [SerializeField] int m_progression;
     [SerializeField] float m_progressionTime;
+
+    [Header("Event")]
+    [SerializeField] UnityEvent OnProgression;
+    [SerializeField] UnityEvent OnCompletion;
 
     private void Start()
     {
@@ -34,12 +39,14 @@ public class ProductionButton : MonoBehaviour
         {
             m_progression = 0;
             RessourceManager.instance.ressourcesAmount[m_productType]++;
+            OnCompletion.Invoke();
         }
     }
 
     public void SpeedProgression(int amount)
     {
         m_progression += amount;
+        OnProgression.Invoke();
     }
 
     IEnumerator AutoProgression()
