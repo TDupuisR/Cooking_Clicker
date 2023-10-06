@@ -13,7 +13,7 @@ public class RessourceManager : MonoBehaviour
     }
     public int[] ressourcesAmount = new int[15];
     
-    [SerializeField] private List<Sprite> m_productImage;
+    [SerializeField] List<Sprite> m_productImage;
     public List<Sprite> productImage { get => m_productImage;}
 
     private void Awake()

@@ -6,12 +6,12 @@ using UnityEngine;
 public class SwitchScript : MonoBehaviour
 {
     [Header("Screens")]
-    [SerializeField] private Transform ServiceGameObject;
-    [SerializeField] private Transform CookingGameObject;
-    [SerializeField] private Transform ProductionGameObject;
+    [SerializeField] Transform ServiceGameObject;
+    [SerializeField] Transform CookingGameObject;
+    [SerializeField] Transform ProductionGameObject;
 
     [Space(5)]
-    [SerializeField] private float m_transitionSpeed;
+    [SerializeField] float m_transitionSpeed;
     bool IsBusy;   
     
     public void StartSwitchScreen(int Screen) { if (!IsBusy) StartCoroutine(SwitchScreen(Screen)); }
