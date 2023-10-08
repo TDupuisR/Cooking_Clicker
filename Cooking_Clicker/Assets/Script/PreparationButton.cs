@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class CookingButton : MonoBehaviour
+public class PreparationButton : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] TMP_Text m_nameText;
@@ -14,11 +14,12 @@ public class CookingButton : MonoBehaviour
     [SerializeField] Slider m_progressionSlider;
     [SerializeField] Button m_button;
 
-    Recipes recepie;
+    Recipes recipe;
     [Header("Recepies Values")]
     [SerializeField] List<RessourceManager.RessourcesNames> m_ressourcesNeeded;
     [SerializeField] string m_recipesName;
     [SerializeField] float m_preparationTime;
+    [SerializeField] CookerManager.CookingMachines m_machineNeeded;
     [SerializeField] float m_cookingTime;
 
     [Header("Event")]
@@ -27,7 +28,7 @@ public class CookingButton : MonoBehaviour
 
     private void Awake()
     {
-        recepie = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_cookingTime);
+        recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);
 
         m_nameText.text = m_recipesName;
         m_button.interactable = false;
@@ -35,15 +36,26 @@ public class CookingButton : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (recepie.currentState)
+        switch (recipe.currentState)
         {
             case Recipes.States.WAIT:
                 if (CheckIngredients())
                 {
                     m_button.interactable = true;
+
+                    foreach(RessourceManager.RessourcesNames ingredients in m_ressourcesNeeded)
+                    {
+                        RessourceManager.instance.ressourcesAmount[(int)ingredients]--;
+                    }
+
                     StartPreparation();
-                    recepie.currentState = Recipes.States.PREP;
+                    recipe.currentState = Recipes.States.PREP;
                 }
+                break;
+
+            case Recipes.States.COOK:
+                CookerManager.instance.RecipesQueue.Add(recipe);
+                Destroy(gameObject);
                 break;
         }
     }
@@ -59,25 +71,15 @@ public class CookingButton : MonoBehaviour
     }
 
     public void StartPreparation() => StartCoroutine(AutoPreparation());
-    public void AddProgress(int amount) { recepie.progress += amount; OnProgression.Invoke(); }
+    public void AddProgress(int amount) { recipe.progress += amount; OnProgression.Invoke(); }
     IEnumerator AutoPreparation()
     {
-        while (recepie.progress < 100)
+        while (recipe.progress < 100)
         {
-            yield return new WaitForSeconds(recepie.preparationTime / 100);
-            m_progressionSlider.value = recepie.progress;
-            recepie.progress++;
+            yield return new WaitForSeconds(recipe.preparationTime / 100);
+            m_progressionSlider.value = recipe.progress;
+            recipe.progress++;
         }
-        recepie.currentState = Recipes.States.COOK;
+        recipe.currentState = Recipes.States.COOK;
     }
-
-    //public void StartCooking() => StartCoroutine(AutoCooking());
-    //IEnumerator AutoCooking()
-    //{
-    //    while (recepie.progress < 100)
-    //    {
-    //        yield return new WaitForSeconds(recepie.cookingTime / 100);
-    //        recepie.progress++;
-    //    }
-    //}
 }
