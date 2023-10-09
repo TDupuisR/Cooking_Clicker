@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6207862976975380103}
   - component: {fileID: 441327589146651199}
   m_Layer: 5
-  m_Name: CookingButton
+  m_Name: PreparationButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
