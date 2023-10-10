@@ -61,7 +61,7 @@ public class CookerManager : MonoBehaviour
         RecipesQueue.RemoveAt(recepieIndex);
         m_machineUsed[m_machineIndex] = false;
         m_progressionSliders[m_machineIndex].value = 0;
-        m_cookerImage[m_machineIndex].color = new Color(.5f, .5f, .5f, 1f);
+        m_cookerImage[m_machineIndex].color = new Color(1f, 1f, 1f, 1f);
 
         print(RecipesQueue.Count);
     }

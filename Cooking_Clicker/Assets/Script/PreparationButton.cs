@@ -64,9 +64,15 @@ public class PreparationButton : MonoBehaviour
     bool CheckIngredients()
     {
         bool HasIngredients = true;
-        foreach(GameManagerStatic.RessourcesNames ingredient in m_ressourcesNeeded)
+
+        //Compte le nombre d'ingrédient
+        int[] ressourcesNeededAmount = new int[15];
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_ressourcesNeeded) ressourcesNeededAmount[(int)ingredient]++;
+
+        //Vérifie si on a les ingrédients
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_ressourcesNeeded)
         {
-            if (GameManager.ressourceManager.ressourcesAmount[(int)ingredient] == 0) HasIngredients = false;
+            if (GameManager.ressourceManager.ressourcesAmount[(int)ingredient] < ressourcesNeededAmount[(int)ingredient]) HasIngredients = false;
         }
         return HasIngredients;
     }

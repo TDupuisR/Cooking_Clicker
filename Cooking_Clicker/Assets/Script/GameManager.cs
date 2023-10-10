@@ -7,10 +7,14 @@ namespace GameManagerSpace
         public static GameManager Instance;
         public static RessourceManager ressourceManager;
 
+        [SerializeField] RessourceManager m_ressourceManager;
+
         private void Awake()
         {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
+
+            ressourceManager = m_ressourceManager;
         }
 
         private void OnEnable()
