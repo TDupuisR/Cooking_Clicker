@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagerSpace;
 
 public struct Recipes
 {
@@ -10,7 +11,7 @@ public struct Recipes
     }
     public States currentState;
     
-    public List<RessourceManager.RessourcesNames> ressourcesNeeded;
+    public List<GameManagerStatic.RessourcesNames> ressourcesNeeded;
     
     string m_recipesName;
     int m_progress;
@@ -24,7 +25,7 @@ public struct Recipes
     public CookerManager.CookingMachines MachineNeeded { get => m_machineNeeded; set => m_machineNeeded = value; }
     public float cookingTime { get => m_cookingTime; set => m_cookingTime = value; }
 
-    public Recipes(string name, List<RessourceManager.RessourcesNames> ingredients, float preparation, CookerManager.CookingMachines machine, float cooking)
+    public Recipes(string name, List<GameManagerStatic.RessourcesNames> ingredients, float preparation, CookerManager.CookingMachines machine, float cooking)
     {
         currentState = States.WAIT;
         ressourcesNeeded = ingredients;

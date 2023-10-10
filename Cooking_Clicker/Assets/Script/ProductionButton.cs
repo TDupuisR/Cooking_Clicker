@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using GameManagerSpace;
 
 public class ProductionButton : MonoBehaviour
 {
@@ -24,21 +25,21 @@ public class ProductionButton : MonoBehaviour
 
     private void Start()
     {
-        m_productName.text = RessourceManager.instance.GetProductName(m_productType);
-        m_productImage.sprite = RessourceManager.instance.productImage[m_productType];
+        m_productName.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
+        m_productImage.sprite = GameManager.ressourceManager.productImage[m_productType];
 
         StartCoroutine(AutoProgression());
     }
 
     private void FixedUpdate()
     {
-        m_productAmount.text = RessourceManager.instance.ressourcesAmount[m_productType].ToString();
+        m_productAmount.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
         m_progressionSlider.value = m_progression;
 
         if(m_progression > 100)
         {
             m_progression = 0;
-            RessourceManager.instance.ressourcesAmount[m_productType]++;
+            GameManager.ressourceManager.ressourcesAmount[m_productType]++;
             OnCompletion.Invoke();
         }
     }

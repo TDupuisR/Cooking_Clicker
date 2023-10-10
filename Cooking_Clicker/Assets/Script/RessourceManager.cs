@@ -1,31 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameManagerSpace;
+using System;
 
 public class RessourceManager : MonoBehaviour
 {
-    public static RessourceManager instance;
-
-    public enum RessourcesNames
-    {
-        Tomate, Carotte, Pomme_de_terre, Petit_pois, Haricot, Veau, Boeuf, Poulet, Canard, Mouton,
-        Lait, Beurre, Riz, Pates, Oeufs
-    }
-    public int[] ressourcesAmount = new int[15];
+    public int[] ressourcesAmount = new int[Enum.GetNames(typeof (GameManagerStatic.RessourcesNames)).Length];
     
     [SerializeField] List<Sprite> m_productImage;
     public List<Sprite> productImage { get => m_productImage;}
 
-    private void Awake()
+    public string ReturnRessourceName(int id)
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
-    }
-
-
-    public string GetProductName(int id)
-    {
-        RessourcesNames name = (RessourcesNames)id;
+        GameManagerStatic.RessourcesNames name = (GameManagerStatic.RessourcesNames)id;
         return name.ToString();
     }
 }

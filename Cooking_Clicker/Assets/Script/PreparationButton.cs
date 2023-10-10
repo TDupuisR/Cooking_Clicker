@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using GameManagerSpace;
 
 public class PreparationButton : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PreparationButton : MonoBehaviour
 
     Recipes recipe;
     [Header("Recepies Values")]
-    [SerializeField] List<RessourceManager.RessourcesNames> m_ressourcesNeeded;
+    [SerializeField] List<GameManagerStatic.RessourcesNames> m_ressourcesNeeded;
     [SerializeField] string m_recipesName;
     [SerializeField] float m_preparationTime;
     [SerializeField] CookerManager.CookingMachines m_machineNeeded;
@@ -43,9 +44,9 @@ public class PreparationButton : MonoBehaviour
                 {
                     m_button.interactable = true;
 
-                    foreach(RessourceManager.RessourcesNames ingredients in m_ressourcesNeeded)
+                    foreach(GameManagerStatic.RessourcesNames ingredients in m_ressourcesNeeded)
                     {
-                        RessourceManager.instance.ressourcesAmount[(int)ingredients]--;
+                        GameManager.ressourceManager.ressourcesAmount[(int)ingredients]--;
                     }
 
                     StartPreparation();
@@ -63,9 +64,9 @@ public class PreparationButton : MonoBehaviour
     bool CheckIngredients()
     {
         bool HasIngredients = true;
-        foreach(RessourceManager.RessourcesNames ingredient in m_ressourcesNeeded)
+        foreach(GameManagerStatic.RessourcesNames ingredient in m_ressourcesNeeded)
         {
-            if (RessourceManager.instance.ressourcesAmount[(int)ingredient] == 0) HasIngredients = false;
+            if (GameManager.ressourceManager.ressourcesAmount[(int)ingredient] == 0) HasIngredients = false;
         }
         return HasIngredients;
     }
