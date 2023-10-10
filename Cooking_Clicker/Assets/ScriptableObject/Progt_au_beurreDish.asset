@@ -17,5 +17,5 @@ MonoBehaviour:
   prepTime: 4
   cookTime: 4
   sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
-  ingredients: 00000000
+  ingredients: 0b00000007000000
   ustensils: 0
