@@ -15,47 +15,51 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] Slider m_progressionSlider;
     [SerializeField] Button m_button;
 
-    Recipes recipe;
-    [Header("Recepies Values")]
-    [SerializeField] List<GameManagerStatic.RessourcesNames> m_ressourcesNeeded;
-    [SerializeField] string m_recipesName;
-    [SerializeField] float m_preparationTime;
-    [SerializeField] CookerManager.CookingMachines m_machineNeeded;
-    [SerializeField] float m_cookingTime;
 
+    
+    [Header("Dish Values")]
+    [SerializeField] DishBehavior m_dish;
+    GameManagerStatic.DishStates m_currentStates = GameManagerStatic.DishStates.Wait;
+    int m_progress;    
+    
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
     [SerializeField] UnityEvent OnCompletion;
 
     private void Awake()
     {
-        recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);
+        //recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);
 
-        m_nameText.text = m_recipesName;
+
+        m_nameText.text = m_dish.name;
         m_button.interactable = false;
     }
 
     private void FixedUpdate()
     {
-        switch (recipe.currentState)
+        switch (m_currentStates)
         {
-            case Recipes.States.WAIT:
+            case GameManagerStatic.DishStates.Wait:
                 if (CheckIngredients())
                 {
                     m_button.interactable = true;
 
-                    foreach(GameManagerStatic.RessourcesNames ingredients in m_ressourcesNeeded)
+                    foreach(GameManagerStatic.RessourcesNames ingredients in m_dish.ingredients)
                     {
                         GameManager.ressourceManager.ressourcesAmount[(int)ingredients]--;
                     }
 
                     StartPreparation();
-                    recipe.currentState = Recipes.States.PREP;
+                    m_currentStates = GameManagerStatic.DishStates.Prep;
                 }
                 break;
 
-            case Recipes.States.COOK:
-                CookerManager.instance.RecipesQueue.Add(recipe);
+            case GameManagerStatic.DishStates.Cook:
+                /*
+                 A changer après avoir adapter CookerManager
+                 */
+                CookerManager.instance.DishQueue.Add(m_dish);
+                
                 Destroy(gameObject);
                 break;
         }
@@ -64,23 +68,30 @@ public class PreparationButton : MonoBehaviour
     bool CheckIngredients()
     {
         bool HasIngredients = true;
-        foreach(GameManagerStatic.RessourcesNames ingredient in m_ressourcesNeeded)
+
+        //Compte le nombre d'ingrédient
+        int[] ressourcesNeededAmount = new int[15];
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) ressourcesNeededAmount[(int)ingredient]++;
+
+        //Vérifie si on a les ingrédients
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients)
         {
-            if (GameManager.ressourceManager.ressourcesAmount[(int)ingredient] == 0) HasIngredients = false;
+            if (GameManager.ressourceManager.ressourcesAmount[(int)ingredient] < ressourcesNeededAmount[(int)ingredient]) HasIngredients = false;
         }
         return HasIngredients;
     }
 
     public void StartPreparation() => StartCoroutine(AutoPreparation());
-    public void AddProgress(int amount) { recipe.progress += amount; OnProgression.Invoke(); }
+    public void AddProgress(int amount) { m_progress += amount; OnProgression.Invoke(); }
     IEnumerator AutoPreparation()
     {
-        while (recipe.progress < 100)
+        float waitTime = m_dish.prepTime / 100f;
+        while (m_progress < 100)
         {
-            yield return new WaitForSeconds(recipe.preparationTime / 100);
-            m_progressionSlider.value = recipe.progress;
-            recipe.progress++;
+            yield return new WaitForSeconds(waitTime);
+            m_progressionSlider.value = m_progress;
+            m_progress++;
         }
-        recipe.currentState = Recipes.States.COOK;
+        m_currentStates = GameManagerStatic.DishStates.Cook;
     }
 }

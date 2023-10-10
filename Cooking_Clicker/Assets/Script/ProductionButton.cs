@@ -33,7 +33,7 @@ public class ProductionButton : MonoBehaviour
 
     private void FixedUpdate()
     {
-        m_productAmount.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
+        m_productAmount.text = GameManager.ressourceManager.ressourcesAmount[m_productType].ToString();
         m_progressionSlider.value = m_progression;
 
         if(m_progression > 100)
