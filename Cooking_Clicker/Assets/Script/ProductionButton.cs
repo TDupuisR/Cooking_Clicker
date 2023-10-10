@@ -26,7 +26,7 @@ public class ProductionButton : MonoBehaviour
     private void Start()
     {
         m_productName.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
-        m_productImage.sprite = GameManager.ressourceManager.productImage[m_productType];
+        m_productImage.sprite = GameManager.ressourceManager.ReturnRessourceSprite(m_productType);
 
         StartCoroutine(AutoProgression());
     }
