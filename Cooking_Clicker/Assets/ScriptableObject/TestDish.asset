@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdc7a789ed7c564f83d644ed5078388, type: 3}
   m_Name: TestDish
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  prepTime: 0
-  cookTime: 0
-  sprite: {fileID: 0}
-  ingredients: 
+  name: Hagrid
+  description: Hagrid est gros
+  prepTime: 10
+  cookTime: 10
+  sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
+  ingredients: 0000000000000000
   ustensils: 0
