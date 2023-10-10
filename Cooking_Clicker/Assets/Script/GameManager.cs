@@ -34,7 +34,12 @@ namespace GameManagerSpace
 
         public enum CookingMachines
         {
-            Furnace, Pan, Cooking_pot, Blender, Fryer, Plancha, Grill, Microwave, Firewood_furnace
+            Furnace, Pan, Cooking_pot, Blender, Fryer, Plancha, Grill, Microwave, fridge
+        }
+
+        public enum DishStates
+        {
+            Wait, Prep, Cook, Serve
         }
     }
 }
