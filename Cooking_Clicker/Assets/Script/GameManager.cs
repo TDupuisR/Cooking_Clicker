@@ -28,8 +28,8 @@ namespace GameManagerSpace
         //Trouver une solution pour sécuriser via une method!!!!!
         public enum RessourcesNames
         {
-            Tomate, Carotte, Pomme_de_terre, Petit_pois, Haricot, Veau, Boeuf, Poulet, Canard, Mouton,
-            Lait, Beurre, Riz, Pates, Oeufs
+            Tomato, Carrot, Potato, Pea, Bean, Veal, Beef, Chicken, Duck, Sheep,
+            Milk, Butter, Rice, Pasta, Egg
         }
 
         public enum CookingMachines
