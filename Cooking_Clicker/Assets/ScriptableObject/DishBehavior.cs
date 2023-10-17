@@ -8,6 +8,7 @@ public class DishBehavior : ScriptableObject
 {
     public new string name;
     public string description;
+    public int moneyValue;
 
     public short prepTime;
     public short cookTime;

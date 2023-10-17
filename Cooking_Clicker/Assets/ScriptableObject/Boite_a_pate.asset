@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Boite a pate
   description: The ideal meal for studients
+  moneyValue: 10
   prepTime: 3
   cookTime: 2
   sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
