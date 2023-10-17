@@ -7,10 +7,6 @@ public class CookerManager : MonoBehaviour
 {
     public static CookerManager instance;
 
-    public enum CookingMachines
-    {
-        FURNACE = 0,
-    }
     [SerializeField] List<Slider> m_progressionSliders;
     [SerializeField] List<Image> m_cookerImage;
     [SerializeField] List<bool> m_machineUsed;
