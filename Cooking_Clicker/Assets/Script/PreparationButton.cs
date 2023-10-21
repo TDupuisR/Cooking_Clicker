@@ -15,8 +15,6 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] Slider m_progressionSlider;
     [SerializeField] Button m_button;
 
-
-    
     [Header("Dish Values")]
     [SerializeField] DishBehavior m_dish;
     GameManagerStatic.DishStates m_currentStates = GameManagerStatic.DishStates.Wait;
@@ -26,6 +24,8 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] UnityEvent OnProgression;
     [SerializeField] UnityEvent OnCompletion;
 
+    public DishBehavior dish { get => m_dish; set => m_dish = value; }
+    
     private void Awake()
     {
         //recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);

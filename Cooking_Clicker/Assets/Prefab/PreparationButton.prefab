@@ -273,7 +273,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1654672864201409650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 441327589146651199}
+        m_TargetAssemblyTypeName: PreparationButton, Assembly-CSharp
+        m_MethodName: AddProgress
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &441327589146651199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,10 +302,7 @@ MonoBehaviour:
   m_image: {fileID: 1107238547397891924}
   m_progressionSlider: {fileID: 4924694192409634182}
   m_button: {fileID: 6207862976975380103}
-  m_ressourcesNeeded: 
-  m_recipesName: 
-  m_preparationTime: 0
-  m_cookingTime: 0
+  m_dish: {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
   OnProgression:
     m_PersistentCalls:
       m_Calls: []

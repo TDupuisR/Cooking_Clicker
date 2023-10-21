@@ -47,11 +47,8 @@ public class CookerManager : MonoBehaviour
             progress++;
             m_progressionSliders[m_machineIndex].value = progress;
         }
-        
-        //INTEGRER CODE POUR SERVIR
-        /*
-            Passer la recette au ServiceManager
-         */
+
+        ServiceManager.instance.DishReady.Add(dish);
 
         m_dishQueue.RemoveAt(recepieIndex);
         m_machineUsed[m_machineIndex] = false;

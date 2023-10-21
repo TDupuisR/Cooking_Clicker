@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace GameManagerSpace
@@ -8,6 +9,18 @@ namespace GameManagerSpace
         public static RessourceManager ressourceManager;
 
         [SerializeField] RessourceManager m_ressourceManager;
+        [SerializeField] TMP_Text m_moneyText;
+
+        private uint m_money;
+        public uint Money
+        {
+            get => m_money; 
+            set
+            {
+                m_money = value;
+                m_moneyText.text = value.ToString();
+            }
+        }
 
         private void Awake()
         {
