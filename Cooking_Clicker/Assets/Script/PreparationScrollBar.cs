@@ -20,11 +20,6 @@ public class PreparationScrollBar : MonoBehaviour
         set => m_PreparationButtons = value;
     }
 
-    private void Awake()
-    {
-        UpdateSize();
-    }
-
     public void UpdateSize()
     {
         if (m_PreparationButtons.Count > 0) m_scrollBar.size = 1f / m_PreparationButtons.Count;
@@ -35,14 +30,16 @@ public class PreparationScrollBar : MonoBehaviour
 
     public void UpdateButtonsPositions()
     {
-        m_PreparationButtons[0].transform.position = m_startingPosition;
+        if(m_PreparationButtons.Count == 0) return;
+
+        m_PreparationButtons[0].transform.localPosition = m_startingPosition;
         if (m_PreparationButtons.Count > 1)
         {
             Vector2 currentPosition = m_startingPosition;
             for (int i = 1; i < m_PreparationButtons.Count; i++)
             {
                 currentPosition.y += m_offsetPosition;
-                m_PreparationButtons[i].transform.position = currentPosition;
+                m_PreparationButtons[i].transform.localPosition = currentPosition;
             }
         }
     }

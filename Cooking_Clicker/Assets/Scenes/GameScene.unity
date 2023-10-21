@@ -123,112 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &19477491
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 982482175}
-    m_Modifications:
-    - target: {fileID: 4160161739632613623, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_Name
-      value: PreparationButton (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5207360818038058521, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1010
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -570
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
---- !u!224 &19477492 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
-  m_PrefabInstance: {fileID: 19477491}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114944686
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +515,11 @@ CanvasRenderer:
 --- !u!224 &381374717 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8438336997817361628, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
+  m_PrefabInstance: {fileID: 8791206282189677295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &381892434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4160161739632613623, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
   m_PrefabInstance: {fileID: 8791206282189677295}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &404928539
@@ -1038,9 +937,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scrollBar: {fileID: 480506776}
-  m_PreparationButtons: []
+  m_PreparationButtons:
+  - {fileID: 381892434}
   m_startingPosition: {x: -60, y: -240}
-  m_offsetPosition: 330
+  m_offsetPosition: -330
 --- !u!1 &505669502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,7 +1782,6 @@ RectTransform:
   - {fileID: 565974255}
   - {fileID: 480506775}
   - {fileID: 381374717}
-  - {fileID: 19477492}
   m_Father: {fileID: 114944690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4249,6 +4148,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 982482175}
     m_Modifications:
+    - target: {fileID: 441327589146651199, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
+      propertyPath: m_preparationScrollBar
+      value: 
+      objectReference: {fileID: 480506779}
     - target: {fileID: 4160161739632613623, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
       propertyPath: m_Name
       value: PreparationButton
