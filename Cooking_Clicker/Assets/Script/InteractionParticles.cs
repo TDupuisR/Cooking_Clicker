@@ -39,6 +39,8 @@ public class InteractionParticles : MonoBehaviour
                 int chosenId = Random.Range(0, lenId);
                 currentParticle.GetComponent<Image>().sprite = GameManager.ressourceManager.ReturnRessourceSprite(id[chosenId]);
 
+                //Debug.Log("Name: " + currentParticle.transform.name + " |ID: " + id[chosenId] + "|Index: " + chosenId);
+
                 m_amount++;
             }
         }

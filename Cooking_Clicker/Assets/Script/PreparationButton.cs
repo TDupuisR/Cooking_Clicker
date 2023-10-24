@@ -92,8 +92,11 @@ public class PreparationButton : MonoBehaviour
         m_progress += amount;
         OnProgression.Invoke();
 
-        int[] ressourcesAmount = new int[15];
-        foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) ressourcesAmount[(int)ingredient]++;
+        int nbIngredient = 0;
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) nbIngredient++;
+
+        int[] ressourcesAmount = new int[nbIngredient]; int i = 0;
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) { ressourcesAmount[i] = (int)ingredient; i++; }
 
         OnTouch.Invoke(transform.position, ressourcesAmount);
     }
