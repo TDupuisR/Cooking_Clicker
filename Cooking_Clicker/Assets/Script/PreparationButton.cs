@@ -34,6 +34,7 @@ public class PreparationButton : MonoBehaviour
         print(transform.localPosition);
 
         m_nameText.text = m_dish.name;
+        m_image.sprite = m_dish.sprite;
         m_button.interactable = false;
     }
 
