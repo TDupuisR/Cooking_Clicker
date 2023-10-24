@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ParticleBehavior : MonoBehaviour
 {
-     float m_force = 5f;
+     [SerializeField, Range(0f, 200f)] float m_force = 5f;
 
     [SerializeField] Rigidbody2D m_rb2D;
 
     public delegate void OnOnParticleRemoveDelegate();
     public static event OnOnParticleRemoveDelegate OnParticleRemove;
 
-    private void OnEnable()
+    private void Start()
     {
         Spawning();
     }
@@ -25,7 +26,6 @@ public class ParticleBehavior : MonoBehaviour
 
     void Spawning()
     {
-        float sideForce = (Random.value) * 0.5f;
-        m_rb2D.velocity = new Vector2(sideForce, 1f) * m_force;
+        m_rb2D.velocity = new Vector2(Random.value - 0.5f, Random.value) * m_force;
     }
 }

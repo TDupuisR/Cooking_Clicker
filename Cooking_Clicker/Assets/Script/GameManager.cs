@@ -38,7 +38,7 @@ namespace GameManagerSpace
 
     public static class GameManagerStatic
     {
-        //Trouver une solution pour sécuriser via une method!!!!!
+        //Trouver une solution pour récupérer les infos de manière sécuriser via une method!!!!!
         public enum RessourcesNames
         {
             Tomato, Carrot, Potato, Pea, Bean, Veal, Beef, Chicken, Duck, Sheep,

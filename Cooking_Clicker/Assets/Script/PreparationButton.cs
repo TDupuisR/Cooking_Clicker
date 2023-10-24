@@ -24,6 +24,9 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] UnityEvent OnProgression;
     [SerializeField] UnityEvent OnCompletion;
 
+    public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
+    public static event OnTouchdelegate OnTouch;
+
     public DishBehavior dish { get => m_dish; set => m_dish = value; }
     
     private void Awake()
@@ -82,7 +85,15 @@ public class PreparationButton : MonoBehaviour
     }
 
     public void StartPreparation() => StartCoroutine(AutoPreparation());
-    public void AddProgress(int amount) { m_progress += amount; OnProgression.Invoke(); }
+    public void AddProgress(int amount) { 
+        m_progress += amount;
+        OnProgression.Invoke();
+
+        int[] ressourcesAmount = new int[15];
+        foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) ressourcesAmount[(int)ingredient]++;
+
+        OnTouch.Invoke(transform.position, ressourcesAmount);
+    }
     IEnumerator AutoPreparation()
     {
         float waitTime = m_dish.prepTime / 100f;

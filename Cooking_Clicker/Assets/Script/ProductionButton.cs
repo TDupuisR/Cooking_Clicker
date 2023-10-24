@@ -23,6 +23,9 @@ public class ProductionButton : MonoBehaviour
     [SerializeField] UnityEvent OnProgression;
     [SerializeField] UnityEvent OnCompletion;
 
+    public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
+    public static event OnTouchdelegate OnTouch;
+
     private void Start()
     {
         m_productName.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
@@ -48,6 +51,9 @@ public class ProductionButton : MonoBehaviour
     {
         m_progression += amount;
         OnProgression.Invoke();
+
+        int[] id = { m_productType };
+        OnTouch.Invoke(transform.position, id);
     }
 
     IEnumerator AutoProgression()
