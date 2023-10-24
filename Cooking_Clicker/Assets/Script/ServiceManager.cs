@@ -12,6 +12,7 @@ public class ServiceManager : MonoBehaviour
 
     [SerializeField] GameObject m_preparationPrefab;
     [SerializeField] Transform m_preparationParent;
+    [SerializeField] PreparationScrollBar m_preparationScrollBar;
 
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
@@ -29,8 +30,11 @@ public class ServiceManager : MonoBehaviour
         m_dishOrdered.Add(newDish);
         GameObject prepButton = Instantiate(m_preparationPrefab, m_preparationParent);
         prepButton.GetComponent<PreparationButton>().dish = newDish;
+        prepButton.GetComponent<PreparationButton>().scrollbar = m_preparationScrollBar;
+        prepButton.transform.SetSiblingIndex(2);
 
-        //Need to organize preparation button when instantiated
+        m_preparationScrollBar.PreparationButtons.Add(prepButton);
+        m_preparationScrollBar.UpdateSize();
     }
 
     public void ServeDish(DishBehavior servedDish)

@@ -14,6 +14,7 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] Image m_image;
     [SerializeField] Slider m_progressionSlider;
     [SerializeField] Button m_button;
+    [SerializeField] PreparationScrollBar m_preparationScrollBar;
 
     [Header("Dish Values")]
     [SerializeField] DishBehavior m_dish;
@@ -28,13 +29,15 @@ public class PreparationButton : MonoBehaviour
     public static event OnTouchdelegate OnTouch;
 
     public DishBehavior dish { get => m_dish; set => m_dish = value; }
+    public PreparationScrollBar scrollbar { set => m_preparationScrollBar = value; }
     
     private void Awake()
     {
         //recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);
-
+        print(transform.localPosition);
 
         m_nameText.text = m_dish.name;
+        m_image.sprite = m_dish.sprite;
         m_button.interactable = false;
     }
 
@@ -58,11 +61,11 @@ public class PreparationButton : MonoBehaviour
                 break;
 
             case GameManagerStatic.DishStates.Cook:
-                /*
-                 A changer après avoir adapter CookerManager
-                 */
+
                 CookerManager.instance.DishQueue.Add(m_dish);
-                
+                m_preparationScrollBar.PreparationButtons.Remove(gameObject);
+                m_preparationScrollBar.UpdateSize();
+
                 Destroy(gameObject);
                 break;
         }
