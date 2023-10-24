@@ -14,7 +14,6 @@ public class PreparationScrollBar : MonoBehaviour
     [Header("organization values")]
     [SerializeField] Vector2 m_startingPosition;
     [SerializeField] float m_offsetPosition;
-    [SerializeField] float m_arbirtayStartingOffset;
     [SerializeField] int m_ignorePrepButtons;
     float defaultYPos;
 
@@ -28,9 +27,7 @@ public class PreparationScrollBar : MonoBehaviour
     {
         if(m_firstTargetTransform != null)
         {
-//            m_PreparationButtons[0].transform.localPosition = m_firstTargetTransform.localPosition;
-            m_startingPosition = m_PreparationButtons[0].transform.localPosition;
-            
+            m_startingPosition = m_PreparationButtons[0].transform.localPosition;            
         }
         defaultYPos = m_startingPosition.y;
     }
@@ -65,7 +62,7 @@ public class PreparationScrollBar : MonoBehaviour
         if (m_PreparationButtons.Count < 3) return;
         print(defaultYPos);
         m_startingPosition = new Vector2(m_startingPosition.x,
-        defaultYPos - value * (m_PreparationButtons.Count - m_ignorePrepButtons) * m_offsetPosition + m_arbirtayStartingOffset);
+        defaultYPos - value * (m_PreparationButtons.Count - m_ignorePrepButtons) * m_offsetPosition);
 
         UpdateButtonsPositions();
     }
