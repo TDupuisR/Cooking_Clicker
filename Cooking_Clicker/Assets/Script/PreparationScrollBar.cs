@@ -28,8 +28,8 @@ public class PreparationScrollBar : MonoBehaviour
     {
         if(m_firstTargetTransform != null)
         {
-            m_PreparationButtons[0].transform.localPosition = m_firstTargetTransform.localPosition;
-            m_startingPosition = m_firstTargetTransform.localPosition;
+//            m_PreparationButtons[0].transform.localPosition = m_firstTargetTransform.localPosition;
+            m_startingPosition = m_PreparationButtons[0].transform.localPosition;
             
         }
         defaultYPos = m_startingPosition.y;
