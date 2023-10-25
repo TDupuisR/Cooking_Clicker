@@ -30,6 +30,7 @@ public class PreparationButton : MonoBehaviour
 
     public DishBehavior dish { get => m_dish; set => m_dish = value; }
     public PreparationScrollBar scrollbar { set => m_preparationScrollBar = value; }
+    public GameManagerStatic.DishStates currentState { set => m_currentStates = value; }
     
     private void Awake()
     {
@@ -60,12 +61,7 @@ public class PreparationButton : MonoBehaviour
                 }
                 break;
 
-            case GameManagerStatic.DishStates.QueueCook:
-                m_image.color = new Color(.5f,.5f,.5f);
-                break;
-
             case GameManagerStatic.DishStates.Cook:
-                CookerManager.instance.DishQueue.Add(m_dish);
                 m_preparationScrollBar.PreparationButtons.Remove(gameObject);
                 m_preparationScrollBar.UpdateSize();
                 Destroy(gameObject);
@@ -111,6 +107,9 @@ public class PreparationButton : MonoBehaviour
             m_progressionSlider.value = m_progress;
             m_progress++;
         }
-        m_currentStates = GameManagerStatic.DishStates.Cook;
+        CookerManager.instance.LinkedPrepButton.Add(this);
+        CookerManager.instance.DishQueue.Add(m_dish);
+        m_image.color = new Color(.5f, .5f, .5f);
+        m_currentStates = GameManagerStatic.DishStates.QueueCook;
     }
 }

@@ -7,8 +7,8 @@ public class ServiceManager : MonoBehaviour
 {
     public static ServiceManager instance;
 
-    [SerializeField] List<DishBehavior> m_dishOrdered = new List<DishBehavior>();
-    [SerializeField] List<DishBehavior> m_dishReady = new List<DishBehavior>();
+    List<DishBehavior> m_dishOrdered = new List<DishBehavior>();
+    List<DishBehavior> m_dishReady = new List<DishBehavior>();
 
     [SerializeField] GameObject m_preparationPrefab;
     [SerializeField] Transform m_preparationParent;
