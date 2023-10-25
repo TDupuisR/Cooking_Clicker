@@ -52,7 +52,7 @@ namespace GameManagerSpace
 
         public enum DishStates
         {
-            Wait, Prep, Cook, Serve
+            Wait, Prep, QueueCook, Cook, Serve
         }
     }
 }

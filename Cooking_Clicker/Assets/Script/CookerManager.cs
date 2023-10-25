@@ -14,6 +14,9 @@ public class CookerManager : MonoBehaviour
     List<DishBehavior> m_dishQueue = new List<DishBehavior>();
     public List<DishBehavior> DishQueue { get => m_dishQueue; set => m_dishQueue = value; }
 
+    public delegate void OnSwitchToCook(int index);
+    public static event OnSwitchToCook OnGoingToCook;
+
     private void Awake()
     {
         if (instance == null) instance = this;

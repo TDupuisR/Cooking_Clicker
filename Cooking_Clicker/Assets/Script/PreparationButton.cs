@@ -19,8 +19,8 @@ public class PreparationButton : MonoBehaviour
     [Header("Dish Values")]
     [SerializeField] DishBehavior m_dish;
     GameManagerStatic.DishStates m_currentStates = GameManagerStatic.DishStates.Wait;
-    int m_progress;    
-    
+    int m_progress;
+
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
     [SerializeField] UnityEvent OnCompletion;
@@ -60,12 +60,14 @@ public class PreparationButton : MonoBehaviour
                 }
                 break;
 
-            case GameManagerStatic.DishStates.Cook:
+            case GameManagerStatic.DishStates.QueueCook:
+                m_image.color = new Color(.5f,.5f,.5f);
+                break;
 
+            case GameManagerStatic.DishStates.Cook:
                 CookerManager.instance.DishQueue.Add(m_dish);
                 m_preparationScrollBar.PreparationButtons.Remove(gameObject);
                 m_preparationScrollBar.UpdateSize();
-
                 Destroy(gameObject);
                 break;
         }
