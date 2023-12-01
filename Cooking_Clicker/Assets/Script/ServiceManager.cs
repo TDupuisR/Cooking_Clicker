@@ -10,9 +10,14 @@ public class ServiceManager : MonoBehaviour
     List<DishBehavior> m_dishOrdered = new List<DishBehavior>();
     List<DishBehavior> m_dishReady = new List<DishBehavior>();
 
+    [Header("Preparation")]
     [SerializeField] GameObject m_preparationPrefab;
     [SerializeField] Transform m_preparationParent;
     [SerializeField] PreparationScrollBar m_preparationScrollBar;
+
+    [Header("Customer")]
+    [SerializeField] GameObject m_customerPrefab;
+    [SerializeField] Transform m_customerSpawnPoint;
 
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
@@ -49,6 +54,12 @@ public class ServiceManager : MonoBehaviour
         else throw new System.Exception("Served dish isn't in m_dishOrdered and in m_dishReady");
     }
 
+    public void SpawnCustomer(DishBehavior newOrderDish)
+    {
+        GameObject newCustomer = Instantiate(m_customerPrefab, m_customerSpawnPoint.position, Quaternion.identity);
+        CustomerBehaviour newCustomerBehaviour = newCustomer.GetComponent<CustomerBehaviour>();
+        newCustomerBehaviour.orderDish = newOrderDish;
+    }
 
     [Space(20)]
     [Header("DEBUG")]

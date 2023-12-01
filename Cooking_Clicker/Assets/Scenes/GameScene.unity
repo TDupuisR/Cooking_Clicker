@@ -1202,6 +1202,7 @@ MonoBehaviour:
   m_preparationPrefab: {fileID: 4160161739632613623, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
   m_preparationParent: {fileID: 982482175}
   m_preparationScrollBar: {fileID: 480506779}
+  m_customerPrefab: {fileID: 581656117475500574, guid: 2c922daa4557619438ea983158e98f25, type: 3}
   m_testDish: {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
 --- !u!1 &477845193
 GameObject:
