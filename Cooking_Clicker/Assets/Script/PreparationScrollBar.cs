@@ -44,7 +44,6 @@ public class PreparationScrollBar : MonoBehaviour
     {
         if(m_PreparationButtons.Count == 0) return;
 
-        print(m_startingPosition);
         m_PreparationButtons[0].transform.localPosition = m_startingPosition;
         if (m_PreparationButtons.Count > 1)
         {
@@ -60,7 +59,6 @@ public class PreparationScrollBar : MonoBehaviour
     public void ScrollButtons(float value)
     {
         if (m_PreparationButtons.Count < 3) return;
-        print(defaultYPos);
         m_startingPosition = new Vector2(m_startingPosition.x,
         defaultYPos - value * (m_PreparationButtons.Count - m_ignorePrepButtons) * m_offsetPosition);
 
