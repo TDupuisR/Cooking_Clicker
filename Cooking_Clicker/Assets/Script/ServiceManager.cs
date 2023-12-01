@@ -17,6 +17,7 @@ public class ServiceManager : MonoBehaviour
 
     [Header("Customer")]
     [SerializeField] GameObject m_customerPrefab;
+    [SerializeField] Transform m_customerParent;
     [SerializeField] Transform m_customerSpawnPoint;
 
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
@@ -56,7 +57,9 @@ public class ServiceManager : MonoBehaviour
 
     public void SpawnCustomer(DishBehavior newOrderDish)
     {
-        GameObject newCustomer = Instantiate(m_customerPrefab, m_customerSpawnPoint.position, Quaternion.identity);
+        GameObject newCustomer = Instantiate(m_customerPrefab, m_customerParent);
+        newCustomer.transform.localPosition = m_customerSpawnPoint.localPosition;
+
         CustomerBehaviour newCustomerBehaviour = newCustomer.GetComponent<CustomerBehaviour>();
         newCustomerBehaviour.orderDish = newOrderDish;
     }
@@ -65,7 +68,7 @@ public class ServiceManager : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] DishBehavior m_testDish;
     [Button]
-    void DEBUG_CreateTestOrder() => OrderDish(m_testDish);
+    void DEBUG_CreateTestCustomer() => SpawnCustomer(m_testDish);
     [Button]
     void DEBUG_ServeTestOrder() => ServeDish(m_testDish);
 }
