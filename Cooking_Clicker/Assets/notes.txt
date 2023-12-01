@@ -3,4 +3,27 @@ Plats :
 		Pâtes
 		Tomate
 		Boeuf
-	
+
+
+ToDo :
+
+Gameplay loop :
+	Spawn Customer :
+		give valid dish
+		give available seat
+
+	Serve Customer :
+		chk who has dish
+		diseapear customer
+		Serveurs ?
+
+Long term play :
+	Buy new ingredients 
+		-> unlock new dish if have enough
+
+	Add progression Manager to save :
+			-Money
+			-Ingredients
+
+Add graphics
+Add sound
