@@ -56,6 +56,7 @@ public class CookerManager : MonoBehaviour
         }
 
         ServiceManager.instance.DishReady.Add(dish);
+        ServiceManager.instance.SpawnWaiter();
 
         m_dishQueue.RemoveAt(recepieIndex);
         LinkedPrepButton.RemoveAt(recepieIndex);

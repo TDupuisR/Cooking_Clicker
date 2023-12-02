@@ -23,6 +23,9 @@ public class ServiceManager : MonoBehaviour
     [SerializeField] Transform m_customerSpawnPoint;
     [SerializeField] List<Seat> m_seatList;
 
+    [Header("Waiter")]
+    [SerializeField] List<GameObject> m_waiterList;
+
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
     public event Action<int> _OnGiveDish;
@@ -50,17 +53,24 @@ public class ServiceManager : MonoBehaviour
         return m_dishOrdered.IndexOf(newDish);
     }
 
-    public void ServeDish(DishBehavior servedDish)
+    public void ServeDish(int dishIndex)
     {
-        if (m_dishOrdered.Contains(servedDish) && m_dishReady.Contains(servedDish))
-        {
-            _OnGiveDish?.Invoke(m_dishOrdered.IndexOf(servedDish));
-            m_dishOrdered.Remove(servedDish);
-            m_dishReady.Remove(servedDish);
+        m_waiterList[dishIndex].SetActive(false);
 
-            GameManager.Instance.Money += (uint)servedDish.moneyValue;
-        }
-        else throw new System.Exception("Served dish isn't in m_dishOrdered and in m_dishReady");
+        if (m_dishOrdered.Count <= dishIndex)
+            throw new Exception("dishIndex too high, served dish can't be in m_dishOrdered");
+
+        DishBehavior servedDish = m_dishOrdered[dishIndex];
+
+        if (!m_dishReady.Contains(servedDish))
+            throw new Exception("Served dish isn't in m_dishReady");
+        
+        _OnGiveDish?.Invoke(m_dishOrdered.IndexOf(servedDish));
+        m_dishOrdered.Remove(servedDish);
+        m_dishReady.Remove(servedDish);
+
+        GameManager.Instance.Money += (uint)servedDish.moneyValue;
+
     }
 
     public void SpawnCustomer(DishBehavior newOrderDish)
@@ -98,11 +108,14 @@ public class ServiceManager : MonoBehaviour
         return false;
     }
 
+    public void SpawnWaiter()
+    {
+        m_waiterList[m_dishReady.Count - 1].SetActive(true);
+    }
+
     [Space(20)]
     [Header("DEBUG")]
     [SerializeField] DishBehavior m_testDish;
     [Button]
     void DEBUG_CreateTestCustomer() => SpawnCustomer(m_testDish);
-    [Button]
-    void DEBUG_ServeTestOrder() => ServeDish(m_testDish);
 }

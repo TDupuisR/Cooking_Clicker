@@ -725,8 +725,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Cooking_Clicker
-  metroPackageVersion: 
+  metroPackageName: CookingClicker
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -734,7 +734,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Cooking_Clicker
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Cooking_Clicker
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

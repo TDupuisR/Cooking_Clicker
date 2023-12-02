@@ -4,8 +4,6 @@ ToDo :
 Gameplay loop :
 	Spawn Customer :
 		Chk when spawn customer
-	Serve Customer :
-		Serveurs ?
 
 Long term play :
 	Buy new ingredients 
