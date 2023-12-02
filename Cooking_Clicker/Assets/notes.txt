@@ -1,6 +1,22 @@
 Plats :
+<<<<<<< Updated upstream
 	Boitapate :
 		Pâtes
 		Tomate
 		Boeuf
 	
+=======
+
+ToDo :
+Long term play :
+	Buy new ingredients :
+		Do buy button script
+		-> unlock new dish if have good ingredients
+
+	Add progression Manager to save :
+			-Money
+			-Ingredients
+
+Add graphics
+Add sound
+>>>>>>> Stashed changes
