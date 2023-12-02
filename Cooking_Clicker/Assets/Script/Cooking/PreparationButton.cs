@@ -35,7 +35,6 @@ public class PreparationButton : MonoBehaviour
     private void Awake()
     {
         //recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);
-        print(transform.localPosition);
 
         m_nameText.text = m_dish.name;
         m_image.sprite = m_dish.sprite;

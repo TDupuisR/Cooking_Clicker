@@ -56,13 +56,12 @@ public class CookerManager : MonoBehaviour
         }
 
         ServiceManager.instance.DishReady.Add(dish);
+        ServiceManager.instance.SpawnWaiter();
 
         m_dishQueue.RemoveAt(recepieIndex);
         LinkedPrepButton.RemoveAt(recepieIndex);
         m_machineUsed[m_machineIndex] = false;
         m_progressionSliders[m_machineIndex].value = 0;
         m_cookerImage[m_machineIndex].color = new Color(1f, 1f, 1f, 1f);
-
-        print(m_dishQueue.Count);
     }
 }
