@@ -19,6 +19,7 @@ public class ServiceManager : MonoBehaviour
     [SerializeField] GameObject m_customerPrefab;
     [SerializeField] Transform m_customerParent;
     [SerializeField] Transform m_customerSpawnPoint;
+    [SerializeField] List<Seat> m_seatList;
 
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
@@ -57,11 +58,37 @@ public class ServiceManager : MonoBehaviour
 
     public void SpawnCustomer(DishBehavior newOrderDish)
     {
-        GameObject newCustomer = Instantiate(m_customerPrefab, m_customerParent);
-        newCustomer.transform.localPosition = m_customerSpawnPoint.localPosition;
+        //Select available seat
+        Seat newSeat = null;
+        do
+        {
+            int randIndex = Random.Range(0, m_seatList.Count);
+            if (!m_seatList[randIndex].Occupied)
+            {
+                newSeat = m_seatList[randIndex];
+                m_seatList[randIndex].Occupied = true;
+            }            
+        }
+        while (newSeat == null && HasAvailableSeat());
+        print(newSeat);
 
-        CustomerBehaviour newCustomerBehaviour = newCustomer.GetComponent<CustomerBehaviour>();
-        newCustomerBehaviour.orderDish = newOrderDish;
+        if(newSeat != null)
+        {
+            GameObject newCustomer = Instantiate(m_customerPrefab, m_customerParent);
+            newCustomer.transform.localPosition = m_customerSpawnPoint.localPosition;
+
+            CustomerBehaviour newCustomerBehaviour = newCustomer.GetComponent<CustomerBehaviour>();
+            newCustomerBehaviour.orderDish = GameManager.Instance.GetRandomDish();
+            newCustomerBehaviour.placePosition = newSeat.position;
+        }
+    }
+    bool HasAvailableSeat()
+    {
+        for(int i = 0; i < m_seatList.Count; i++)
+            if (!m_seatList[i].Occupied)
+                return true;
+
+        return false;
     }
 
     [Space(20)]

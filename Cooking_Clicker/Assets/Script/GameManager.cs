@@ -9,6 +9,7 @@ namespace GameManagerSpace
         public static RessourceManager ressourceManager;
 
         [SerializeField] RessourceManager m_ressourceManager;
+        [SerializeField] DishManager m_dishManager;
         [SerializeField] TMP_Text m_moneyText;
 
         private uint m_money;
@@ -33,6 +34,11 @@ namespace GameManagerSpace
         private void OnEnable()
         {
             DontDestroyOnLoad(gameObject);
+        }
+
+        public DishBehavior GetRandomDish()
+        {
+            return m_dishManager.ReturnRandomDish();
         }
     }
 

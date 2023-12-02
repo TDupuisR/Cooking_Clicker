@@ -10,6 +10,7 @@ public class RessourceManager : MonoBehaviour
     [SerializeField] Sprite m_debugSprite;
     [SerializeField] List<Sprite> m_productImage;
 
+
     public string ReturnRessourceName(int id)
     {
         if (id >= ressourcesAmount.Length || id < 0) { Debug.LogError("ID is out of range for: RessourcesNames"); return "Hagrid!"; }
