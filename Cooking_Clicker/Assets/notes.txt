@@ -1,13 +1,9 @@
 Plats :
 
 ToDo :
-Gameplay loop :
-	Spawn Customer :
-		Chk when spawn customer
-
 Long term play :
 	Buy new ingredients 
-		-> unlock new dish if have enough
+		-> unlock new dish if have good ingredients
 
 	Add progression Manager to save :
 			-Money

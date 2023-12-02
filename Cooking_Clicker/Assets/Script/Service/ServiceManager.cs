@@ -1,8 +1,9 @@
-using GameManagerSpace;
+using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using NaughtyAttributes;
-using System;
+using GameManagerSpace;
 using Random = UnityEngine.Random;
 
 public class ServiceManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class ServiceManager : MonoBehaviour
     [Header("Waiter")]
     [SerializeField] List<GameObject> m_waiterList;
 
+    bool m_spawnCustomer = true;
+
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
     public event Action<int> _OnGiveDish;
@@ -37,6 +40,18 @@ public class ServiceManager : MonoBehaviour
 
         if (instance != null) Destroy(gameObject);
         instance = this;
+
+        StartCoroutine(InfiniteCustomerSpawner());
+    }
+
+    IEnumerator InfiniteCustomerSpawner()
+    {
+        while(m_spawnCustomer)
+        {
+            yield return new WaitForSeconds(Random.Range(1, 10));
+            if (HasAvailableSeat())
+                SpawnCustomer();
+        }
     }
 
     public int OrderDish(DishBehavior newDish)
@@ -73,7 +88,7 @@ public class ServiceManager : MonoBehaviour
 
     }
 
-    public void SpawnCustomer(DishBehavior newOrderDish)
+    public void SpawnCustomer()
     {
         //Select available seat
         Seat newSeat = null;
@@ -117,5 +132,5 @@ public class ServiceManager : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] DishBehavior m_testDish;
     [Button]
-    void DEBUG_CreateTestCustomer() => SpawnCustomer(m_testDish);
+    void DEBUG_CreateTestCustomer() => SpawnCustomer();
 }
