@@ -3882,7 +3882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_particle: {fileID: 7783214551155486675, guid: f93527a0af2e9ad45b57804e72e2428c, type: 3}
-  m_parentFolder: {fileID: 0}
+  m_parentFolder: {fileID: 506457879}
 --- !u!1 &1395031974
 GameObject:
   m_ObjectHideFlags: 0

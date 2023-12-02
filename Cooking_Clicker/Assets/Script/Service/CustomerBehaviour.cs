@@ -8,12 +8,14 @@ public class CustomerBehaviour : MonoBehaviour
             MOVETOPLACE,
             WAITINGORDER,
             WAITINGDISH,
+            MOVETOEXIT
     }
 
     [SerializeField] DishBehavior m_orderDish;
     [SerializeField] customerState m_currentState;
     [SerializeField] Vector2 m_placePosition;
     Vector2 m_startPosition;
+    [SerializeField] int m_orderDishIndex = -1;
 
     public Vector2 placePosition
     {
@@ -30,6 +32,8 @@ public class CustomerBehaviour : MonoBehaviour
         m_currentState = customerState.MOVETOPLACE;
 
         StartCoroutine(MoveToPlace(2f));
+
+        ServiceManager.instance._OnGiveDish += GiveDish;
     }
 
     IEnumerator MoveToPlace(float moveSpeed)
@@ -64,8 +68,46 @@ public class CustomerBehaviour : MonoBehaviour
     public void GetOrder()
     {
         if(m_currentState == customerState.WAITINGORDER) {
-            ServiceManager.instance.OrderDish(m_orderDish);
             m_currentState=customerState.WAITINGDISH;
+            m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish);
         }
+    }
+
+    void GiveDish(int orderIndex)
+    {
+        if(m_orderDishIndex == orderIndex)
+        {
+            m_currentState = customerState.MOVETOEXIT;
+            StartCoroutine(ReturnToSpawnPoint(1f));
+        }
+    }
+    IEnumerator ReturnToSpawnPoint(float moveSpeed)
+    {
+        float timeElapsed = 0;
+
+        timeElapsed = 0;
+        while (timeElapsed < moveSpeed)
+        {
+            Vector3 newPosition = Vector3.Lerp(m_placePosition, m_startPosition, timeElapsed / moveSpeed);
+            newPosition.y = transform.localPosition.y; //Clamp Y position so only move in X
+            transform.localPosition = newPosition;
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        transform.localPosition = new Vector2(m_startPosition.x, m_placePosition.y);
+
+        timeElapsed = 0;
+        while (timeElapsed < moveSpeed)
+        {
+            Vector3 newPosition = Vector3.Lerp(m_placePosition, m_startPosition, timeElapsed / moveSpeed);
+            newPosition.x = m_startPosition.x; //Clamp X position so only move in Y
+            transform.localPosition = newPosition;
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 }

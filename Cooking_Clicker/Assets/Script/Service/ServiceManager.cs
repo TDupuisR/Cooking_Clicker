@@ -2,6 +2,8 @@ using GameManagerSpace;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using System;
+using Random = UnityEngine.Random;
 
 public class ServiceManager : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class ServiceManager : MonoBehaviour
 
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
+    public event Action<int> _OnGiveDish;
+
     private void Awake()
     {
         m_dishOrdered.Clear();
@@ -32,7 +36,7 @@ public class ServiceManager : MonoBehaviour
         instance = this;
     }
 
-    public void OrderDish(DishBehavior newDish)
+    public int OrderDish(DishBehavior newDish)
     {
         m_dishOrdered.Add(newDish);
         GameObject prepButton = Instantiate(m_preparationPrefab, m_preparationParent);
@@ -42,12 +46,15 @@ public class ServiceManager : MonoBehaviour
 
         m_preparationScrollBar.PreparationButtons.Add(prepButton);
         m_preparationScrollBar.UpdateSize();
+        
+        return m_dishOrdered.IndexOf(newDish);
     }
 
     public void ServeDish(DishBehavior servedDish)
     {
         if (m_dishOrdered.Contains(servedDish) && m_dishReady.Contains(servedDish))
         {
+            _OnGiveDish?.Invoke(m_dishOrdered.IndexOf(servedDish));
             m_dishOrdered.Remove(servedDish);
             m_dishReady.Remove(servedDish);
 

@@ -2,9 +2,9 @@ Plats :
 
 ToDo :
 Gameplay loop :
+	Spawn Customer :
+		Chk when spawn customer
 	Serve Customer :
-		chk who has dish
-		diseapear customer
 		Serveurs ?
 
 Long term play :
