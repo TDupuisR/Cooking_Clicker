@@ -102,7 +102,6 @@ public class ServiceManager : MonoBehaviour
             }            
         }
         while (newSeat == null && HasAvailableSeat());
-        print(newSeat);
 
         if(newSeat != null)
         {

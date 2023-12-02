@@ -373,7 +373,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2793697230662786208}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 576650475653740209}
+        m_TargetAssemblyTypeName: ProductionButton, Assembly-CSharp
+        m_MethodName: CheckIfCanBuy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2098325288023607165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,11 +1122,13 @@ MonoBehaviour:
   m_productName: {fileID: 7206118816175132555}
   m_productAmount: {fileID: 5371838947950053163}
   m_progressionSlider: {fileID: 1604327472146660174}
+  m_productPriceText: {fileID: 7236329850733597374}
   m_productType: 0
   m_progression: 0
   m_progressionTime: 1
   m_isUnlocked: 0
   m_lockedObject: {fileID: 6678021794801962816}
+  m_ingredientPrice: 0
   OnProgression:
     m_PersistentCalls:
       m_Calls: []
