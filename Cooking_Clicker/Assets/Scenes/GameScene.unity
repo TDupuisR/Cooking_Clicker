@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Occupied: 0
-  m_position: {x: -480, y: 150}
+  m_position: {x: -480, y: -50}
 --- !u!1 &404928539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,7 +2944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Occupied: 0
-  m_position: {x: 480, y: 150}
+  m_position: {x: 480, y: -50}
 --- !u!1 &893667690
 GameObject:
   m_ObjectHideFlags: 0
