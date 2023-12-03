@@ -1,12 +1,17 @@
 Plats :
 
 ToDo :
-Long term play :
-	Add progression Manager to save :
-			-Money
-			-Ingredients
+Add at least 24 Dishs
 
-	Dico :
-		Show available Ingredients
+Ingredients :
+	Set Price
+	Set Progression Time
+Add progression Manager to save :
+		-Money
+		-Ingredients
+
+Dico :
+	Show available Ingredients
+
 Add graphics
 Add sound
