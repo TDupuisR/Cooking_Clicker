@@ -6566,8 +6566,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6daf156f02204b41817ac07cf3ac226, type: 2}
   - {fileID: 11400000, guid: 58debb59626365c4682457164912773b, type: 2}
   - {fileID: 11400000, guid: 164bf05ea8d28b64eb1628bc0bcb1ab0, type: 2}
-  m_availableDishs:
-  - {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
+  m_availableDishs: []
   m_availableIngredients: 
 --- !u!1 &1932427393
 GameObject:
