@@ -73,6 +73,9 @@ public class ProductionButton : MonoBehaviour
         m_productionButton.interactable = true;
         m_isUnlocked = false;
         m_lockedObject.SetActive(false);
+
+        GameManager.dishManager.availableIngredients.Add(GameManager.ressourceManager.ReturnRessource(m_productType));
+        GameManager.dishManager.CheckForNewDish();
     }
 
     public void SpeedProgression(int amount)
