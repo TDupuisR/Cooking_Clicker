@@ -10,14 +10,22 @@ public class ProductionButton : MonoBehaviour
 {
     [Header("Reference")]
     [SerializeField] Image m_productImage;
+    [SerializeField] Button m_productionButton;
     [SerializeField] TMP_Text m_productName;
     [SerializeField] TMP_Text m_productAmount;
     [SerializeField] Slider m_progressionSlider;
+    [Space(5)]
+    [SerializeField] TMP_Text m_productPriceText;
 
     [Header("Field")]
     [SerializeField] int m_productType;
     [SerializeField] int m_progression;
     [SerializeField] float m_progressionTime;
+    [Space(5)]
+    [SerializeField] bool m_isUnlocked;
+    [SerializeField] GameObject m_lockedObject;
+    [SerializeField] uint m_ingredientPrice;
+    Coroutine m_autoCoRoutine;
 
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
@@ -30,8 +38,12 @@ public class ProductionButton : MonoBehaviour
     {
         m_productName.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
         m_productImage.sprite = GameManager.ressourceManager.ReturnRessourceSprite(m_productType);
+        m_productPriceText.text = m_ingredientPrice.ToString() + " $";
 
-        StartCoroutine(AutoProgression());
+        if (m_isUnlocked) 
+               UnlockButton();
+        else
+            m_productionButton.interactable = false;
     }
 
     private void FixedUpdate()
@@ -45,6 +57,25 @@ public class ProductionButton : MonoBehaviour
             GameManager.ressourceManager.ressourcesAmount[m_productType]++;
             OnCompletion.Invoke();
         }
+    }
+
+    public void CheckIfCanBuy()
+    {
+        if(GameManager.Instance.Money >= m_ingredientPrice)
+        {
+            GameManager.Instance.Money -= m_ingredientPrice;
+            UnlockButton();
+        }
+    }
+    void UnlockButton()
+    {
+        m_autoCoRoutine = StartCoroutine(AutoProgression());
+        m_productionButton.interactable = true;
+        m_isUnlocked = false;
+        m_lockedObject.SetActive(false);
+
+        GameManager.dishManager.availableIngredients.Add(GameManager.ressourceManager.ReturnRessource(m_productType));
+        GameManager.dishManager.CheckForNewDish();
     }
 
     public void SpeedProgression(int amount)

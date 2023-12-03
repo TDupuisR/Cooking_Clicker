@@ -7,6 +7,7 @@ namespace GameManagerSpace
     {
         public static GameManager Instance;
         public static RessourceManager ressourceManager;
+        public static DishManager dishManager;
 
         [SerializeField] RessourceManager m_ressourceManager;
         [SerializeField] DishManager m_dishManager;
@@ -29,6 +30,7 @@ namespace GameManagerSpace
             else Destroy(gameObject);
 
             ressourceManager = m_ressourceManager;
+            dishManager = m_dishManager;
         }
 
         private void OnEnable()

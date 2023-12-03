@@ -6554,6 +6554,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6daf156f02204b41817ac07cf3ac226, type: 2}
   m_availableDishs:
   - {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
+  m_availableIngredients: 
 --- !u!1 &1932427393
 GameObject:
   m_ObjectHideFlags: 0
@@ -7754,6 +7755,10 @@ PrefabInstance:
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_isUnlocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y

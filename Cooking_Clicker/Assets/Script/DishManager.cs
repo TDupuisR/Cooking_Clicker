@@ -1,3 +1,4 @@
+using GameManagerSpace;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,13 @@ public class DishManager : MonoBehaviour
 {
     [SerializeField] List<DishBehavior> m_dishList;
     [SerializeField] List<DishBehavior> m_availableDishs;
+    [SerializeField] List<GameManagerStatic.RessourcesNames> m_availableIngredients;
+
+    public List<GameManagerStatic.RessourcesNames> availableIngredients
+    {
+        get => m_availableIngredients; 
+        set => m_availableIngredients = value;
+    }
 
     public DishBehavior ReturnRandomDish()
     {
@@ -16,7 +24,18 @@ public class DishManager : MonoBehaviour
 
     public void CheckForNewDish()
     {
-        //Use when buy new ingredients
-        throw new NotImplementedException();
+        foreach(DishBehavior dish in m_dishList)
+        {
+            if (m_availableDishs.Contains(dish)) continue;
+
+            bool missingIngredients = false;
+            foreach(GameManagerStatic.RessourcesNames ingredients in dish.ingredients)
+                if(!m_availableIngredients.Contains(ingredients)) missingIngredients = true;
+
+            if(!missingIngredients)
+            {
+                m_availableDishs.Add(dish);
+            }
+        }
     }
 }

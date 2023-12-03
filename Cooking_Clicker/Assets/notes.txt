@@ -1,13 +1,17 @@
 Plats :
 
 ToDo :
-Long term play :
-	Buy new ingredients 
-		-> unlock new dish if have good ingredients
+Add at least 24 Dishs
 
-	Add progression Manager to save :
-			-Money
-			-Ingredients
+Ingredients :
+	Set Price
+	Set Progression Time
+Add progression Manager to save :
+		-Money
+		-Ingredients
+
+Dico :
+	Show available Ingredients
 
 Add graphics
 Add sound

@@ -11,6 +11,13 @@ public class RessourceManager : MonoBehaviour
     [SerializeField] List<Sprite> m_productImage;
 
 
+    public GameManagerStatic.RessourcesNames ReturnRessource(int id)
+    {
+        if (id >= ressourcesAmount.Length || id < 0) { throw new ArgumentException("ID is out of range for: RessourcesNames"); }
+        GameManagerStatic.RessourcesNames ressource = (GameManagerStatic.RessourcesNames)id;
+        return ressource;
+    }
+
     public string ReturnRessourceName(int id)
     {
         if (id >= ressourcesAmount.Length || id < 0) { Debug.LogError("ID is out of range for: RessourcesNames"); return "Hagrid!"; }
