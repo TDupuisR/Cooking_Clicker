@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdc7a789ed7c564f83d644ed5078388, type: 3}
-  m_Name: Salad
+  m_Name: Creamy_beef_vegetable_pasta
   m_EditorClassIdentifier: 
-  name: Salad
-  description: A great meal for vegans.
-  moneyValue: 20
-  prepTime: 15
-  cookTime: 1
-  sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
-  ingredients: 00000000010000000400000003000000
-  ustensils: 8
+  name: Creamy beef and vegetable one-pot pasta
+  description: A quick and flavorful one-pot pasta dish with tender chicken, assorted
+    vegetables, and a creamy sauce.
+  moneyValue: 80
+  prepTime: 20
+  cookTime: 25
+  sprite: {fileID: 0}
+  ingredients: 06000000010000000100000003000000030000000d000000
+  ustensils: 2

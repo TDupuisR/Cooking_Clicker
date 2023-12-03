@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdc7a789ed7c564f83d644ed5078388, type: 3}
-  m_Name: milk_butter_rice_pudding
+  m_Name: Plancha_veal_bean_salad
   m_EditorClassIdentifier: 
-  name: Milk and butter rice pudding
-  description: A creamy and indulgent rice pudding made with milk and butter.
-  moneyValue: 50
-  prepTime: 15
-  cookTime: 40
+  name: Plancha-seared veal and bean salad
+  description: Grilled veal and crisp beans served over a refreshing salad, cooked
+    on the plancha.
+  moneyValue: 25
+  prepTime: 20
+  cookTime: 15
   sprite: {fileID: 0}
-  ingredients: 0a0000000a0000000b0000000b0000000b0000000c000000
-  ustensils: 1
+  ingredients: 040000000400000005000000
+  ustensils: 5

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdc7a789ed7c564f83d644ed5078388, type: 3}
-  m_Name: milk_butter_rice_pudding
+  m_Name: Fridge_pasta_salad
   m_EditorClassIdentifier: 
-  name: Milk and butter rice pudding
-  description: A creamy and indulgent rice pudding made with milk and butter.
-  moneyValue: 50
+  name: Fridge pasta salad
+  description: A refreshing pasta salad with cold pasta, assorted vegetables, and
+    a zesty dressing chilled in the fridge
+  moneyValue: 65
   prepTime: 15
-  cookTime: 40
+  cookTime: 60
   sprite: {fileID: 0}
-  ingredients: 0a0000000a0000000b0000000b0000000b0000000c000000
-  ustensils: 1
+  ingredients: 0700000003000000030000000d0000000d000000
+  ustensils: 8

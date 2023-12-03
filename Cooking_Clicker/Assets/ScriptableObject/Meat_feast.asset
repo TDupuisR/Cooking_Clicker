@@ -16,7 +16,7 @@ MonoBehaviour:
   description: If you like animals more in your stomach than in your heart.
   moneyValue: 100
   prepTime: 8
-  cookTime: 20
+  cookTime: 60
   sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
   ingredients: 05000000060000000700000008000000
   ustensils: 0

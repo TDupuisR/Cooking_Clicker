@@ -6547,11 +6547,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dishList:
   - {fileID: 11400000, guid: 71d4a48a9ed23bc44b8061c011b4a79e, type: 2}
+  - {fileID: 11400000, guid: cebb54ddddd3ea649a2723811b4ec2c2, type: 2}
   - {fileID: 11400000, guid: 9674ef851f23fd742bdcde1cc88a70dd, type: 2}
+  - {fileID: 11400000, guid: 6b43a871ef9ed884690c97944321f5f5, type: 2}
+  - {fileID: 11400000, guid: ba454c08e4e39dd419fb2c5eb52dc06d, type: 2}
+  - {fileID: 11400000, guid: 1f1036885f6cd444da769ef9b0cbc885, type: 2}
+  - {fileID: 11400000, guid: 791db6afc4f5e794f8cf6892260040f8, type: 2}
+  - {fileID: 11400000, guid: bba9387db60526343b9f727173fd8d0e, type: 2}
+  - {fileID: 11400000, guid: 548b0110f3b314c4685068c2965f786f, type: 2}
   - {fileID: 11400000, guid: f3166d7e0e22cba4d811ecc2a9ace998, type: 2}
   - {fileID: 11400000, guid: 8771fef72df983245acd7ca763b1c21d, type: 2}
+  - {fileID: 11400000, guid: 594033f35a38c604d94447def8da273d, type: 2}
+  - {fileID: 11400000, guid: f859f0f70b24bf341bcbbc6d439c4a62, type: 2}
+  - {fileID: 11400000, guid: 7d637d52debe6da4cbabdbc9d0c65d5b, type: 2}
+  - {fileID: 11400000, guid: f184e02cd66f70c4c9036942f08bba83, type: 2}
+  - {fileID: 11400000, guid: f66efe66b8202a2459d886408c1d1c65, type: 2}
   - {fileID: 11400000, guid: e54741f1dee0fe14985306d9bd1d0377, type: 2}
   - {fileID: 11400000, guid: a6daf156f02204b41817ac07cf3ac226, type: 2}
+  - {fileID: 11400000, guid: 58debb59626365c4682457164912773b, type: 2}
+  - {fileID: 11400000, guid: 164bf05ea8d28b64eb1628bc0bcb1ab0, type: 2}
   m_availableDishs:
   - {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
   m_availableIngredients: 

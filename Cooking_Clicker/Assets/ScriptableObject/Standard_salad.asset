@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdc7a789ed7c564f83d644ed5078388, type: 3}
-  m_Name: milk_butter_rice_pudding
+  m_Name: Standard_salad
   m_EditorClassIdentifier: 
-  name: Milk and butter rice pudding
-  description: A creamy and indulgent rice pudding made with milk and butter.
-  moneyValue: 50
+  name: Standard salad
+  description: A great meal for vegans.
+  moneyValue: 20
   prepTime: 15
-  cookTime: 40
-  sprite: {fileID: 0}
-  ingredients: 0a0000000a0000000b0000000b0000000b0000000c000000
-  ustensils: 1
+  cookTime: 1
+  sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
+  ingredients: 00000000010000000400000003000000
+  ustensils: 8
