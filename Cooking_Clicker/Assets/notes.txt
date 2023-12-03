@@ -1,11 +1,12 @@
 Plats :
 
 ToDo :
-Add at least 24 Dishs
+At least 30 Dishs (15/30)
 
 Ingredients :
 	Set Price
 	Set Progression Time
+
 Add progression Manager to save :
 		-Money
 		-Ingredients
