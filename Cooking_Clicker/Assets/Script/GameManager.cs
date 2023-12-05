@@ -20,6 +20,9 @@ namespace GameManagerSpace
             set
             {
                 m_money = value;
+                PlayerPrefs.SetInt("money", (int)m_money);
+                PlayerPrefs.Save();
+
                 m_moneyText.text = value.ToString();
             }
         }
@@ -31,6 +34,8 @@ namespace GameManagerSpace
 
             ressourceManager = m_ressourceManager;
             dishManager = m_dishManager;
+
+            LoadMoney();
         }
 
         private void OnEnable()
@@ -41,6 +46,18 @@ namespace GameManagerSpace
         public DishBehavior GetRandomDish()
         {
             return m_dishManager.ReturnRandomDish();
+        }
+
+        private void LoadMoney()
+        {
+            if (PlayerPrefs.HasKey("money"))
+            {
+                Money = (uint)PlayerPrefs.GetInt("money");
+            }
+            else
+            {
+                Money = 0;
+            }
         }
     }
 
