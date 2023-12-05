@@ -59,8 +59,9 @@ public class ServiceManager : MonoBehaviour
         m_dishOrdered.Add(newDish);
         GameObject prepButton = Instantiate(m_preparationPrefab, m_preparationParent);
         prepButton.GetComponent<PreparationButton>().dish = newDish;
+        prepButton.GetComponent<PreparationButton>().ChangeInterface();
         prepButton.GetComponent<PreparationButton>().scrollbar = m_preparationScrollBar;
-        prepButton.transform.SetSiblingIndex(2);
+        prepButton.transform.SetSiblingIndex(2); 
 
         m_preparationScrollBar.PreparationButtons.Add(prepButton);
         m_preparationScrollBar.UpdateSize();

@@ -111,4 +111,10 @@ public class PreparationButton : MonoBehaviour
         m_image.color = new Color(.5f, .5f, .5f);
         m_currentStates = GameManagerStatic.DishStates.QueueCook;
     }
+
+    public void ChangeInterface()
+    {
+        m_nameText.text = m_dish.name;
+        m_image.sprite = m_dish.sprite;
+    }
 }
