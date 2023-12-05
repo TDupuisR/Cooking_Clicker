@@ -17,6 +17,6 @@ MonoBehaviour:
   moneyValue: 45
   prepTime: 5
   cookTime: 10
-  sprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
+  sprite: {fileID: 21300000, guid: 0a8dee46bae661246a8479346dc7e09d, type: 3}
   ingredients: 080000000100000003000000
   ustensils: 2

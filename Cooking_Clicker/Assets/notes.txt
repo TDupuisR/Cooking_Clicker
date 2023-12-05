@@ -1,18 +1,31 @@
 Plats :
 
 ToDo :
-At least 30 Dishs (15/30)
 
 Ingredients :
 	Set Price
 	Set Progression Time
 
 Add progression Manager to save :
-		-Money
 		-Ingredients
 
 Dico :
 	Show available Ingredients
 
-Add graphics
-Add sound
+Add graphics :
+	Service :
+		Background Table
+		Table
+		Customer
+		Kitchen Background
+		Separation
+	Cooking :
+		Preparation Background
+		Ustensils
+		Separation
+	Production :
+		Ingredients
+		Background
+		AutoImage
+
+Add sound :
