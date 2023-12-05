@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3250
+      value: -4850
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -752,6 +752,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -1162,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5250
+      value: -4450
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1179,6 +1187,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -1564,7 +1580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2450
+      value: -3650
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1581,6 +1597,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -3194,7 +3218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -850
+      value: -2850
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3211,6 +3235,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -3371,7 +3403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4450
+      value: -1250
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3388,6 +3420,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -4602,7 +4642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4850
+      value: -3250
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4619,6 +4659,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -4806,7 +4854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5650
+      value: -5250
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4823,6 +4871,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -5098,7 +5154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1250
+      value: -1650
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5115,6 +5171,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -6246,7 +6310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1650
+      value: -2450
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6263,6 +6327,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -6732,6 +6804,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 660
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -7115,19 +7195,19 @@ RectTransform:
   m_Children:
   - {fileID: 1349370307}
   - {fileID: 1707105412}
-  - {fileID: 659578042}
-  - {fileID: 1206545063}
-  - {fileID: 1433041202}
-  - {fileID: 1902536327}
-  - {fileID: 377406615}
   - {fileID: 1846514594}
-  - {fileID: 166050227}
-  - {fileID: 2097373057}
-  - {fileID: 1540651942}
   - {fileID: 687468170}
+  - {fileID: 1206545063}
+  - {fileID: 1902536327}
+  - {fileID: 1433041202}
+  - {fileID: 659578042}
   - {fileID: 1024009082}
+  - {fileID: 377406615}
+  - {fileID: 1540651942}
   - {fileID: 214255250}
+  - {fileID: 166050227}
   - {fileID: 1055504110}
+  - {fileID: 2097373057}
   m_Father: {fileID: 805643474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -7226,6 +7306,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -8100,7 +8188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2850
+      value: -850
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8117,6 +8205,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -8395,6 +8491,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -9489,7 +9593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3650
+      value: -5650
       objectReference: {fileID: 0}
     - target: {fileID: 558167988640102080, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9506,6 +9610,14 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_productType
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_ingredientPrice
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: OnProgression.m_PersistentCalls.m_Calls.Array.size
@@ -9994,6 +10106,10 @@ PrefabInstance:
     - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_isUnlocked
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576650475653740209, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_progressionTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
