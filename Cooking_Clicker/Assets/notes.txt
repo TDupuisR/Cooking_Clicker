@@ -2,12 +2,10 @@ Plats :
 
 ToDo :
 
-Ingredients :
-	Set Price
-	Set Progression Time
-
 Add progression Manager to save :
-		-Ingredients
+		-Ingredients amount
+
+Bug : Serving serve multiple customer
 
 Dico :
 	Show available Ingredients

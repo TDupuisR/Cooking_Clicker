@@ -34,13 +34,17 @@ namespace GameManagerSpace
 
             ressourceManager = m_ressourceManager;
             dishManager = m_dishManager;
-
-            LoadMoney();
         }
 
         private void OnEnable()
         {
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Start()
+        {
+            LoadMoney();
+            m_ressourceManager.LoadIngredients();
         }
 
         public DishBehavior GetRandomDish()

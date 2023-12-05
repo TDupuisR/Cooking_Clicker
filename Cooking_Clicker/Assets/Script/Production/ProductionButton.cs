@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using GameManagerSpace;
+using Unity.VisualScripting;
 
 public class ProductionButton : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class ProductionButton : MonoBehaviour
 
     public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
     public static event OnTouchdelegate OnTouch;
+
+    private void Awake()
+    {
+        RessourceManager.OnUnlockButton += RessourceManager_OnUnlockButton;
+    }
 
     private void Start()
     {
@@ -67,6 +73,11 @@ public class ProductionButton : MonoBehaviour
             UnlockButton();
         }
     }
+    private void RessourceManager_OnUnlockButton(int obj)
+    {
+        if (obj == m_productType)
+            UnlockButton();
+    }
     void UnlockButton()
     {
         m_autoCoRoutine = StartCoroutine(AutoProgression());
@@ -74,6 +85,7 @@ public class ProductionButton : MonoBehaviour
         m_isUnlocked = false;
         m_lockedObject.SetActive(false);
 
+        GameManager.ressourceManager.SaveIngredients(m_productType);
         GameManager.dishManager.availableIngredients.Add(GameManager.ressourceManager.ReturnRessource(m_productType));
         GameManager.dishManager.CheckForNewDish();
     }

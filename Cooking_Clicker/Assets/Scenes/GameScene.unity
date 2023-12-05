@@ -6132,6 +6132,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_availableIngredients: 010101010101000000000000000000
 --- !u!4 &1416036365
 Transform:
   m_ObjectHideFlags: 0
@@ -7986,19 +7987,19 @@ MonoBehaviour:
   m_PreparationButtons:
   - {fileID: 2130099797}
   - {fileID: 1707105413}
-  - {fileID: 659578043}
-  - {fileID: 1206545064}
-  - {fileID: 1433041203}
-  - {fileID: 1902536328}
-  - {fileID: 377406616}
   - {fileID: 1846514595}
-  - {fileID: 166050228}
-  - {fileID: 2097373058}
-  - {fileID: 1540651943}
   - {fileID: 687468171}
+  - {fileID: 1206545064}
+  - {fileID: 1902536328}
+  - {fileID: 1433041203}
+  - {fileID: 659578043}
   - {fileID: 1024009083}
+  - {fileID: 377406616}
+  - {fileID: 1540651943}
   - {fileID: 214255251}
+  - {fileID: 166050228}
   - {fileID: 1055504111}
+  - {fileID: 2097373058}
   m_firstTargetTransform: {fileID: 1675956988}
   m_startingPosition: {x: 0, y: 0}
   m_offsetPosition: -400
