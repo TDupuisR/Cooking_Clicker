@@ -2,9 +2,6 @@ Plats :
 
 ToDo :
 
-Add progression Manager to save :
-		-Ingredients amount
-
 Dico :
 	Show available Ingredients
 

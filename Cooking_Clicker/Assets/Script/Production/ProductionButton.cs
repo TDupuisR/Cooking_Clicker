@@ -56,6 +56,11 @@ public class ProductionButton : MonoBehaviour
         {
             m_progression = 0;
             GameManager.ressourceManager.ressourcesAmount[m_productType]++;
+
+            string SaveAmountString = GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_amount";
+            PlayerPrefs.SetInt(SaveAmountString, GameManager.ressourceManager.ressourcesAmount[m_productType]);
+            PlayerPrefs.Save();
+
             OnCompletion.Invoke();
         }
     }
