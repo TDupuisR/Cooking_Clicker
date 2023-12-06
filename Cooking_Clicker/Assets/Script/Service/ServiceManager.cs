@@ -65,8 +65,8 @@ public class ServiceManager : MonoBehaviour
 
         m_preparationScrollBar.PreparationButtons.Add(prepButton);
         m_preparationScrollBar.UpdateSize();
-        
-        return m_dishOrdered.IndexOf(newDish);
+
+        return m_dishOrdered.Count - 1;
     }
 
     public void ServeDish(int dishIndex)
