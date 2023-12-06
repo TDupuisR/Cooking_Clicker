@@ -35,7 +35,7 @@ public class ProductionButton : MonoBehaviour
     public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
     public static event OnTouchdelegate OnTouch;
 
-    private void Awake()
+    private void OnEnable()
     {
         RessourceManager.OnUnlockButton += RessourceManager_OnUnlockButton;
     }
@@ -45,11 +45,6 @@ public class ProductionButton : MonoBehaviour
         m_productName.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
         m_productImage.sprite = GameManager.ressourceManager.ReturnRessourceSprite(m_productType);
         m_productPriceText.text = m_ingredientPrice.ToString() + " $";
-
-        if (m_isUnlocked) 
-               UnlockButton();
-        else
-            m_productionButton.interactable = false;
     }
 
     private void FixedUpdate()
@@ -78,14 +73,15 @@ public class ProductionButton : MonoBehaviour
         if (obj == m_productType)
             UnlockButton();
     }
-    void UnlockButton()
+    void UnlockButton(bool save = false)
     {
         m_autoCoRoutine = StartCoroutine(AutoProgression());
         m_productionButton.interactable = true;
         m_isUnlocked = false;
         m_lockedObject.SetActive(false);
 
-        GameManager.ressourceManager.SaveIngredients(m_productType);
+        if (save) 
+            GameManager.ressourceManager.SaveIngredients(m_productType);
         GameManager.dishManager.availableIngredients.Add(GameManager.ressourceManager.ReturnRessource(m_productType));
         GameManager.dishManager.CheckForNewDish();
     }

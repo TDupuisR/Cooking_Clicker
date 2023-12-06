@@ -34,6 +34,8 @@ namespace GameManagerSpace
 
             ressourceManager = m_ressourceManager;
             dishManager = m_dishManager;
+
+            m_ressourceManager.LoadIngredients();
         }
 
         private void OnEnable()
@@ -44,7 +46,6 @@ namespace GameManagerSpace
         private void Start()
         {
             LoadMoney();
-            m_ressourceManager.LoadIngredients();
         }
 
         public DishBehavior GetRandomDish()

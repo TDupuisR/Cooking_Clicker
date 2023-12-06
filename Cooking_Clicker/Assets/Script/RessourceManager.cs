@@ -47,13 +47,21 @@ public class RessourceManager : MonoBehaviour
         int ingredientsInt = Convert.ToInt32(ingredientsString, 2);
 
         PlayerPrefs.SetInt("ingredients",ingredientsInt);
+        print(PlayerPrefs.GetInt("ingredients"));
         PlayerPrefs.Save();
     }
     public void LoadIngredients()
     {
+        if (!PlayerPrefs.HasKey("ingredients"))
+        {
+            PlayerPrefs.SetInt("ingredients", 1);
+            return;
+        }
+
         int ingredientsInt = PlayerPrefs.GetInt("ingredients");
         string ingredientsString = Convert.ToString(ingredientsInt, 2);
 
+        print(ingredientsString);
 
         int IngredientCounter = 0;
         foreach (char c in ingredientsString)

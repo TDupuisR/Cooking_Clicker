@@ -777,6 +777,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_Name
       value: Production Button (8)
@@ -1212,6 +1216,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_Name
       value: Production Button (13)
@@ -1620,6 +1628,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -3260,6 +3272,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_Name
       value: Production Button (2)
@@ -3443,6 +3459,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -4684,6 +4704,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_Name
       value: Production Button (12)
@@ -4894,6 +4918,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -5194,6 +5222,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -6353,6 +6385,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_Name
       value: Production Button (4)
@@ -6826,6 +6862,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -7330,6 +7370,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -8231,6 +8275,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_Name
       value: Production Button (7)
@@ -8515,6 +8563,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
@@ -9634,6 +9686,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116526059829986251, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158848653025964807, guid: a31d92c694950964aa3c0cdba12511de, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7621473484812811208, guid: a31d92c694950964aa3c0cdba12511de, type: 3}

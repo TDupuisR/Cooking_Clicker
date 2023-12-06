@@ -4,7 +4,7 @@ ToDo :
 
 Add progression Manager to save :
 		-Ingredients amount
-		-Ingredients
+
 Bug : Serving serve multiple customer
 
 Dico :
