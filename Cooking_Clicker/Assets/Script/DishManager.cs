@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class DishManager : MonoBehaviour
 {
+    [SerializeField] DishDico m_dishDico;
+
     [SerializeField] List<DishBehavior> m_dishList;
     [SerializeField] List<DishBehavior> m_availableDishs;
     [SerializeField] List<GameManagerStatic.RessourcesNames> m_availableIngredients;
@@ -43,4 +45,6 @@ public class DishManager : MonoBehaviour
             }
         }
     }
+
+    public void ShowDishDico(DishBehavior dish) => m_dishDico.ShowHelp(dish);
 }

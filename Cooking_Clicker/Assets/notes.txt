@@ -1,12 +1,8 @@
 
 ToDo :
-
-Dico :
-	Show available Ingredients
-
 Add graphics :
 	Service :
-		Background Table
+		Background Customer Area
 		Table
 		Customer
 		Kitchen Background
@@ -15,6 +11,7 @@ Add graphics :
 		Preparation Background
 		Ustensils
 		Separation
+		Dish Dico Background
 	Production :
 		Ingredients
 		Background

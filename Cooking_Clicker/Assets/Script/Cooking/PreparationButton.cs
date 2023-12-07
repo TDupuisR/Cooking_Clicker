@@ -117,4 +117,9 @@ public class PreparationButton : MonoBehaviour
         m_nameText.text = m_dish.name;
         m_image.sprite = m_dish.sprite;
     }
+
+    public void ShowHelp()
+    {
+        GameManager.dishManager.ShowDishDico(m_dish);
+    }
 }
