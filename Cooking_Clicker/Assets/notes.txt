@@ -1,21 +1,13 @@
 
 ToDo :
+Upgrade Production
+
 Add graphics :
 	Service :
-		Background Customer Area
-		Table
 		Customer
-		Kitchen Background
-		Separation
-	Cooking :
-		Preparation Background
-		Ustensils
-		Separation
-		Dish Dico Background
 	Production :
-		Ingredients
-		Background
 		AutoImage
+	Font
 
 Add sound :
 	New customer
