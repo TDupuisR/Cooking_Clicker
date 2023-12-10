@@ -7,10 +7,12 @@ namespace GameManagerSpace
     {
         public static GameManager Instance;
         public static RessourceManager ressourceManager;
+        public static SoundManager soundManager;
         public static DishManager dishManager;
 
         [SerializeField] RessourceManager m_ressourceManager;
         [SerializeField] DishManager m_dishManager;
+        [SerializeField] SoundManager m_soundManager;
         [SerializeField] TMP_Text m_moneyText;
 
         private uint m_money;
@@ -34,6 +36,7 @@ namespace GameManagerSpace
 
             ressourceManager = m_ressourceManager;
             dishManager = m_dishManager;
+            soundManager = m_soundManager;
 
             m_ressourceManager.LoadIngredients();
         }

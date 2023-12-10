@@ -1,21 +1,13 @@
-
 ToDo :
-Upgrade Production
-
 Add graphics :
 	Service :
 		Customer
-	Production :
-		AutoImage
-	Font
+		Server
 
 Add sound :
-	New customer
-	Get Order
-	Serve customer
-
 	Ustensil Done (0/9)
 	Ustensil Start Using (0/9)
 
 	Speed Production Progression
 	Buy Ingredient
+	Buy Upgrade

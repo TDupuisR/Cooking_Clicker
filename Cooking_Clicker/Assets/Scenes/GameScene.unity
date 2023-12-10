@@ -1442,6 +1442,7 @@ Transform:
   m_Children:
   - {fileID: 1416036365}
   - {fileID: 1924585345}
+  - {fileID: 1104410364}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &338484189
@@ -1458,6 +1459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ressourceManager: {fileID: 1416036364}
   m_dishManager: {fileID: 1924585346}
+  m_soundManager: {fileID: 1104410363}
   m_moneyText: {fileID: 2076688241}
 --- !u!1 &343877271
 GameObject:
@@ -1857,7 +1859,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d6ef357bedd8c6e4f8f14f21e6dd2378, type: 3}
     m_FontSize: 68
     m_FontStyle: 0
     m_BestFit: 0
@@ -2149,6 +2151,8 @@ MonoBehaviour:
   - {fileID: 2127621767}
   - {fileID: 177574528}
   - {fileID: 1442469625}
+  m_newCustomerSound: {fileID: 8300000, guid: 4fc313fa70eed9b4bb2bcbd8faf44380, type: 3}
+  m_ServeCustomerSound: {fileID: 8300000, guid: 96008d68fe3469e4e8858e989971e0f1, type: 3}
   m_testDish: {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
 --- !u!1 &462782737
 GameObject:
@@ -4006,8 +4010,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Cooking Time : 99 secondes'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4340,8 +4344,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Price : 999$'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5500,7 +5504,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d6ef357bedd8c6e4f8f14f21e6dd2378, type: 3}
     m_FontSize: 68
     m_FontStyle: 0
     m_BestFit: 0
@@ -5571,6 +5575,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: 480, y: -650}
+--- !u!1 &1104410362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104410364}
+  - component: {fileID: 1104410363}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1104410363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104410362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc74d20082cb73e42a98715935230a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_noisePrefab: {fileID: 3206774047684085124, guid: 7f06d56a8ca5dd347ba4a9a13396acd2, type: 3}
+--- !u!4 &1104410364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104410362}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1003.9493, y: 502.61127, z: -6.81855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 338484188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1186687656
 GameObject:
   m_ObjectHideFlags: 0
@@ -7495,8 +7544,8 @@ MonoBehaviour:
 
     -aaaaaa'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7532,7 +7581,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 10.26
+  m_lineSpacing: 15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -7992,7 +8041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 123.5, y: 556.2}
+  m_AnchoredPosition: {x: 123.5, y: 553}
   m_SizeDelta: {x: 658.784, y: 244.9787}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680169438
@@ -8017,8 +8066,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Plancha-seared veal and bean salad
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8054,7 +8103,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -26.43
+  m_lineSpacing: -20.3
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -8772,8 +8821,8 @@ MonoBehaviour:
   m_text: Crunchy on the outside, tender on the inside chicken and potato croquettes
     served with a spicy mayo dip.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10378,7 +10427,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d6ef357bedd8c6e4f8f14f21e6dd2378, type: 3}
     m_FontSize: 68
     m_FontStyle: 0
     m_BestFit: 0
@@ -10750,10 +10799,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_text: 10000000000000000000000000000000000000000000000000000000000000000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10777,11 +10826,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 50
+  m_fontSizeMin: 45
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -10961,8 +11010,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Preparation Time : 99 secondes'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
+  m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

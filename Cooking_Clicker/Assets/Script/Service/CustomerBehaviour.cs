@@ -1,3 +1,4 @@
+using GameManagerSpace;
 using System.Collections;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ public class CustomerBehaviour : MonoBehaviour
     Vector2 m_startPosition;
     [SerializeField] int m_orderDishIndex = -1;
 
+    [Space(10)]
+    [SerializeField] AudioClip m_GetOrderSound;
     public Vector2 placePosition
     {
         get => m_placePosition; set => m_placePosition = value;
@@ -68,6 +71,7 @@ public class CustomerBehaviour : MonoBehaviour
     public void GetOrder()
     {
         if(m_currentState == customerState.WAITINGORDER) {
+            GameManager.soundManager.SpawnSound(m_GetOrderSound);
             m_currentState=customerState.WAITINGDISH;
             m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish);
         }

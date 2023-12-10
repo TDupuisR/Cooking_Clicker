@@ -17,6 +17,7 @@ public class ProductionButton : MonoBehaviour
     [SerializeField] Slider m_progressionSlider;
     [Space(5)]
     [SerializeField] TMP_Text m_productPriceText;
+    [SerializeField] TMP_Text m_upgradePriceText;
 
     [Header("Field")]
     [SerializeField] int m_productType;
@@ -25,7 +26,8 @@ public class ProductionButton : MonoBehaviour
     [Space(5)]
     [SerializeField] bool m_isUnlocked;
     [SerializeField] GameObject m_lockedObject;
-    [SerializeField] uint m_ingredientPrice;
+    [SerializeField] uint m_ingredientPrice; 
+    [SerializeField] int m_upgradePrice; 
     Coroutine m_autoCoRoutine;
 
     [Header("Event")]
@@ -45,6 +47,10 @@ public class ProductionButton : MonoBehaviour
         m_productName.text = GameManager.ressourceManager.ReturnRessourceName(m_productType);
         m_productImage.sprite = GameManager.ressourceManager.ReturnRessourceSprite(m_productType);
         m_productPriceText.text = m_ingredientPrice.ToString() + " $";
+
+        m_upgradePriceText.text = m_upgradePrice.ToString() + "$";
+        if (PlayerPrefs.HasKey(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed"))
+            m_progressionTime = PlayerPrefs.GetFloat(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed");
     }
 
     private void FixedUpdate()
@@ -105,5 +111,16 @@ public class ProductionButton : MonoBehaviour
         yield return new WaitForSeconds(m_progressionTime);
         m_progression++;
         StartCoroutine(AutoProgression());
+    }
+
+    public void UpgradeAutoProgression()
+    {
+        if(GameManager.Instance.Money >= m_upgradePrice)
+        {
+            GameManager.Instance.Money -= (uint)m_upgradePrice;
+            m_progressionTime /= 2.0f;
+            PlayerPrefs.SetFloat(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed", m_progressionTime);
+            PlayerPrefs.Save();
+        }
     }
 }

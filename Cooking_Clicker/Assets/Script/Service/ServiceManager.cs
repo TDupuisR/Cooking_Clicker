@@ -10,8 +10,8 @@ public class ServiceManager : MonoBehaviour
 {
     public static ServiceManager instance;
 
-    List<DishBehavior> m_dishOrdered = new List<DishBehavior>();
-    List<DishBehavior> m_dishReady = new List<DishBehavior>();
+    [SerializeField] List<DishBehavior> m_dishOrdered = new List<DishBehavior>();
+    [SerializeField] List<DishBehavior> m_dishReady = new List<DishBehavior>();
 
     [Header("Preparation")]
     [SerializeField] GameObject m_preparationPrefab;
@@ -26,6 +26,10 @@ public class ServiceManager : MonoBehaviour
 
     [Header("Waiter")]
     [SerializeField] List<GameObject> m_waiterList;
+
+    [Header("Sound")]
+    [SerializeField] AudioClip m_newCustomerSound;
+    [SerializeField] AudioClip m_ServeCustomerSound;
 
     bool m_spawnCustomer = true;
 
@@ -73,20 +77,20 @@ public class ServiceManager : MonoBehaviour
     {
         m_waiterList[dishIndex].SetActive(false);
 
-        if (m_dishOrdered.Count <= dishIndex)
-            throw new Exception("dishIndex too high, served dish can't be in m_dishOrdered");
+        //if (m_dishOrdered.Count <= dishIndex)
+        //    throw new Exception("dishIndex too high, served dish can't be in m_dishOrdered");
 
         DishBehavior servedDish = m_dishOrdered[dishIndex];
 
         if (!m_dishReady.Contains(servedDish))
             throw new Exception("Served dish isn't in m_dishReady");
-        
-        _OnGiveDish?.Invoke(m_dishOrdered.IndexOf(servedDish));
+
+        _OnGiveDish?.Invoke(dishIndex);
         m_dishOrdered.Remove(servedDish);
         m_dishReady.Remove(servedDish);
 
         GameManager.Instance.Money += (uint)servedDish.moneyValue;
-
+        GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
     }
 
     public void SpawnCustomer()
@@ -106,6 +110,7 @@ public class ServiceManager : MonoBehaviour
 
         if(newSeat != null)
         {
+            GameManager.soundManager.SpawnSound(m_newCustomerSound);
             GameObject newCustomer = Instantiate(m_customerPrefab, m_customerParent);
             newCustomer.transform.localPosition = m_customerSpawnPoint.localPosition;
 

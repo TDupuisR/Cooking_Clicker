@@ -92,6 +92,8 @@ MonoBehaviour:
   m_orderDish: {fileID: 0}
   m_currentState: 0
   m_placePosition: {x: 0, y: 0}
+  m_orderDishIndex: -1
+  m_GetOrderSound: {fileID: 8300000, guid: 664e35f79f0ea404db924f979f969f2c, type: 3}
 --- !u!114 &6734205726469156618
 MonoBehaviour:
   m_ObjectHideFlags: 0
