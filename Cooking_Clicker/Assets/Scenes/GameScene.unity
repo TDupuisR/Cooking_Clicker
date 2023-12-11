@@ -537,6 +537,7 @@ MonoBehaviour:
   m_machineUsed: 000000000000000000
   m_dishQueue: []
   m_linkedPrepButton: []
+  m_dishReady: {fileID: 8300000, guid: 8bd3f7bb1b5bed04fa1681fd4dbd9bd8, type: 3}
 --- !u!114 &114944692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,6 +2501,7 @@ MonoBehaviour:
   m_startingPosition: {x: -60, y: -240}
   m_offsetPosition: -330
   m_ignorePrepButtons: 2
+  m_speedProgressionAudio: []
 --- !u!1 &505669502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9070,6 +9072,7 @@ MonoBehaviour:
   m_startingPosition: {x: 0, y: 0}
   m_offsetPosition: -400
   m_ignorePrepButtons: 4
+  m_speedProgressionAudio: []
 --- !u!1 &1786207647
 GameObject:
   m_ObjectHideFlags: 0

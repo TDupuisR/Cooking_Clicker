@@ -1,3 +1,4 @@
+using GameManagerSpace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class CookerManager : MonoBehaviour
 
     public List<DishBehavior> DishQueue { get => m_dishQueue; set => m_dishQueue = value; }
     public List<PreparationButton> LinkedPrepButton { get => m_linkedPrepButton; set => m_linkedPrepButton = value; }
+
+    [SerializeField] AudioClip m_dishReady;
 
     public delegate void OnSwitchToCook(int index);
     public static event OnSwitchToCook OnGoingToCook;
@@ -56,6 +59,7 @@ public class CookerManager : MonoBehaviour
         }
 
         ServiceManager.instance.DishReady.Add(dish);
+        GameManager.soundManager.SpawnSound(m_dishReady);
         ServiceManager.instance.SpawnWaiter();
 
         m_dishQueue.RemoveAt(recepieIndex);
