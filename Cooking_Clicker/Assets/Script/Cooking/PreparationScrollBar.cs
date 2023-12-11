@@ -17,6 +17,9 @@ public class PreparationScrollBar : MonoBehaviour
     [SerializeField] int m_ignorePrepButtons;
     float defaultYPos;
 
+    [Header("Audio")]
+    [SerializeField] List<AudioClip> m_speedProgressionAudio;
+
     public List<GameObject> PreparationButtons 
     { 
         get => m_PreparationButtons;

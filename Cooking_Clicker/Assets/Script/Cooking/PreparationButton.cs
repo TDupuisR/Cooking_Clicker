@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using GameManagerSpace;
+using Random = UnityEngine.Random;
 
 public class PreparationButton : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] DishBehavior m_dish;
     GameManagerStatic.DishStates m_currentStates = GameManagerStatic.DishStates.Wait;
     int m_progress;
+
+    [Header("Audio")]
+    [SerializeField] List<AudioClip> m_speedProgressionAudio;
 
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
@@ -88,6 +92,9 @@ public class PreparationButton : MonoBehaviour
     public void AddProgress(int amount) { 
         m_progress += amount;
         OnProgression.Invoke();
+
+        GameManager.soundManager.SpawnSound(m_speedProgressionAudio[Random.Range(0, m_speedProgressionAudio.Count)]);
+
 
         int nbIngredient = 0;
         foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) nbIngredient++;

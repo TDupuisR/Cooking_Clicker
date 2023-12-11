@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using GameManagerSpace;
-using Unity.VisualScripting;
 
 public class ProductionButton : MonoBehaviour
 {
@@ -29,6 +28,9 @@ public class ProductionButton : MonoBehaviour
     [SerializeField] uint m_ingredientPrice; 
     [SerializeField] int m_upgradePrice; 
     Coroutine m_autoCoRoutine;
+
+    [Header("Audio")]
+    [SerializeField] List<AudioClip> m_speedProgressionAudio;
 
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
@@ -100,6 +102,7 @@ public class ProductionButton : MonoBehaviour
     public void SpeedProgression(int amount)
     {
         m_progression += amount;
+        GameManager.soundManager.SpawnSound(m_speedProgressionAudio[Random.Range(0, m_speedProgressionAudio.Count)]);
         OnProgression.Invoke();
 
         int[] id = { m_productType };

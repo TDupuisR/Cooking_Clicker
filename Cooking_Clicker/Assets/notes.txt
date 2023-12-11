@@ -12,7 +12,5 @@ Add sound :
 	Ustensil Start Using (0/9)
 	Recipe Ready
 
-	Speed Production Progression
-	Speed Preparation Progression
 	Buy Ingredient
 	Buy Upgrade
