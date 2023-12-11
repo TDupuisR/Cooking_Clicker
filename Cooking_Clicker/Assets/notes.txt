@@ -1,13 +1,16 @@
 ToDo :
 Add graphics :
-	Service :
-		Customer
-		Server
+	Customer -> animation for:
+			Walk
+			Ask Order
+			Wait for Order
 
 Add sound :
 	Ustensil Done (0/9)
 	Ustensil Start Using (0/9)
+	Recipe Ready
 
 	Speed Production Progression
+	Speed Preparation Progression
 	Buy Ingredient
 	Buy Upgrade
