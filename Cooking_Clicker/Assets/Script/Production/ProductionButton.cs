@@ -80,8 +80,12 @@ public class ProductionButton : MonoBehaviour
         if(GameManager.Instance.Money >= m_ingredientPrice)
         {
             GameManager.Instance.Money -= m_ingredientPrice;
-            GameManager.soundManager.SpawnSound(m_buyIngredient);
             UnlockButton();
+
+            GameManager.soundManager.SpawnSound(m_buyIngredient);
+            int[] id = { m_productType };
+            OnTouch.Invoke(transform.position, id);
+
         }
     }
     private void RessourceManager_OnUnlockButton(int obj)
