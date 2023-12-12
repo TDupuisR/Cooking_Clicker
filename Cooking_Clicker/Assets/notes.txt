@@ -7,5 +7,13 @@ Add graphics :
 
 Add effect when buy ingredients
 
-Add sound :
-	Ustensil Using (0/9)
+(Opt) Add sound :
+	Furnace, 
+	Pan, 
+	Cooking_pot, 
+	Blender, 
+	Fryer, 
+	Plancha, 
+	Grill, 
+	Microwave, 
+	Fridge
