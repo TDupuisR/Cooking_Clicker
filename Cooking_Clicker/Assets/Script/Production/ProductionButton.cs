@@ -31,6 +31,8 @@ public class ProductionButton : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] List<AudioClip> m_speedProgressionAudio;
+    [SerializeField] AudioClip m_buyIngredient;
+    [SerializeField] AudioClip m_buyUpgrade;
 
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
@@ -78,6 +80,7 @@ public class ProductionButton : MonoBehaviour
         if(GameManager.Instance.Money >= m_ingredientPrice)
         {
             GameManager.Instance.Money -= m_ingredientPrice;
+            GameManager.soundManager.SpawnSound(m_buyIngredient);
             UnlockButton();
         }
     }
@@ -121,6 +124,8 @@ public class ProductionButton : MonoBehaviour
         if(GameManager.Instance.Money >= m_upgradePrice)
         {
             GameManager.Instance.Money -= (uint)m_upgradePrice;
+            GameManager.soundManager.SpawnSound(m_buyUpgrade);
+
             m_progressionTime /= 2.0f;
             PlayerPrefs.SetFloat(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed", m_progressionTime);
             PlayerPrefs.Save();

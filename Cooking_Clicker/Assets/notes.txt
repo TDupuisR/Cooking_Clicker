@@ -8,7 +8,4 @@ Add graphics :
 Add effect when buy ingredients
 
 Add sound :
-	Ustensil Start Using (0/9)
-
-	Buy Ingredient
-	Buy Upgrade
+	Ustensil Using (0/9)
