@@ -1,9 +1,4 @@
 ToDo :
-Add graphics :
-	Customer -> animation for:
-			Walk
-			Ask Order
-			Wait for Order
 
 (Opt) Add sound :
 	Furnace, 

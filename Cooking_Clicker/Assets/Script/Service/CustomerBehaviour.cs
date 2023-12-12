@@ -19,6 +19,10 @@ public class CustomerBehaviour : MonoBehaviour
     [SerializeField] int m_orderDishIndex = -1;
 
     [Space(10)]
+    [SerializeField] GameObject m_askOrderGameObject;
+    [SerializeField] GameObject m_waitOrderGameObject;
+
+    [Space(10)]
     [SerializeField] AudioClip m_GetOrderSound;
     public Vector2 placePosition
     {
@@ -65,6 +69,7 @@ public class CustomerBehaviour : MonoBehaviour
             yield return null;
         }
 
+        m_askOrderGameObject.SetActive(true);
         m_currentState = customerState.WAITINGORDER;
     }
 
@@ -72,7 +77,10 @@ public class CustomerBehaviour : MonoBehaviour
     {
         if(m_currentState == customerState.WAITINGORDER) {
             GameManager.soundManager.SpawnSound(m_GetOrderSound);
-            m_currentState=customerState.WAITINGDISH;
+            m_askOrderGameObject.SetActive(false);
+            m_waitOrderGameObject.SetActive(true);
+
+            m_currentState =customerState.WAITINGDISH;
             m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish);
         }
     }
@@ -82,6 +90,7 @@ public class CustomerBehaviour : MonoBehaviour
         if(m_orderDishIndex == orderIndex)
         {
             m_currentState = customerState.MOVETOEXIT;
+            m_waitOrderGameObject.SetActive(false);
             StartCoroutine(ReturnToSpawnPoint(1f));
         }
     }
