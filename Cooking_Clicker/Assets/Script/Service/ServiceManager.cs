@@ -5,6 +5,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using GameManagerSpace;
 using Random = UnityEngine.Random;
+using System.Xml.Serialization;
 
 public class ServiceManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class ServiceManager : MonoBehaviour
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
     public event Action<int> _OnGiveDish;
+    public event Action<int> _OnCallForDecrement;
 
     private void Awake()
     {
@@ -88,9 +90,19 @@ public class ServiceManager : MonoBehaviour
         _OnGiveDish?.Invoke(dishIndex);
         m_dishOrdered.Remove(servedDish);
         m_dishReady.Remove(servedDish);
+        ReArrengeWaiters();
+        _OnCallForDecrement?.Invoke(dishIndex);
 
         GameManager.Instance.Money += (uint)servedDish.moneyValue;
         GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
+    }
+
+    void ReArrengeWaiters()
+    {
+        foreach (GameObject waiter in m_waiterList)
+            waiter.SetActive(false);
+        for (int i = 0; i < m_dishReady.Count; i++)
+            m_waiterList[i].SetActive(true);
     }
 
     public void SpawnCustomer()

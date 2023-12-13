@@ -1,8 +1,4 @@
 ToDo :
-
-Bug : 
-	Problem with multiple waiter & out of order
-
 (Opt) Add sound :
 	Furnace, 
 	Pan, 

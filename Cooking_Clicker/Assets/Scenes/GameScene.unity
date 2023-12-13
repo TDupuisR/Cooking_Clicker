@@ -2136,6 +2136,7 @@ MonoBehaviour:
   m_customerPrefab: {fileID: 581656117475500574, guid: 2c922daa4557619438ea983158e98f25, type: 3}
   m_customerParent: {fileID: 2000889768}
   m_customerSpawnPoint: {fileID: 462782738}
+  m_availableOrderIndex: 0000000000000000
   m_seatList:
   - {fileID: 964466420}
   - {fileID: 396056381}

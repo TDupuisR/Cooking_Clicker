@@ -41,6 +41,7 @@ public class CustomerBehaviour : MonoBehaviour
         StartCoroutine(MoveToPlace(2f));
 
         ServiceManager.instance._OnGiveDish += GiveDish;
+        ServiceManager.instance._OnCallForDecrement += FixIndex;
     }
 
     IEnumerator MoveToPlace(float moveSpeed)
@@ -89,11 +90,20 @@ public class CustomerBehaviour : MonoBehaviour
     {
         if(m_orderDishIndex == orderIndex)
         {
+            ServiceManager.instance._OnGiveDish -= GiveDish;
+            ServiceManager.instance._OnCallForDecrement -= FixIndex;
+
             m_currentState = customerState.MOVETOEXIT;
             m_waitOrderGameObject.SetActive(false);
             StartCoroutine(ReturnToSpawnPoint(1f));
         }
     }
+    void FixIndex(int indexBorder)
+    {
+        if(m_orderDishIndex > indexBorder)
+            m_orderDishIndex--;
+    }
+
     IEnumerator ReturnToSpawnPoint(float moveSpeed)
     {
         float timeElapsed = 0;
