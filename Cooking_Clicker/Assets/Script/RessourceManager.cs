@@ -11,7 +11,11 @@ public class RessourceManager : MonoBehaviour
     [SerializeField] Sprite m_debugSprite;
     [SerializeField] List<Sprite> m_productImage;
     [SerializeField] List<bool> m_availableIngredients;
-
+    public List<bool> availableIngredients
+    {
+        get => m_availableIngredients;
+        set => m_availableIngredients = value;
+    }
 
     public static event Action<int> OnUnlockButton;
 
@@ -41,25 +45,21 @@ public class RessourceManager : MonoBehaviour
         string ingredientsString = "";
         for(int i = m_availableIngredients.Count - 1; i > -1; i--)
         {
-            ingredientsString += m_availableIngredients[i] ? "1" : "0";
+            ingredientsString = (m_availableIngredients[i] ? "1" : "0") + ingredientsString;
         }
-
-        int ingredientsInt = Convert.ToInt32(ingredientsString, 2);
-
-        PlayerPrefs.SetInt("ingredients",ingredientsInt);
-
+        PlayerPrefs.SetString("ingredients", ingredientsString);
+        print(ingredientsString);
         PlayerPrefs.Save();
     }
     public void LoadIngredients()
     {
         if (!PlayerPrefs.HasKey("ingredients"))
         {
-            PlayerPrefs.SetInt("ingredients", 1);
+            PlayerPrefs.SetString("ingredients", "1");
             return;
         }
-
-        int ingredientsInt = PlayerPrefs.GetInt("ingredients");
-        string ingredientsString = Convert.ToString(ingredientsInt, 2);
+        string ingredientsString = PlayerPrefs.GetString("ingredients");
+        print(ingredientsString);
 
         int IngredientCounter = 0;
         foreach (char c in ingredientsString)

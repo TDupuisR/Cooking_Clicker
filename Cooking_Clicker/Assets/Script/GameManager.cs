@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 
@@ -67,6 +68,9 @@ namespace GameManagerSpace
                 Money = 0;
             }
         }
+
+        [Button]
+        public void GiveMoney() => Money += 100;
     }
 
     public static class GameManagerStatic

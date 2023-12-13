@@ -80,7 +80,7 @@ public class ProductionButton : MonoBehaviour
         if(GameManager.Instance.Money >= m_ingredientPrice)
         {
             GameManager.Instance.Money -= m_ingredientPrice;
-            UnlockButton();
+            UnlockButton(true);
 
             GameManager.soundManager.SpawnSound(m_buyIngredient);
             int[] id = { m_productType };
@@ -100,8 +100,10 @@ public class ProductionButton : MonoBehaviour
         m_isUnlocked = false;
         m_lockedObject.SetActive(false);
 
+        GameManager.ressourceManager.availableIngredients[m_productType] = true;
         if (save) 
             GameManager.ressourceManager.SaveIngredients(m_productType);
+
         GameManager.dishManager.availableIngredients.Add(GameManager.ressourceManager.ReturnRessource(m_productType));
         GameManager.dishManager.CheckForNewDish();
     }
