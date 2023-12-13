@@ -306,10 +306,10 @@ MonoBehaviour:
   m_preparationScrollBar: {fileID: 0}
   m_dish: {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
   m_speedProgressionAudio:
-  - {fileID: 8300000, guid: 598c48fcac3c8254bb7128849c2a2cfc, type: 3}
-  - {fileID: 8300000, guid: a3bda212f04c4fa4d88427cf79015e99, type: 3}
-  - {fileID: 8300000, guid: 2b49d89a187b8fa468e6a3291c21ea54, type: 3}
-  - {fileID: 8300000, guid: 8972552fcb04fdc4eaa05bbcac8ed2f6, type: 3}
+  - {fileID: 8300000, guid: 3a6495096ae407e4b98506e11c114d92, type: 3}
+  - {fileID: 8300000, guid: 471d12b66b49e1d418f5c284326b5be7, type: 3}
+  - {fileID: 8300000, guid: b77b26035437b8444b739ecca45e50c5, type: 3}
+  - {fileID: 8300000, guid: ffd1753c226d29e42a7f852a5bbc21e7, type: 3}
   OnProgression:
     m_PersistentCalls:
       m_Calls: []

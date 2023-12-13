@@ -1,4 +1,7 @@
 ToDo :
+Bug :
+	Seat stays occupied even after customer leave
+
 (Opt) Add sound :
 	Furnace, 
 	Pan, 
