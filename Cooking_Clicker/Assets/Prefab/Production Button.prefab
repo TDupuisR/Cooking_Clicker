@@ -1359,6 +1359,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a3bda212f04c4fa4d88427cf79015e99, type: 3}
   - {fileID: 8300000, guid: 2b49d89a187b8fa468e6a3291c21ea54, type: 3}
   - {fileID: 8300000, guid: 8972552fcb04fdc4eaa05bbcac8ed2f6, type: 3}
+  m_buyIngredient: {fileID: 8300000, guid: 77dfe7f7af1595d41849ed7f6401b732, type: 3}
+  m_buyUpgrade: {fileID: 8300000, guid: 77dfe7f7af1595d41849ed7f6401b732, type: 3}
   OnProgression:
     m_PersistentCalls:
       m_Calls: []
