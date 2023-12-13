@@ -13,11 +13,6 @@ public class DishManager : MonoBehaviour
     [SerializeField] List<DishBehavior> m_availableDishs;
     [SerializeField] List<GameManagerStatic.RessourcesNames> m_availableIngredients;
 
-    private void Awake()
-    {
-        CheckForNewDish();
-    }
-
     public List<GameManagerStatic.RessourcesNames> availableIngredients
     {
         get => m_availableIngredients; 

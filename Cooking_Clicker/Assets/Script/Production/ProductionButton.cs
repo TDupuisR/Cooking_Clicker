@@ -41,7 +41,7 @@ public class ProductionButton : MonoBehaviour
     public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
     public static event OnTouchdelegate OnTouch;
 
-    private void OnEnable()
+    private void Awake()
     {
         RessourceManager.OnUnlockButton += RessourceManager_OnUnlockButton;
     }

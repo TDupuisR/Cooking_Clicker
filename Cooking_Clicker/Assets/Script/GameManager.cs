@@ -39,7 +39,7 @@ namespace GameManagerSpace
             dishManager = m_dishManager;
             soundManager = m_soundManager;
 
-            m_ressourceManager.LoadIngredients();
+            
         }
 
         private void OnEnable()
@@ -49,6 +49,8 @@ namespace GameManagerSpace
 
         private void Start()
         {
+            m_ressourceManager.LoadIngredients();
+            m_dishManager.CheckForNewDish();
             LoadMoney();
         }
 

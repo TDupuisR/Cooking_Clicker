@@ -54,10 +54,8 @@ public class RessourceManager : MonoBehaviour
     public void LoadIngredients()
     {
         if (!PlayerPrefs.HasKey("ingredients"))
-        {
             PlayerPrefs.SetString("ingredients", "100000000000000");
-            return;
-        }
+        
         string ingredientsString = PlayerPrefs.GetString("ingredients");
         print(ingredientsString);
 
@@ -75,6 +73,13 @@ public class RessourceManager : MonoBehaviour
 
             IngredientCounter++;
         }
+    }
+    public void ResetAll()
+    {
+        print("Reset ALL !!");
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        Application.Quit();
     }
 
    [Button]
