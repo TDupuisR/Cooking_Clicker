@@ -55,7 +55,7 @@ public class RessourceManager : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("ingredients"))
         {
-            PlayerPrefs.SetString("ingredients", "1");
+            PlayerPrefs.SetString("ingredients", "100000000000000");
             return;
         }
         string ingredientsString = PlayerPrefs.GetString("ingredients");
