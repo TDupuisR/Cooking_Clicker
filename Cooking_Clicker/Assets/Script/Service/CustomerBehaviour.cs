@@ -17,6 +17,7 @@ public class CustomerBehaviour : MonoBehaviour
     [SerializeField] Vector2 m_placePosition;
     Vector2 m_startPosition;
     [SerializeField] int m_orderDishIndex = -1;
+    private int m_designedSeat;
 
     [Space(10)]
     [SerializeField] GameObject m_askOrderGameObject;
@@ -24,6 +25,7 @@ public class CustomerBehaviour : MonoBehaviour
 
     [Space(10)]
     [SerializeField] AudioClip m_GetOrderSound;
+
     public Vector2 placePosition
     {
         get => m_placePosition; set => m_placePosition = value;
@@ -31,6 +33,10 @@ public class CustomerBehaviour : MonoBehaviour
     public DishBehavior orderDish
     {
         get => m_orderDish; set => m_orderDish = value;
+    }
+    public int designedSeat
+    {
+        get => m_designedSeat; set => m_designedSeat = value;
     }
 
     private void Awake()
@@ -92,6 +98,7 @@ public class CustomerBehaviour : MonoBehaviour
         {
             ServiceManager.instance._OnGiveDish -= GiveDish;
             ServiceManager.instance._OnCallForDecrement -= FixIndex;
+            ServiceManager.instance.FreeSeat(designedSeat);
 
             m_currentState = customerState.MOVETOEXIT;
             m_waitOrderGameObject.SetActive(false);

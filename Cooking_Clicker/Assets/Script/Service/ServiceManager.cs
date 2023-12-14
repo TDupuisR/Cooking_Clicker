@@ -109,9 +109,10 @@ public class ServiceManager : MonoBehaviour
     {
         //Select available seat
         Seat newSeat = null;
+        int randIndex = Random.Range(0, m_seatList.Count);
         do
         {
-            int randIndex = Random.Range(0, m_seatList.Count);
+            randIndex = Random.Range(0, m_seatList.Count);
             if (!m_seatList[randIndex].Occupied)
             {
                 newSeat = m_seatList[randIndex];
@@ -129,6 +130,7 @@ public class ServiceManager : MonoBehaviour
             CustomerBehaviour newCustomerBehaviour = newCustomer.GetComponent<CustomerBehaviour>();
             newCustomerBehaviour.orderDish = GameManager.Instance.GetRandomDish();
             newCustomerBehaviour.placePosition = newSeat.position;
+            newCustomerBehaviour.designedSeat = randIndex;
         }
     }
     bool HasAvailableSeat()
@@ -144,6 +146,8 @@ public class ServiceManager : MonoBehaviour
     {
         m_waiterList[m_dishReady.Count - 1].SetActive(true);
     }
+
+    public void FreeSeat(int seatNumber) => m_seatList[seatNumber].Occupied = false;
 
     [Space(20)]
     [Header("DEBUG")]

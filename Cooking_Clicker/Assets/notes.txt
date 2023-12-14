@@ -1,6 +1,6 @@
 ToDo :
 Bug :
-	Seat stays occupied even after customer leave
+	if multiple dish cooking, first one screws index on finish
 
 (Opt) Add sound :
 	Furnace, 
