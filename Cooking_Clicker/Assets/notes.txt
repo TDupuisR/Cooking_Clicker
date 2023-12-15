@@ -1,7 +1,4 @@
 ToDo :
-Bug :
-	if multiple dish cooking, first one screws index on finish
-
 (Opt) Add sound :
 	Furnace, 
 	Pan, 

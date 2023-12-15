@@ -11,6 +11,8 @@ public class CookerManager : MonoBehaviour
     [SerializeField] List<Slider> m_progressionSliders;
     [SerializeField] List<Image> m_cookerImage;
     [SerializeField] List<bool> m_machineUsed;
+    [SerializeField] List<int> m_currentDishIndex;
+    [SerializeField] List<bool> m_dishIndexNeedDecrement;
 
     [SerializeField] List<DishBehavior> m_dishQueue = new List<DishBehavior>();
     [SerializeField] List<PreparationButton> m_linkedPrepButton = new List<PreparationButton>();
@@ -50,10 +52,19 @@ public class CookerManager : MonoBehaviour
         m_machineUsed[m_machineIndex] = true;
         m_cookerImage[m_machineIndex].color = new Color(.5f, .5f, .5f, 1f);
 
+        m_currentDishIndex[m_machineIndex] = recepieIndex;
+        m_dishIndexNeedDecrement[m_machineIndex] = false;
+
         float waitTime = dish.cookTime / 100f;
         while (progress < 100)
         {
             yield return new WaitForSeconds(waitTime);
+
+            if (m_dishIndexNeedDecrement[m_machineIndex])
+            {
+                recepieIndex--;
+                m_dishIndexNeedDecrement[m_machineIndex] = false;
+            }
             progress++;
             m_progressionSliders[m_machineIndex].value = progress;
         }
@@ -62,8 +73,15 @@ public class CookerManager : MonoBehaviour
         GameManager.soundManager.SpawnSound(m_dishReady);
         ServiceManager.instance.SpawnWaiter();
 
+        for(int i = 0; i < m_currentDishIndex.Count; i++)
+        {
+            if (m_currentDishIndex[i] > recepieIndex)
+                m_dishIndexNeedDecrement[i] = true;
+        }
+
         m_dishQueue.RemoveAt(recepieIndex);
         LinkedPrepButton.RemoveAt(recepieIndex);
+
         m_machineUsed[m_machineIndex] = false;
         m_progressionSliders[m_machineIndex].value = 0;
         m_cookerImage[m_machineIndex].color = new Color(1f, 1f, 1f, 1f);
