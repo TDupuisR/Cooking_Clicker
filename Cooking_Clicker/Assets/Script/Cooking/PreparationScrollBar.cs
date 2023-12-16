@@ -39,6 +39,7 @@ public class PreparationScrollBar : MonoBehaviour
     {
         if (m_PreparationButtons.Count > 0) m_scrollBar.size = 1f / m_PreparationButtons.Count;
         else m_scrollBar.size = 1;
+        m_scrollBar.value = 0;
 
         UpdateButtonsPositions();
     }

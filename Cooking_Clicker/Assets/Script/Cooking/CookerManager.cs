@@ -71,7 +71,7 @@ public class CookerManager : MonoBehaviour
 
         ServiceManager.instance.DishReady.Add(dish);
         GameManager.soundManager.SpawnSound(m_dishReady);
-        ServiceManager.instance.SpawnWaiter();
+        ServiceManager.instance.SpawnWaiter(dish);
 
         for(int i = 0; i < m_currentDishIndex.Count; i++)
         {

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdc7a789ed7c564f83d644ed5078388, type: 3}
-  m_Name: Progt_au_beurreDish
+  m_Name: Progt_au_beurre
   m_EditorClassIdentifier: 
   name: Progt au beurre
   description: The perfect dish for depressed programmers !

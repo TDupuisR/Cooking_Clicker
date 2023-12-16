@@ -1,6 +1,7 @@
 using GameManagerSpace;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CustomerBehaviour : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class CustomerBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<Image>().color = new Color(Random.Range(.5f, 1), 
+                                                Random.Range(.5f, 1), 
+                                                Random.Range(.5f, 1));
         m_startPosition = transform.localPosition;
         m_currentState = customerState.MOVETOPLACE;
 

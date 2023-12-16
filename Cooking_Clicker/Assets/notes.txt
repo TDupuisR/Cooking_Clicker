@@ -1,7 +1,5 @@
 ToDo :
 Add salt / pepper bonus
-First waiter don't spawn in mid-game
-multicolor customers
 
 (Opt) Add sound :
 	Furnace, 

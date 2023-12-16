@@ -13,6 +13,7 @@ public class ServiceManager : MonoBehaviour
 
     [SerializeField] List<DishBehavior> m_dishOrdered = new List<DishBehavior>();
     [SerializeField] List<DishBehavior> m_dishReady = new List<DishBehavior>();
+    [SerializeField] List<bool> m_dishIsReady = new List<bool>();
 
     [Header("Preparation")]
     [SerializeField] GameObject m_preparationPrefab;
@@ -90,19 +91,33 @@ public class ServiceManager : MonoBehaviour
         _OnGiveDish?.Invoke(dishIndex);
         m_dishOrdered.Remove(servedDish);
         m_dishReady.Remove(servedDish);
-        ReArrengeWaiters();
+        m_dishIsReady[dishIndex] = false;
+        ReArrengeWaiters(dishIndex);
         _OnCallForDecrement?.Invoke(dishIndex);
 
         GameManager.Instance.Money += (uint)servedDish.moneyValue;
         GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
     }
 
-    void ReArrengeWaiters()
+    void ReArrengeWaiters(int dishIndex)
     {
-        foreach (GameObject waiter in m_waiterList)
-            waiter.SetActive(false);
-        for (int i = 0; i < m_dishReady.Count; i++)
-            m_waiterList[i].SetActive(true);
+        //foreach (GameObject waiter in m_waiterList)
+        //    waiter.SetActive(false);
+        //for (int i = 0; i < m_dishReady.Count; i++)
+        //    m_waiterList[i].SetActive(true);
+
+        for (int i = dishIndex + 1; i < 8; i++)
+        {
+            if (m_dishIsReady[i])
+            {
+                m_waiterList[i].SetActive(false);
+                m_dishIsReady[i] = false;
+
+                m_waiterList[i - 1].SetActive(true);
+                m_dishIsReady[i - 1] = true;
+            }
+        }
+
     }
 
     public void SpawnCustomer()
@@ -142,9 +157,17 @@ public class ServiceManager : MonoBehaviour
         return false;
     }
 
-    public void SpawnWaiter()
+    public void SpawnWaiter(DishBehavior dish)
     {
-        m_waiterList[m_dishReady.Count - 1].SetActive(true);
+        for(int i = 0;i < m_dishOrdered.Count; i++)
+        {
+            if (m_dishOrdered[i] == dish && !m_dishIsReady[i])
+            {
+                m_waiterList[i].SetActive(true);
+                m_dishIsReady[i] = true;
+                return;
+            }
+        }
     }
 
     public void FreeSeat(int seatNumber) => m_seatList[seatNumber].Occupied = false;
