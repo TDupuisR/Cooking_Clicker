@@ -16,9 +16,10 @@ Pénalité des clients :
 Queue customer
 
 Pack d'assets kitchen
-	Power point 5 / 10 minutes :
-		Concept & ptite démo
-	
+Power point 5 / 10 minutes :
+	Concept & ptite démo
+
+Ajout d'info :	
 	Service :
 		Nombre de plats
 	
