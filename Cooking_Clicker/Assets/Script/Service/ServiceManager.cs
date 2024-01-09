@@ -5,7 +5,6 @@ using UnityEngine;
 using NaughtyAttributes;
 using GameManagerSpace;
 using Random = UnityEngine.Random;
-using System.Xml.Serialization;
 
 public class ServiceManager : MonoBehaviour
 {
@@ -49,6 +48,8 @@ public class ServiceManager : MonoBehaviour
         instance = this;
 
         StartCoroutine(InfiniteCustomerSpawner());
+
+        CustomerBehaviour.onDoneWaitingGiveOrderDishIndex += DestroyServer;
     }
 
     IEnumerator InfiniteCustomerSpawner()
@@ -61,11 +62,12 @@ public class ServiceManager : MonoBehaviour
         }
     }
 
-    public int OrderDish(DishBehavior newDish)
+    public int OrderDish(DishBehavior newDish, int m_linkedSeat)
     {
         m_dishOrdered.Add(newDish);
         GameObject prepButton = Instantiate(m_preparationPrefab, m_preparationParent);
         prepButton.GetComponent<PreparationButton>().dish = newDish;
+        prepButton.GetComponent<PreparationButton>().LinkedSeat = m_linkedSeat;
         prepButton.GetComponent<PreparationButton>().ChangeInterface();
         prepButton.GetComponent<PreparationButton>().scrollbar = m_preparationScrollBar;
         prepButton.transform.SetSiblingIndex(2); 
@@ -80,8 +82,8 @@ public class ServiceManager : MonoBehaviour
     {
         m_waiterList[dishIndex].SetActive(false);
 
-        //if (m_dishOrdered.Count <= dishIndex)
-        //    throw new Exception("dishIndex too high, served dish can't be in m_dishOrdered");
+        if (m_dishOrdered.Count <= dishIndex)
+            throw new Exception("dishIndex too high, served dish can't be in m_dishOrdered");
 
         DishBehavior servedDish = m_dishOrdered[dishIndex];
 
@@ -171,6 +173,18 @@ public class ServiceManager : MonoBehaviour
     }
 
     public void FreeSeat(int seatNumber) => m_seatList[seatNumber].Occupied = false;
+
+    private void DestroyServer(int dishIndex)
+    {
+        DishBehavior servedDish = m_dishOrdered[dishIndex];
+
+        m_dishOrdered.Remove(servedDish);
+        m_dishReady.Remove(servedDish);
+        m_waiterList[dishIndex].SetActive(false);
+        m_dishIsReady[dishIndex] = false;
+        ReArrengeWaiters(dishIndex);
+        _OnCallForDecrement?.Invoke(dishIndex);
+    }
 
     [Space(20)]
     [Header("DEBUG")]

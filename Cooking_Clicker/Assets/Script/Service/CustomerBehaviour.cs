@@ -1,7 +1,10 @@
 using GameManagerSpace;
+using NaughtyAttributes;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CustomerBehaviour : MonoBehaviour
 {
@@ -23,6 +26,18 @@ public class CustomerBehaviour : MonoBehaviour
     [Space(10)]
     [SerializeField] GameObject m_askOrderGameObject;
     [SerializeField] GameObject m_waitOrderGameObject;
+    [Header("Pressure fields")]
+    [SerializeField] Image m_askOrderImg;
+    [SerializeField] Image m_waitOrderImg;
+    [SerializeField] Color m_startColor;
+    [SerializeField] Color m_endColor;
+    [SerializeField] float m_waitOrderLimit;
+    [SerializeField] float m_waitDishLimit;
+    float m_waitingMultiplier;
+    Coroutine m_waitCoRoutine;
+
+    public static event Action<int> onIsDoneWaiting;
+    public static event Action<int> onDoneWaitingGiveOrderDishIndex;
 
     [Space(10)]
     [SerializeField] AudioClip m_GetOrderSound;
@@ -82,6 +97,7 @@ public class CustomerBehaviour : MonoBehaviour
 
         m_askOrderGameObject.SetActive(true);
         m_currentState = customerState.WAITINGORDER;
+        m_waitCoRoutine = StartCoroutine(WaitingCoRoutine(m_askOrderImg, m_waitOrderLimit));
     }
 
     public void GetOrder()
@@ -91,8 +107,11 @@ public class CustomerBehaviour : MonoBehaviour
             m_askOrderGameObject.SetActive(false);
             m_waitOrderGameObject.SetActive(true);
 
-            m_currentState =customerState.WAITINGDISH;
-            m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish);
+            m_currentState = customerState.WAITINGDISH;
+            if (m_waitCoRoutine != null)
+                StopCoroutine(m_waitCoRoutine);
+            m_waitCoRoutine = StartCoroutine(WaitingCoRoutine(m_waitOrderImg, m_waitDishLimit));
+            m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish, designedSeat);
         }
     }
 
@@ -100,6 +119,9 @@ public class CustomerBehaviour : MonoBehaviour
     {
         if(m_orderDishIndex == orderIndex)
         {
+            if(m_waitCoRoutine != null)
+                StopCoroutine(m_waitCoRoutine);
+
             ServiceManager.instance._OnGiveDish -= GiveDish;
             ServiceManager.instance._OnCallForDecrement -= FixIndex;
             ServiceManager.instance.FreeSeat(designedSeat);
@@ -109,6 +131,7 @@ public class CustomerBehaviour : MonoBehaviour
             StartCoroutine(ReturnToSpawnPoint(1f));
         }
     }
+
     void FixIndex(int indexBorder)
     {
         if(m_orderDishIndex > indexBorder)
@@ -118,8 +141,6 @@ public class CustomerBehaviour : MonoBehaviour
     IEnumerator ReturnToSpawnPoint(float moveSpeed)
     {
         float timeElapsed = 0;
-
-        timeElapsed = 0;
         while (timeElapsed < moveSpeed)
         {
             Vector3 newPosition = Vector3.Lerp(m_placePosition, m_startPosition, timeElapsed / moveSpeed);
@@ -143,5 +164,43 @@ public class CustomerBehaviour : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    IEnumerator WaitingCoRoutine(Image img, float delay)
+    {
+        float timeElapsed = 0.0f;
+        while (timeElapsed < delay)
+        {
+            m_waitingMultiplier = 1 - (timeElapsed / delay);
+            img.color = Color.Lerp(m_startColor, m_endColor, timeElapsed / delay);
+            timeElapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        GetOut();
+        onIsDoneWaiting?.Invoke(designedSeat);
+    }
+
+    void GetOut()
+    {
+        m_currentState = customerState.MOVETOEXIT;
+        m_waitOrderGameObject.SetActive(false);
+        m_askOrderGameObject.SetActive(false);
+
+        ServiceManager.instance._OnGiveDish -= GiveDish;
+        ServiceManager.instance._OnCallForDecrement -= FixIndex;
+        ServiceManager.instance.FreeSeat(designedSeat);
+
+        StartCoroutine(ReturnToSpawnPoint(1f));
+    }
+
+    [Button]
+    public void TestGetOut()
+    {
+        if(m_waitCoRoutine != null)
+            StopCoroutine(m_waitCoRoutine);
+        GetOut();
+        onIsDoneWaiting?.Invoke(designedSeat);
+        onDoneWaitingGiveOrderDishIndex?.Invoke(m_orderDishIndex);
     }
 }

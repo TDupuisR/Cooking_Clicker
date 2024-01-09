@@ -539,6 +539,8 @@ MonoBehaviour:
   m_dishIndexNeedDecrement: 000000000000000000
   m_dishQueue: []
   m_linkedPrepButton: []
+  m_ustensilSeatList: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_ustensilRecipeIndexList: 0000000000000000000000000000000000000000000000000000000000000000
   m_dishReady: {fileID: 8300000, guid: 8bd3f7bb1b5bed04fa1681fd4dbd9bd8, type: 3}
 --- !u!114 &114944692
 MonoBehaviour:
@@ -1465,6 +1467,7 @@ MonoBehaviour:
   m_soundManager: {fileID: 1104410363}
   m_moneyText: {fileID: 2076688241}
   m_multiplierAdd: 0.5
+  m_multiplier: 1
 --- !u!1 &343877271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2137,7 @@ MonoBehaviour:
   m_dishOrdered: []
   m_dishReady: []
   m_dishIsReady: 0000000000000000
+  m_dishLinkedSeat: 0000000000000000000000000000000000000000000000000000000000000000
   m_preparationPrefab: {fileID: 4160161739632613623, guid: 7883b46522efc224c8ba493bd3093f1a, type: 3}
   m_preparationParent: {fileID: 982482175}
   m_preparationScrollBar: {fileID: 480506779}

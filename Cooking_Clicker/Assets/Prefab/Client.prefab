@@ -97,6 +97,12 @@ MonoBehaviour:
   m_orderDishIndex: -1
   m_askOrderGameObject: {fileID: 8341773575728545757}
   m_waitOrderGameObject: {fileID: 6178646090366564451}
+  m_askOrderImg: {fileID: 2844231175711465366}
+  m_waitOrderImg: {fileID: 2510725050993109370}
+  m_startColor: {r: 0.30440235, g: 1, b: 0.25157225, a: 1}
+  m_endColor: {r: 1, g: 0.45605877, b: 0.36477983, a: 1}
+  m_waitOrderLimit: 60
+  m_waitDishLimit: 120
   m_GetOrderSound: {fileID: 8300000, guid: 664e35f79f0ea404db924f979f969f2c, type: 3}
 --- !u!114 &6734205726469156618
 MonoBehaviour:

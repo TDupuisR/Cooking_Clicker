@@ -32,6 +32,7 @@ public class PreparationButton : MonoBehaviour
     public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
     public static event OnTouchdelegate OnTouch;
 
+    public int LinkedSeat { get; set; }
     public DishBehavior dish { get => m_dish; set => m_dish = value; }
     public PreparationScrollBar scrollbar { set => m_preparationScrollBar = value; }
     public GameManagerStatic.DishStates currentState { set => m_currentStates = value; }
@@ -43,6 +44,8 @@ public class PreparationButton : MonoBehaviour
         m_nameText.text = m_dish.name;
         m_image.sprite = m_dish.sprite;
         m_button.interactable = false;
+
+        CustomerBehaviour.onIsDoneWaiting += DestroyButton;
     }
 
     private void FixedUpdate()
@@ -128,5 +131,19 @@ public class PreparationButton : MonoBehaviour
     public void ShowHelp()
     {
         GameManager.dishManager.ShowDishDico(m_dish);
+    }
+
+    private void DestroyButton(int seat)
+    {
+        if (seat != LinkedSeat)
+            return;
+
+        m_preparationScrollBar.PreparationButtons.Remove(gameObject);
+        m_preparationScrollBar.UpdateSize();
+        Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        CustomerBehaviour.onIsDoneWaiting -= DestroyButton;
     }
 }

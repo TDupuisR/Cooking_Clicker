@@ -9,3 +9,19 @@ Add salt / pepper bonus
 	Fryer, 
 	Plancha, 
 	Fridge
+
+Pénalité des clients :
+	(Opt) Pourboire
+
+Queue customer
+
+Pack d'assets kitchen
+	Power point 5 / 10 minutes :
+		Concept & ptite démo
+	
+	Service :
+		Nombre de plats
+	
+	Cooking :
+		Pop up customer énervée -> bubble on left side
+		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
