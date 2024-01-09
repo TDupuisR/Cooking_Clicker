@@ -95,7 +95,7 @@ public class ServiceManager : MonoBehaviour
         ReArrengeWaiters(dishIndex);
         _OnCallForDecrement?.Invoke(dishIndex);
 
-        GameManager.Instance.Money += (uint)servedDish.moneyValue;
+        GameManager.Instance.Money += (uint)(servedDish.moneyValue * GameManager.Instance.Multiplier);
         GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
     }
 

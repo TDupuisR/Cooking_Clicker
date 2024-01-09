@@ -16,6 +16,8 @@ namespace GameManagerSpace
         [SerializeField] SoundManager m_soundManager;
         [SerializeField] TMP_Text m_moneyText;
 
+        [SerializeField] float m_multiplierAdd;
+        [SerializeField] float m_multiplier = 1.0f;
         private uint m_money;
         public uint Money
         {
@@ -28,6 +30,15 @@ namespace GameManagerSpace
 
                 m_moneyText.text = value.ToString();
             }
+        }
+        public float Multiplier
+        {
+            get => m_multiplier;
+            set => m_multiplier = value;
+        }
+        public float MultiplierAdd
+        {
+            get => m_multiplierAdd;
         }
 
         private void Awake()

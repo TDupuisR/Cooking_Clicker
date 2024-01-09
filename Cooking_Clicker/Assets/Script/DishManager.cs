@@ -26,6 +26,10 @@ public class DishManager : MonoBehaviour
 
     public void CheckForNewDish()
     {
+        bool wasFirstDishIgnored = false; // Pr compenser le premier repas
+        if(m_availableDishs.Count > 0) 
+            wasFirstDishIgnored = true;
+
         foreach(DishBehavior dish in m_dishList)
         {
             if (m_availableDishs.Contains(dish)) continue;
@@ -37,6 +41,10 @@ public class DishManager : MonoBehaviour
             if(!missingIngredients)
             {
                 m_availableDishs.Add(dish);
+                if (wasFirstDishIgnored)
+                    GameManager.Instance.Multiplier += GameManager.Instance.MultiplierAdd;
+
+                wasFirstDishIgnored = true;
             }
         }
     }

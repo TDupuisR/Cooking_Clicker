@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_dishManager: {fileID: 1924585346}
   m_soundManager: {fileID: 1104410363}
   m_moneyText: {fileID: 2076688241}
+  m_multiplierAdd: 0.5
 --- !u!1 &343877271
 GameObject:
   m_ObjectHideFlags: 0
