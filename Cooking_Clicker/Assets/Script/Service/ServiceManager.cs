@@ -5,6 +5,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using GameManagerSpace;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class ServiceManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class ServiceManager : MonoBehaviour
     [SerializeField] Transform m_customerParent;
     [SerializeField] Transform m_customerSpawnPoint;
     [SerializeField] List<Seat> m_seatList;
+    [Header("Queue")]
+    [SerializeField] int m_queueCount;
+    [SerializeField] GameObject m_queueObject; 
+    [SerializeField] TMP_Text m_queueText; 
 
     [Header("Waiter")]
     [SerializeField] List<GameObject> m_waiterList;
@@ -57,8 +62,7 @@ public class ServiceManager : MonoBehaviour
         while(m_spawnCustomer)
         {
             yield return new WaitForSeconds(Random.Range(1, 10));
-            if (HasAvailableSeat())
-                SpawnCustomer();
+            SpawnCustomer();
         }
     }
 
@@ -148,6 +152,18 @@ public class ServiceManager : MonoBehaviour
             newCustomerBehaviour.orderDish = GameManager.Instance.GetRandomDish();
             newCustomerBehaviour.placePosition = newSeat.position;
             newCustomerBehaviour.designedSeat = randIndex;
+
+            if(m_queueCount > 0)
+            {
+                m_queueCount--;
+                DisplayQueue();
+            }
+        }
+        else
+        {
+            //Add to queue
+            m_queueCount++;
+            DisplayQueue();
         }
     }
     bool HasAvailableSeat()
@@ -158,7 +174,11 @@ public class ServiceManager : MonoBehaviour
 
         return false;
     }
-
+    void DisplayQueue()
+    {
+        m_queueObject.SetActive(m_queueCount > 0);
+        m_queueText.text = "x" + m_queueCount.ToString();
+    }
     public void SpawnWaiter(DishBehavior dish)
     {
         for(int i = 0;i < m_dishOrdered.Count; i++)
@@ -172,7 +192,12 @@ public class ServiceManager : MonoBehaviour
         }
     }
 
-    public void FreeSeat(int seatNumber) => m_seatList[seatNumber].Occupied = false;
+    public void FreeSeat(int seatNumber)
+    {
+        m_seatList[seatNumber].Occupied = false;
+        if (m_queueCount > 0)
+            SpawnCustomer();
+    }
 
     private void DestroyServer(int dishIndex)
     {

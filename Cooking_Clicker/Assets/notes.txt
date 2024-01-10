@@ -13,12 +13,6 @@ Add salt / pepper bonus
 Pénalité des clients :
 	(Opt) Pourboire
 
-Queue customer
-
-Pack d'assets kitchen
-Power point 5 / 10 minutes :
-	Concept & ptite démo
-
 Ajout d'info :	
 	Service :
 		Nombre de plats
@@ -26,3 +20,6 @@ Ajout d'info :
 	Cooking :
 		Pop up customer énervée -> bubble on left side
 		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
+
+Power point 5 / 10 minutes :
+	Concept & ptite démo
