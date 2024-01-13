@@ -122,6 +122,7 @@ public class CustomerBehaviour : MonoBehaviour
             if(m_waitCoRoutine != null)
                 StopCoroutine(m_waitCoRoutine);
 
+            ServiceManager.instance.currentTipMultiplier = m_waitingMultiplier;
             ServiceManager.instance._OnGiveDish -= GiveDish;
             ServiceManager.instance._OnCallForDecrement -= FixIndex;
             ServiceManager.instance.FreeSeat(designedSeat);

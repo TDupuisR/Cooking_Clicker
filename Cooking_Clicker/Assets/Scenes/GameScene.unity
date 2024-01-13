@@ -2240,6 +2240,7 @@ MonoBehaviour:
   - {fileID: 2127621767}
   - {fileID: 177574528}
   - {fileID: 1442469625}
+  m_maximumTip: 10
   m_newCustomerSound: {fileID: 8300000, guid: 4fc313fa70eed9b4bb2bcbd8faf44380, type: 3}
   m_ServeCustomerSound: {fileID: 8300000, guid: 96008d68fe3469e4e8858e989971e0f1, type: 3}
   m_testDish: {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
@@ -4432,7 +4433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Price : 999$'
+  m_text: 'Price (without tip) : 999$'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2469af5cf03c781428255653bb34cce0, type: 2}
   m_sharedMaterial: {fileID: -6069545970047378791, guid: 2469af5cf03c781428255653bb34cce0, type: 2}

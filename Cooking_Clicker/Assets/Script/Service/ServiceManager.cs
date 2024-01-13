@@ -32,12 +32,15 @@ public class ServiceManager : MonoBehaviour
 
     [Header("Waiter")]
     [SerializeField] List<GameObject> m_waiterList;
+    [SerializeField] float m_maximumTip;
 
     [Header("Sound")]
     [SerializeField] AudioClip m_newCustomerSound;
     [SerializeField] AudioClip m_ServeCustomerSound;
 
     bool m_spawnCustomer = true;
+
+    public float currentTipMultiplier { get; set; }
 
     public List<DishBehavior> DishReady { get => m_dishReady; set => m_dishReady = value; }
 
@@ -101,7 +104,7 @@ public class ServiceManager : MonoBehaviour
         ReArrengeWaiters(dishIndex);
         _OnCallForDecrement?.Invoke(dishIndex);
 
-        GameManager.Instance.Money += (uint)(servedDish.moneyValue * GameManager.Instance.Multiplier);
+        GameManager.Instance.Money += (uint)((servedDish.moneyValue * GameManager.Instance.Multiplier) + m_maximumTip * currentTipMultiplier);
         GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
     }
 

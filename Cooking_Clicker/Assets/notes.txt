@@ -1,25 +1,15 @@
 ToDo :
-Add salt / pepper bonus
-
-(Opt) Add sound :
-	Furnace, 
-	Pan, 
-	Cooking_pot, 
-	Blender, 
-	Fryer, 
-	Plancha, 
-	Fridge
-
-Pénalité des clients :
-	(Opt) Pourboire
 
 Ajout d'info :	
 	Service :
-		Nombre de plats
+		Nombre de plats en préparation
 	
 	Cooking :
-		Pop up customer énervée -> bubble on left side
+		Bulle cooking time for preparation -> bubble on left side of button
 		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
+
+	Pop up customer énervée -> bubble on left side
+
 
 Power point 5 / 10 minutes :
 	Concept & ptite démo

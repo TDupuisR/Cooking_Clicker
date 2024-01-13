@@ -35,7 +35,7 @@ public class DishDico : MonoBehaviour
 
         m_dishPrepTime.text = "Preparation time : " + dish.prepTime.ToString() + " seconds";
         m_dishCookTime.text = "Cooking time : " + dish.cookTime.ToString() + " seconds";
-        m_dishPrice.text = "Price : " + (int)(dish.moneyValue * GameManager.Instance.Multiplier) + "$";
+        m_dishPrice.text = "Price (without tip) : " + (int)(dish.moneyValue * GameManager.Instance.Multiplier) + "$";
     }
 
     public void HideHelp()
