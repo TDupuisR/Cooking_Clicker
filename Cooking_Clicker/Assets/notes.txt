@@ -4,7 +4,6 @@ Ajout d'info :
 	Cooking :
 		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
 
-Ajout musique d'ambiance
 .png pour ingrédients
 
 Power point 5 / 10 minutes :
