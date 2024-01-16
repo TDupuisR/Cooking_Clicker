@@ -31,6 +31,7 @@ public class PreparationButton : MonoBehaviour
 
     public delegate void OnTouchdelegate(Vector2 spawnPos, int[] id);
     public static event OnTouchdelegate OnTouch;
+    public static event Action<int> ChangePreparationButton;
 
     public int LinkedSeat { get; set; }
     public DishBehavior dish { get => m_dish; set => m_dish = value; }
@@ -46,6 +47,8 @@ public class PreparationButton : MonoBehaviour
         m_button.interactable = false;
 
         CustomerBehaviour.onIsDoneWaiting += DestroyButton;
+
+        ChangePreparationButton?.Invoke(1);
     }
 
     private void FixedUpdate()
@@ -70,6 +73,7 @@ public class PreparationButton : MonoBehaviour
             case GameManagerStatic.DishStates.Cook:
                 m_preparationScrollBar.PreparationButtons.Remove(gameObject);
                 m_preparationScrollBar.UpdateSize();
+                ChangePreparationButton?.Invoke(-1);
                 Destroy(gameObject);
                 break;
         }
@@ -140,6 +144,7 @@ public class PreparationButton : MonoBehaviour
 
         m_preparationScrollBar.PreparationButtons.Remove(gameObject);
         m_preparationScrollBar.UpdateSize();
+        ChangePreparationButton?.Invoke(-1);
         Destroy(gameObject);
     }
     private void OnDestroy()

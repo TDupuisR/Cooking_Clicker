@@ -1,9 +1,6 @@
 ToDo :
 
-Ajout d'info :	
-	Service :
-		Nombre de plats en préparation
-	
+Ajout d'info :		
 	Cooking :
 		Bulle cooking time for preparation -> bubble on left side of button
 		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
