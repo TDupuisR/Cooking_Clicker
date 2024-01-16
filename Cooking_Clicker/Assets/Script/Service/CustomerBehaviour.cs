@@ -33,9 +33,12 @@ public class CustomerBehaviour : MonoBehaviour
     [SerializeField] Color m_endColor;
     [SerializeField] float m_waitOrderLimit;
     [SerializeField] float m_waitDishLimit;
+    [SerializeField] float m_waitingWarningLimit;
     float m_waitingMultiplier;
+    bool m_hasWarned;
     Coroutine m_waitCoRoutine;
 
+    public static event Action<bool, int> changeAngryPopUp;
     public static event Action<int> onIsDoneWaiting;
     public static event Action<int> onDoneWaitingGiveOrderDishIndex;
 
@@ -109,6 +112,12 @@ public class CustomerBehaviour : MonoBehaviour
             m_waitOrderGameObject.SetActive(true);
 
             m_currentState = customerState.WAITINGDISH;
+            if (m_hasWarned)
+            {
+                changeAngryPopUp?.Invoke(true, -1);
+                m_hasWarned = false;
+            }
+
             if (m_waitCoRoutine != null)
                 StopCoroutine(m_waitCoRoutine);
             m_waitCoRoutine = StartCoroutine(WaitingCoRoutine(m_waitOrderImg, m_waitDishLimit));
@@ -129,6 +138,11 @@ public class CustomerBehaviour : MonoBehaviour
             ServiceManager.instance.FreeSeat(designedSeat);
 
             m_currentState = customerState.MOVETOEXIT;
+            if (m_hasWarned)
+            {
+                changeAngryPopUp?.Invoke(false, -1);
+                m_hasWarned = false;
+            }
             m_waitOrderGameObject.SetActive(false);
             StartCoroutine(ReturnToSpawnPoint(1f));
         }
@@ -174,12 +188,23 @@ public class CustomerBehaviour : MonoBehaviour
         while (timeElapsed < delay)
         {
             m_waitingMultiplier = 1 - (timeElapsed / delay);
+            if(m_waitingMultiplier < m_waitingWarningLimit && !m_hasWarned)
+            {
+                changeAngryPopUp?.Invoke(img == m_askOrderImg, 1);
+                m_hasWarned = true;
+            }
+
             img.color = Color.Lerp(m_startColor, m_endColor, timeElapsed / delay);
             timeElapsed += Time.deltaTime;
 
             yield return null;
         }
         GetOut();
+        if (m_hasWarned)
+        {
+            changeAngryPopUp?.Invoke(img == m_askOrderImg, -1);
+            m_hasWarned = false;
+        }
         onIsDoneWaiting?.Invoke(designedSeat);
     }
 

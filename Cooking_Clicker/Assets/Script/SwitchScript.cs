@@ -1,6 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwitchScript : MonoBehaviour
@@ -12,14 +11,17 @@ public class SwitchScript : MonoBehaviour
 
     [Space(5)]
     [SerializeField] float m_transitionSpeed;
-    bool IsBusy;   
-    
+    bool IsBusy;
+
+    public static event Action<int> OnSwitchScreen;
+
     public void StartSwitchScreen(int Screen) { if (!IsBusy) StartCoroutine(SwitchScreen(Screen)); }
 
     IEnumerator SwitchScreen(int Offset)
     {
         IsBusy = true;
-        
+        OnSwitchScreen?.Invoke(Offset);
+
         //Definition de PLEIN de variables importantes
         float timeElapsed = 0;
         float m_universalYPosition = CookingGameObject.position.y; //Determine la position y des écrans

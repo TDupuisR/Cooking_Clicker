@@ -103,6 +103,7 @@ MonoBehaviour:
   m_endColor: {r: 1, g: 0.45605877, b: 0.36477983, a: 1}
   m_waitOrderLimit: 30
   m_waitDishLimit: 120
+  m_waitingWarningLimit: 0.25
   m_GetOrderSound: {fileID: 8300000, guid: 664e35f79f0ea404db924f979f969f2c, type: 3}
 --- !u!114 &6734205726469156618
 MonoBehaviour:
