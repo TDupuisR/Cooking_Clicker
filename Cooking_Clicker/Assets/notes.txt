@@ -2,9 +2,9 @@ ToDo :
 
 Ajout d'info :		
 	Cooking :
-		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
+		Ingredients nÃ©cessaire -> disappear Slider & Show remaining ingredients
 
-.png pour ingrédients
+sprite customer
 
 Power point 5 / 10 minutes :
-	Concept & ptite démo
+	Concept & ptite dÃ©mo
