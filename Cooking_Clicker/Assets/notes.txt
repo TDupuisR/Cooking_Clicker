@@ -2,11 +2,12 @@ ToDo :
 
 Ajout d'info :		
 	Cooking :
-		Bulle cooking time for preparation -> bubble on left side of button
 		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
 
 	Pop up customer énervée -> bubble on left side
 
+Ajout musique d'ambiance
+.png pour ingrédients
 
 Power point 5 / 10 minutes :
 	Concept & ptite démo

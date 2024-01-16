@@ -54,6 +54,7 @@ public class CustomerBehaviour : MonoBehaviour
     {
         get => m_designedSeat; set => m_designedSeat = value;
     }
+    public float WaitingMultiplier { get => m_waitingMultiplier; }
 
     private void Awake()
     {
@@ -111,7 +112,7 @@ public class CustomerBehaviour : MonoBehaviour
             if (m_waitCoRoutine != null)
                 StopCoroutine(m_waitCoRoutine);
             m_waitCoRoutine = StartCoroutine(WaitingCoRoutine(m_waitOrderImg, m_waitDishLimit));
-            m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish, designedSeat);
+            m_orderDishIndex = ServiceManager.instance.OrderDish(m_orderDish, this);
         }
     }
 

@@ -16,6 +16,7 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] Slider m_progressionSlider;
     [SerializeField] Button m_button;
     [SerializeField] PreparationScrollBar m_preparationScrollBar;
+    CustomerBehaviour m_linkedCustomer;
 
     [Header("Dish Values")]
     [SerializeField] DishBehavior m_dish;
@@ -24,6 +25,12 @@ public class PreparationButton : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] List<AudioClip> m_speedProgressionAudio;
+
+    [Header("Bubble Left")]
+    [SerializeField] Image m_bubbleImg;
+    [SerializeField] Color m_startColor;
+    [SerializeField] Color m_endColor;
+
 
     [Header("Event")]
     [SerializeField] UnityEvent OnProgression;
@@ -34,6 +41,7 @@ public class PreparationButton : MonoBehaviour
     public static event Action<int> ChangePreparationButton;
 
     public int LinkedSeat { get; set; }
+    public CustomerBehaviour LinkedCustomer { get => m_linkedCustomer; set => m_linkedCustomer = value; }
     public DishBehavior dish { get => m_dish; set => m_dish = value; }
     public PreparationScrollBar scrollbar { set => m_preparationScrollBar = value; }
     public GameManagerStatic.DishStates currentState { set => m_currentStates = value; }
@@ -41,6 +49,7 @@ public class PreparationButton : MonoBehaviour
     private void Awake()
     {
         //recipe = new Recipes(name, m_ressourcesNeeded, m_preparationTime, m_machineNeeded, m_cookingTime);
+
 
         m_nameText.text = m_dish.name;
         m_image.sprite = m_dish.sprite;
@@ -77,6 +86,9 @@ public class PreparationButton : MonoBehaviour
                 Destroy(gameObject);
                 break;
         }
+
+        //Update waiting bubble
+        m_bubbleImg.color = Color.Lerp(m_startColor, m_endColor, 1 - m_linkedCustomer.WaitingMultiplier);
     }
 
     bool CheckIngredients()

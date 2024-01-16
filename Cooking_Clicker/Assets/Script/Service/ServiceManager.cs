@@ -69,12 +69,13 @@ public class ServiceManager : MonoBehaviour
         }
     }
 
-    public int OrderDish(DishBehavior newDish, int m_linkedSeat)
+    public int OrderDish(DishBehavior newDish, CustomerBehaviour linkedCustomer)
     {
         m_dishOrdered.Add(newDish);
         GameObject prepButton = Instantiate(m_preparationPrefab, m_preparationParent);
         prepButton.GetComponent<PreparationButton>().dish = newDish;
-        prepButton.GetComponent<PreparationButton>().LinkedSeat = m_linkedSeat;
+        prepButton.GetComponent<PreparationButton>().LinkedSeat = linkedCustomer.designedSeat;
+        prepButton.GetComponent<PreparationButton>().LinkedCustomer = linkedCustomer;
         prepButton.GetComponent<PreparationButton>().ChangeInterface();
         prepButton.GetComponent<PreparationButton>().scrollbar = m_preparationScrollBar;
         prepButton.transform.SetSiblingIndex(2); 
