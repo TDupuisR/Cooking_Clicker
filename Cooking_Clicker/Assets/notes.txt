@@ -4,7 +4,5 @@ Ajout d'info :
 	Cooking :
 		Ingredients nécessaire -> disappear Slider & Show remaining ingredients
 
-.png pour ingrédients
-
 Power point 5 / 10 minutes :
 	Concept & ptite démo

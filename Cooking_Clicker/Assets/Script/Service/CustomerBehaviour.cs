@@ -2,6 +2,7 @@ using GameManagerSpace;
 using NaughtyAttributes;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -22,7 +23,8 @@ public class CustomerBehaviour : MonoBehaviour
     Vector2 m_startPosition;
     [SerializeField] int m_orderDishIndex = -1;
     private int m_designedSeat;
-
+    [SerializeField] List<Sprite> m_spriteList;
+     
     [Space(10)]
     [SerializeField] GameObject m_askOrderGameObject;
     [SerializeField] GameObject m_waitOrderGameObject;
@@ -61,9 +63,7 @@ public class CustomerBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        GetComponent<Image>().color = new Color(Random.Range(.5f, 1), 
-                                                Random.Range(.5f, 1), 
-                                                Random.Range(.5f, 1));
+        GetComponent<Image>().sprite = m_spriteList[Random.Range(0, m_spriteList.Count)];
         m_startPosition = transform.localPosition;
         m_currentState = customerState.MOVETOPLACE;
 
