@@ -138,6 +138,7 @@ public class CustomerBehaviour : MonoBehaviour
             ServiceManager.instance.FreeSeat(designedSeat);
 
             m_currentState = customerState.MOVETOEXIT;
+            EffectManager.instance.CreateEffect(transform.position, EffectManager._effectImg.CASH);
             if (m_hasWarned)
             {
                 changeAngryPopUp?.Invoke(false, -1);
@@ -218,6 +219,7 @@ public class CustomerBehaviour : MonoBehaviour
         ServiceManager.instance._OnCallForDecrement -= FixIndex;
         ServiceManager.instance.FreeSeat(designedSeat);
 
+        EffectManager.instance.CreateEffect(transform.position, EffectManager._effectImg.NOTHAPPY);
         StartCoroutine(ReturnToSpawnPoint(1f));
     }
 
