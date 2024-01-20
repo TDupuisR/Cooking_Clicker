@@ -7,24 +7,24 @@ public class WaiterBehavior : MonoBehaviour
     [SerializeField] Transform m_origin;
     [SerializeField] float m_speed;
     [SerializeField] Vector3 m_targetPosition;
+    [SerializeField] float m_tolerance = 5f;
 
-    private bool m_isWaiting;
-    private bool m_isServed;
+    [SerializeField] private bool m_isWaiting;
+    [SerializeField] private bool m_isServed;
+    [SerializeField] private bool m_isServing;
     public bool IsWaiting { get => m_isWaiting; set => m_isWaiting = value; }
     public bool IsServed { get => m_isServed; set => m_isServed = value; }
 
-    private void Awake()
-    {
-        ServiceManager.instance._OnWaiterStartServing += GoToServe;
-    }
     private void Start()
     {
         m_isWaiting = true;
         m_isServed = false;
-        m_speed = 1.0f;
+        m_speed = 20.0f;
 
-        m_targetPosition = m_origin.position;
-        transform.position = m_origin.position;
+        m_targetPosition = m_origin.localPosition;
+        transform.localPosition = m_origin.localPosition;
+
+        ServiceManager.instance._OnWaiterStartServing += GoToServe;
     }
 
     private void FixedUpdate()
@@ -36,7 +36,7 @@ public class WaiterBehavior : MonoBehaviour
 
     private void MoveTo(Vector3 targetPosition)
     {
-        if (Vector3.Distance(transform.position, targetPosition) >= 0.1)
+        if (Vector3.Distance(transform.localPosition, targetPosition) >= m_tolerance)
         {
             Vector3 move = Vector3.Normalize(targetPosition - transform.localPosition) * (Time.fixedDeltaTime * m_speed);
             transform.Translate(move, Space.Self);
@@ -46,14 +46,15 @@ public class WaiterBehavior : MonoBehaviour
 
     private void ChechStatus()
     {
-        if (transform.localPosition == m_origin.localPosition)
+        if (Vector3.Distance(transform.localPosition, m_origin.localPosition) <= m_tolerance && !m_isServing)
         {
             m_isWaiting = true;
             m_isServed = false;
         }
-        if (transform.localPosition == m_targetPosition && m_targetPosition != m_origin.localPosition)
+        if (Vector3.Distance(transform.localPosition, m_targetPosition) <= m_tolerance*8 && m_targetPosition != m_origin.localPosition)
         {
             m_isServed = true;
+            m_isServing = false;
             m_targetPosition = m_origin.localPosition;
         }
     }
@@ -62,10 +63,11 @@ public class WaiterBehavior : MonoBehaviour
     {
         m_targetPosition = seat;
         m_isWaiting = false;
+        m_isServing = true;
     }
 
     public void UpgradeWaiter()
     {
-        m_speed += 0.1f;
+        m_speed *= 1.1f;
     }
 }
