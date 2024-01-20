@@ -6,6 +6,7 @@ using NaughtyAttributes;
 using GameManagerSpace;
 using Random = UnityEngine.Random;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ServiceManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class ServiceManager : MonoBehaviour
     [SerializeField] Transform m_customerParent;
     [SerializeField] Transform m_customerSpawnPoint;
     [SerializeField] List<Seat> m_seatList;
+    List<Seat> m_dishLinkedSeat = new List<Seat>();
+
     [Header("Queue")]
     [SerializeField] int m_queueCount;
     [SerializeField] GameObject m_queueObject; 
@@ -33,6 +36,7 @@ public class ServiceManager : MonoBehaviour
     [Header("Waiter")]
     [SerializeField] List<GameObject> m_waiterList;
     [SerializeField] float m_maximumTip;
+    [SerializeField] WaiterBehavior m_waiterScript;
 
     [Header("Sound")]
     [SerializeField] AudioClip m_newCustomerSound;
@@ -46,6 +50,7 @@ public class ServiceManager : MonoBehaviour
 
     public event Action<int> _OnGiveDish;
     public event Action<int> _OnCallForDecrement;
+    public event Action<Vector2> _OnWaiterStartServing;
 
     private void Awake()
     {
@@ -56,6 +61,7 @@ public class ServiceManager : MonoBehaviour
         instance = this;
 
         StartCoroutine(InfiniteCustomerSpawner());
+        StartCoroutine(InfiniteWaiterChecker());
 
         CustomerBehaviour.onDoneWaitingGiveOrderDishIndex += DestroyServer;
     }
@@ -69,9 +75,32 @@ public class ServiceManager : MonoBehaviour
         }
     }
 
+    IEnumerator InfiniteWaiterChecker()
+    {
+        while (true)
+        {
+            for (int i = 0; i < m_dishIsReady.Count; i++)
+            {
+                if (m_dishIsReady[i])
+                {
+                    ServeDishByWaiter(i);
+                    yield return new WaitUntil(() => m_waiterScript.IsServed == true);
+                    Debug.Log("test IsServed" + m_waiterScript.IsServed);
+                    yield return new WaitUntil(() => m_waiterScript.IsWaiting == true);
+                    Debug.Log("test IsWaiting" + m_waiterScript.IsWaiting);
+
+                    i = m_dishIsReady.Count;
+                }
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
     public int OrderDish(DishBehavior newDish, CustomerBehaviour linkedCustomer)
     {
         m_dishOrdered.Add(newDish);
+        m_dishLinkedSeat.Add(m_seatList[linkedCustomer.designedSeat]);
         GameObject prepButton = Instantiate(m_preparationPrefab, m_preparationParent);
         prepButton.GetComponent<PreparationButton>().dish = newDish;
         prepButton.GetComponent<PreparationButton>().LinkedSeat = linkedCustomer.designedSeat;
@@ -100,6 +129,7 @@ public class ServiceManager : MonoBehaviour
 
         _OnGiveDish?.Invoke(dishIndex);
         m_dishOrdered.Remove(servedDish);
+        m_dishLinkedSeat.RemoveAt(dishIndex);
         m_dishReady.Remove(servedDish);
         m_dishIsReady[dishIndex] = false;
         ReArrengeWaiters(dishIndex);
@@ -107,6 +137,43 @@ public class ServiceManager : MonoBehaviour
 
         GameManager.Instance.Money += (uint)((servedDish.moneyValue * GameManager.Instance.Multiplier) + m_maximumTip * currentTipMultiplier);
         GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
+    }
+
+    void ServeDishByWaiter(int dishIndex)
+    {
+        m_waiterList[dishIndex].SetActive(false);
+
+        if (m_dishOrdered.Count <= dishIndex)
+            throw new Exception("dishIndex too high, served dish can't be in m_dishOrdered");
+
+        DishBehavior servedDish = m_dishOrdered[dishIndex];
+
+        if (!m_dishReady.Contains(servedDish))
+            throw new Exception("Served dish isn't in m_dishReady");
+
+        StartCoroutine(WaiterCourseCoroutine(dishIndex, servedDish));
+    }
+
+    IEnumerator WaiterCourseCoroutine(int dishIndex, DishBehavior servedDish)
+    {
+        _OnWaiterStartServing?.Invoke(m_dishLinkedSeat[dishIndex].position);
+        yield return new WaitUntil(() => m_waiterScript.IsServed);
+
+        Debug.Log("test servie");
+
+        if (m_dishOrdered.Contains(servedDish))
+        {
+            _OnGiveDish?.Invoke(dishIndex);
+            m_dishOrdered.Remove(servedDish);
+            m_dishLinkedSeat.RemoveAt(dishIndex);
+            m_dishReady.Remove(servedDish);
+            m_dishIsReady[dishIndex] = false;
+            ReArrengeWaiters(dishIndex);
+            _OnCallForDecrement?.Invoke(dishIndex);
+
+            GameManager.Instance.Money += (uint)((servedDish.moneyValue * GameManager.Instance.Multiplier) + m_maximumTip * currentTipMultiplier);
+            GameManager.soundManager.SpawnSound(m_ServeCustomerSound);
+        }
     }
 
     void ReArrengeWaiters(int dishIndex)
@@ -208,6 +275,7 @@ public class ServiceManager : MonoBehaviour
         DishBehavior servedDish = m_dishOrdered[dishIndex];
 
         m_dishOrdered.Remove(servedDish);
+        m_dishLinkedSeat.RemoveAt(dishIndex);
         m_dishReady.Remove(servedDish);
         m_waiterList[dishIndex].SetActive(false);
         m_dishIsReady[dishIndex] = false;
