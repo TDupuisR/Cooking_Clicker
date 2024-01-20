@@ -7458,21 +7458,21 @@ MonoBehaviour:
   ressourcesAmount: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_debugSprite: {fileID: 21300000, guid: 48e042018d04daa46989c8819d44ef2a, type: 3}
   m_productImage:
-  - {fileID: 21300000, guid: 7acc9022b376a5b429dc8f76f2d874e2, type: 3}
-  - {fileID: 21300000, guid: a1c3ae212093bdb4880702a2558655bc, type: 3}
-  - {fileID: 21300000, guid: a5d5d7165b8a10840862d048d61c2b82, type: 3}
-  - {fileID: 21300000, guid: 7ce0e62927f0d9447ba8424f71edccb0, type: 3}
-  - {fileID: 21300000, guid: 29ced566b13803743886a60b22513859, type: 3}
-  - {fileID: 21300000, guid: 40cea4deb6db62643b65a0a3b27a182f, type: 3}
-  - {fileID: 21300000, guid: 38ff460728dc6ec42ac417cd2e19256a, type: 3}
-  - {fileID: 21300000, guid: 113a0825fae984e489d45003d1390e09, type: 3}
-  - {fileID: 21300000, guid: a20fef67c91918b42bb2029ed090682c, type: 3}
-  - {fileID: 21300000, guid: 463789b44eb7b0f4296abb10cbec1b07, type: 3}
-  - {fileID: 21300000, guid: 71058d23f3df4454d864539c2a3622f4, type: 3}
-  - {fileID: 21300000, guid: 7adff66bd7e82f04c905ca3c73f8429d, type: 3}
-  - {fileID: 21300000, guid: a00d5bb93d6befb42acc1c2b47d2ac07, type: 3}
-  - {fileID: 21300000, guid: 92b26b67cd078a4459162269b9ebc3ab, type: 3}
-  - {fileID: 21300000, guid: 065db63280588a943a6799818a75ad41, type: 3}
+  - {fileID: 21300000, guid: 166654c80617d69448627d0f094899ef, type: 3}
+  - {fileID: 21300000, guid: 3e5f46a64e4f1034081cc3c5ddb5ecba, type: 3}
+  - {fileID: 21300000, guid: f95e1a504fa6c194ea9efbddf9821d35, type: 3}
+  - {fileID: 21300000, guid: 6f9367d4f89c3f14f9d83835715a2dcd, type: 3}
+  - {fileID: 21300000, guid: 6f738ee5f339c144596ff83f57ba1362, type: 3}
+  - {fileID: 21300000, guid: 540f05cba13372a42af2b9e4b8d5d05d, type: 3}
+  - {fileID: 21300000, guid: 3a01c60d8cfaf784b973d3cdd663d673, type: 3}
+  - {fileID: 21300000, guid: f40450bd0c0e1f94da402702baf51f5b, type: 3}
+  - {fileID: 21300000, guid: 0104a252773f3534cb88a5851397225f, type: 3}
+  - {fileID: 21300000, guid: e7ad5ca6d8d1e6045b677f8647ee6f1e, type: 3}
+  - {fileID: 21300000, guid: 8f4936376b0a3c84fb0be4258d974b0b, type: 3}
+  - {fileID: 21300000, guid: e5e19ad7d4bd2c34a828f6966fce9344, type: 3}
+  - {fileID: 21300000, guid: e8cb14cea6c36ff4a98c6008a56e78bf, type: 3}
+  - {fileID: 21300000, guid: 9ee417bf9e292f74f87257af464b1366, type: 3}
+  - {fileID: 21300000, guid: 1774c19fd9f75904eaf1f54703086e19, type: 3}
   m_availableIngredients: 010000000000000000000000000000
 --- !u!4 &1416036365
 Transform:
