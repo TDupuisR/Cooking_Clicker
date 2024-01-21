@@ -14,6 +14,7 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] TMP_Text m_nameText;
     [SerializeField] Image m_image;
     [SerializeField] Slider m_progressionSlider;
+    [SerializeField] Image m_sliderFill;
     [SerializeField] Button m_button;
     [SerializeField] PreparationScrollBar m_preparationScrollBar;
     CustomerBehaviour m_linkedCustomer;
@@ -95,11 +96,11 @@ public class PreparationButton : MonoBehaviour
     {
         bool HasIngredients = true;
 
-        //Compte le nombre d'ingrédient
+        //Compte le nombre d'ingrï¿½dient
         int[] ressourcesNeededAmount = new int[15];
         foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients) ressourcesNeededAmount[(int)ingredient]++;
 
-        //Vérifie si on a les ingrédients
+        //Vï¿½rifie si on a les ingrï¿½dients
         foreach (GameManagerStatic.RessourcesNames ingredient in m_dish.ingredients)
         {
             if (GameManager.ressourceManager.ressourcesAmount[(int)ingredient] < ressourcesNeededAmount[(int)ingredient]) HasIngredients = false;
@@ -135,7 +136,7 @@ public class PreparationButton : MonoBehaviour
         CookerManager.instance.LinkedPrepButton.Add(this);
         CookerManager.instance.DishQueue.Add(m_dish);
         m_image.color = new Color(.5f, .5f, .5f);
-        m_button.interactable = false;
+        m_sliderFill.color = new Color(0f,1f,0f);
         m_currentStates = GameManagerStatic.DishStates.QueueCook;
     }
 

@@ -10,10 +10,12 @@ public class CookerManager : MonoBehaviour
     public static CookerManager instance;
 
     [SerializeField] List<Slider> m_progressionSliders;
+    [SerializeField] List<Image> m_progressionSlidersFill;
     [SerializeField] List<Image> m_cookerImage;
     [SerializeField] List<bool> m_machineUsed;
     [SerializeField] List<int> m_currentDishIndex;
     [SerializeField] List<bool> m_dishIndexNeedDecrement;
+    [SerializeField] Gradient m_fillgradient;
 
     [SerializeField] List<DishBehavior> m_dishQueue = new List<DishBehavior>();
     [SerializeField] List<PreparationButton> m_linkedPrepButton = new List<PreparationButton>();
@@ -54,13 +56,13 @@ public class CookerManager : MonoBehaviour
                 m_ustensilSeatList[linkedSeat] = dishUstensils;
                 m_ustensilRecipeIndexList[linkedSeat] = m_iteration;
                 LinkedPrepButton[m_iteration].currentState = GameManagerStatic.DishStates.Cook;
-                m_ustensilCoroutine[dishUstensils] = StartCoroutine( UseMachine(dish, m_iteration, linkedSeat) );
+                m_ustensilCoroutine[dishUstensils] = StartCoroutine( UseMachine(dish, m_iteration, linkedSeat, m_fillgradient) );
             }
             m_iteration++;
         }
     }
 
-    IEnumerator UseMachine(DishBehavior dish, int recepieIndex, int seat)
+    IEnumerator UseMachine(DishBehavior dish, int recepieIndex, int seat, Gradient fillGradient)
     {
         int progress = 0;
         int m_machineIndex = (int)dish.ustensils;
@@ -82,6 +84,7 @@ public class CookerManager : MonoBehaviour
             }
             progress++;
             m_progressionSliders[m_machineIndex].value = progress;
+            m_progressionSlidersFill[m_machineIndex].color = fillGradient.Evaluate(progress / 100.0f);
         }
 
         ServiceManager.instance.DishReady.Add(dish);
