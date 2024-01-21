@@ -136,6 +136,7 @@ public class PreparationButton : MonoBehaviour
         CookerManager.instance.LinkedPrepButton.Add(this);
         CookerManager.instance.DishQueue.Add(m_dish);
         m_image.color = new Color(.5f, .5f, .5f);
+        m_button.interactable = false;
         m_sliderFill.color = new Color(0f,1f,0f);
         m_currentStates = GameManagerStatic.DishStates.QueueCook;
     }

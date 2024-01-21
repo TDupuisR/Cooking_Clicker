@@ -97,7 +97,7 @@ public class CookerManager : MonoBehaviour
                 m_dishIndexNeedDecrement[i] = true;
         }
 
-        m_dishQueue.RemoveAt(recepieIndex);
+        m_dishQueue.RemoveAt(recepieIndex); //Bug to fix: sometime indexOutOfRange
         LinkedPrepButton.RemoveAt(recepieIndex);
         m_ustensilSeatList[seat] = -1;
 
