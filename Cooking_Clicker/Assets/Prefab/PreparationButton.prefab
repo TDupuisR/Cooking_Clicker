@@ -303,6 +303,7 @@ MonoBehaviour:
   m_nameText: {fileID: 4648265880291951460}
   m_image: {fileID: 1107238547397891924}
   m_progressionSlider: {fileID: 4924694192409634182}
+  m_sliderFill: {fileID: 2482912992596255879}
   m_button: {fileID: 6207862976975380103}
   m_preparationScrollBar: {fileID: 0}
   m_dish: {fileID: 11400000, guid: 71c1ec920d570e549a9d756d49c18dd6, type: 2}
@@ -831,8 +832,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -857,7 +858,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

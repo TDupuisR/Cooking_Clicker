@@ -14,6 +14,7 @@ public class PreparationButton : MonoBehaviour
     [SerializeField] TMP_Text m_nameText;
     [SerializeField] Image m_image;
     [SerializeField] Slider m_progressionSlider;
+    [SerializeField] Image m_sliderFill;
     [SerializeField] Button m_button;
     [SerializeField] PreparationScrollBar m_preparationScrollBar;
     CustomerBehaviour m_linkedCustomer;
@@ -135,6 +136,7 @@ public class PreparationButton : MonoBehaviour
         CookerManager.instance.LinkedPrepButton.Add(this);
         CookerManager.instance.DishQueue.Add(m_dish);
         m_image.color = new Color(.5f, .5f, .5f);
+        m_sliderFill.color = new Color(0f,1f,0f);
         m_currentStates = GameManagerStatic.DishStates.QueueCook;
     }
 
