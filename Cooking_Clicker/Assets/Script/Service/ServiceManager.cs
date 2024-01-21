@@ -85,15 +85,37 @@ public class ServiceManager : MonoBehaviour
                 {
                     ServeDishByWaiter(i);
                     yield return new WaitUntil(() => m_waiterScript.IsServed == true);
-                    Debug.Log("test IsServed" + m_waiterScript.IsServed);
                     yield return new WaitUntil(() => m_waiterScript.IsWaiting == true);
-                    Debug.Log("test IsWaiting" + m_waiterScript.IsWaiting);
 
                     i = m_dishIsReady.Count;
                 }
             }
 
+            for (int k = 0; k < m_seatList.Count; k++)
+            {
+                if (m_seatList[k].Customer == null) continue;
+                else if (m_seatList[k].Customer.CurrentState == CustomerBehaviour.customerState.WAITINGORDER)
+                {
+                    StartCoroutine(TakeOrder(m_seatList[k]));
+                    yield return new WaitUntil(() => m_waiterScript.IsServed == true);
+                    yield return new WaitUntil(() => m_waiterScript.IsWaiting == true);
+
+                    k = m_seatList.Count;
+                }
+            }
+
             yield return new WaitForFixedUpdate();
+        }
+    }
+
+    IEnumerator TakeOrder(Seat customerSeat)
+    {
+        _OnWaiterStartServing?.Invoke(customerSeat.position);
+        yield return new WaitUntil(() => m_waiterScript.IsServed);
+
+        if (customerSeat.Customer.CurrentState == CustomerBehaviour.customerState.WAITINGORDER)
+        {
+            customerSeat.Customer.GetOrder();
         }
     }
 
@@ -159,8 +181,6 @@ public class ServiceManager : MonoBehaviour
         _OnWaiterStartServing?.Invoke(m_dishLinkedSeat[dishIndex].position);
         yield return new WaitUntil(() => m_waiterScript.IsServed);
 
-        Debug.Log("test servie");
-
         if (m_dishOrdered.Contains(servedDish))
         {
             _OnGiveDish?.Invoke(dishIndex);
@@ -220,6 +240,7 @@ public class ServiceManager : MonoBehaviour
             newCustomer.transform.localPosition = m_customerSpawnPoint.localPosition;
 
             CustomerBehaviour newCustomerBehaviour = newCustomer.GetComponent<CustomerBehaviour>();
+            m_seatList[randIndex].Customer = newCustomerBehaviour;
             newCustomerBehaviour.orderDish = GameManager.Instance.GetRandomDish();
             newCustomerBehaviour.placePosition = newSeat.position;
             newCustomerBehaviour.designedSeat = randIndex;
@@ -265,6 +286,7 @@ public class ServiceManager : MonoBehaviour
 
     public void FreeSeat(int seatNumber)
     {
+        m_seatList[seatNumber].Customer = null;
         m_seatList[seatNumber].Occupied = false;
         if (m_queueCount > 0)
             SpawnCustomer();

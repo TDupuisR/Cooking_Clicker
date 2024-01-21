@@ -28,7 +28,7 @@ public class CookerManager : MonoBehaviour
     [SerializeField] AudioClip m_dishReady;
 
     public delegate void OnSwitchToCook(int index);
-    public static event OnSwitchToCook OnGoingToCook;
+    //public static event OnSwitchToCook OnGoingToCook;
 
     private void Awake()
     {

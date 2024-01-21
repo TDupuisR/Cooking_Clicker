@@ -6,7 +6,9 @@ public class Seat : MonoBehaviour
 {
     [SerializeField] private bool m_Occupied;
     [SerializeField] private Vector2 m_position;
+    [SerializeField] private CustomerBehaviour m_customer;
 
     public bool Occupied { get => m_Occupied; set => m_Occupied = value; }
     public Vector2 position { get => m_position; set => m_position = value; }
+    public CustomerBehaviour Customer { get => m_customer; set => m_customer = value; }
 }

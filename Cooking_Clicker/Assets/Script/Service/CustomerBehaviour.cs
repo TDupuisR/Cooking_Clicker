@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class CustomerBehaviour : MonoBehaviour
 {
-    enum customerState
+    public enum customerState
     {
             MOVETOPLACE,
             WAITINGORDER,
@@ -60,12 +60,13 @@ public class CustomerBehaviour : MonoBehaviour
         get => m_designedSeat; set => m_designedSeat = value;
     }
     public float WaitingMultiplier { get => m_waitingMultiplier; }
+    public customerState CurrentState { get => m_currentState; set => m_currentState = value; }
 
     private void Awake()
     {
         GetComponent<Image>().sprite = m_spriteList[Random.Range(0, m_spriteList.Count)];
         m_startPosition = transform.localPosition;
-        m_currentState = customerState.MOVETOPLACE;
+        CurrentState = customerState.MOVETOPLACE;
 
         StartCoroutine(MoveToPlace(2f));
 
@@ -100,18 +101,18 @@ public class CustomerBehaviour : MonoBehaviour
         }
 
         m_askOrderGameObject.SetActive(true);
-        m_currentState = customerState.WAITINGORDER;
+        CurrentState = customerState.WAITINGORDER;
         m_waitCoRoutine = StartCoroutine(WaitingCoRoutine(m_askOrderImg, m_waitOrderLimit));
     }
 
     public void GetOrder()
     {
-        if(m_currentState == customerState.WAITINGORDER) {
+        if(CurrentState == customerState.WAITINGORDER) {
             GameManager.soundManager.SpawnSound(m_GetOrderSound);
             m_askOrderGameObject.SetActive(false);
             m_waitOrderGameObject.SetActive(true);
 
-            m_currentState = customerState.WAITINGDISH;
+            CurrentState = customerState.WAITINGDISH;
             if (m_hasWarned)
             {
                 changeAngryPopUp?.Invoke(true, -1);
@@ -137,7 +138,7 @@ public class CustomerBehaviour : MonoBehaviour
             ServiceManager.instance._OnCallForDecrement -= FixIndex;
             ServiceManager.instance.FreeSeat(designedSeat);
 
-            m_currentState = customerState.MOVETOEXIT;
+            CurrentState = customerState.MOVETOEXIT;
             EffectManager.instance.CreateEffect(transform.position, EffectManager._effectImg.CASH);
             if (m_hasWarned)
             {
@@ -211,7 +212,7 @@ public class CustomerBehaviour : MonoBehaviour
 
     void GetOut()
     {
-        m_currentState = customerState.MOVETOEXIT;
+        CurrentState = customerState.MOVETOEXIT;
         m_waitOrderGameObject.SetActive(false);
         m_askOrderGameObject.SetActive(false);
 

@@ -1142,7 +1142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &175373494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1274,7 +1274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &177574529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2244,6 +2244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: -480, y: -50}
+  m_customer: {fileID: 0}
 --- !u!1 &404928539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &413132614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2946,6 +2947,10 @@ MonoBehaviour:
   m_scrollBar: {fileID: 480506776}
   m_PreparationButtons: []
   m_firstTargetTransform: {fileID: 0}
+  m_input: {fileID: 1312734338}
+  m_canvas: {fileID: 114944690}
+  m_thisPanel: 1
+  m_noMaxHeightLimit: 0
   m_startingPosition: {x: 60, y: -240}
   m_offsetPosition: -330
   m_ignorePrepButtons: 2
@@ -3822,6 +3827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: 480, y: -250}
+  m_customer: {fileID: 0}
 --- !u!1001 &687468169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4662,6 +4668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: 480, y: -50}
+  m_customer: {fileID: 0}
 --- !u!1 &859297684
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,6 +5317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: -480, y: 350}
+  m_customer: {fileID: 0}
 --- !u!1 &966476476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,6 +5496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: -480, y: -250}
+  m_customer: {fileID: 0}
 --- !u!1001 &1024009081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6106,6 +6115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: 480, y: -650}
+  m_customer: {fileID: 0}
 --- !u!1 &1104410362
 GameObject:
   m_ObjectHideFlags: 0
@@ -7293,7 +7303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1380175886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7868,7 +7878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1435044131
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8000,7 +8010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1442469626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8563,7 +8573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1611206050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9994,6 +10004,10 @@ MonoBehaviour:
   - {fileID: 1055504111}
   - {fileID: 2097373058}
   m_firstTargetTransform: {fileID: 1675956988}
+  m_input: {fileID: 1312734338}
+  m_canvas: {fileID: 778084526}
+  m_thisPanel: 2
+  m_noMaxHeightLimit: 1
   m_startingPosition: {x: 0, y: 0}
   m_offsetPosition: -400
   m_ignorePrepButtons: 4
@@ -10889,7 +10903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1932427394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11362,6 +11376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: 480, y: 350}
+  m_customer: {fileID: 0}
 --- !u!1 &2024288749
 GameObject:
   m_ObjectHideFlags: 0
@@ -11566,6 +11581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Occupied: 0
   m_position: {x: -480, y: -650}
+  m_customer: {fileID: 0}
 --- !u!1 &2068792002
 GameObject:
   m_ObjectHideFlags: 0
@@ -12421,7 +12437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2127621768
 RectTransform:
   m_ObjectHideFlags: 0

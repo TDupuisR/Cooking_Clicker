@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using GameManagerSpace;
 
 public class SwitchScript : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class SwitchScript : MonoBehaviour
         ServiceGameObject.position = endServicePosition;
         CookingGameObject.position = endCookingPosition;
         ProductionGameObject.position = endProductionPosition;
+
+        GameManager.Instance.ChangePanel(Offset);
 
         IsBusy = false;
     }

@@ -19,6 +19,7 @@ namespace GameManagerSpace
         [SerializeField] float m_multiplierAdd;
         [SerializeField] float m_multiplier = 1.0f;
         private uint m_money;
+        private int m_currentPanel; // 0 = service // 1 = cooking // 2 = production //
         public uint Money
         {
             get => m_money; 
@@ -39,6 +40,10 @@ namespace GameManagerSpace
         public float MultiplierAdd
         {
             get => m_multiplierAdd;
+        }
+        public int CurrentPanel
+        {
+            get => m_currentPanel;
         }
 
         private void Awake()
@@ -84,11 +89,15 @@ namespace GameManagerSpace
 
         [Button]
         public void GiveMoney() => Money += 100;
+
+        public void ChangePanel(int newPannel)
+        {
+            m_currentPanel = newPannel;
+        }
     }
 
     public static class GameManagerStatic
     {
-        //Trouver une solution pour récupérer les infos de manière sécuriser via une method!!!!!
         public enum RessourcesNames
         {
             Tomato, Carrot, Potato, Pea, Bean, Veal, Beef, Chicken, Duck, Sheep,

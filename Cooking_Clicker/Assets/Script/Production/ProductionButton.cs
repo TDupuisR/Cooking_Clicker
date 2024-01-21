@@ -23,7 +23,7 @@ public class ProductionButton : MonoBehaviour
     [SerializeField] int m_progression;
     [SerializeField] float m_progressionTime;
     [Space(5)]
-    [SerializeField] bool m_isUnlocked;
+    //[SerializeField] bool m_isUnlocked;
     [SerializeField] GameObject m_lockedObject;
     [SerializeField] uint m_ingredientPrice; 
     [SerializeField] int m_upgradePrice; 
@@ -97,7 +97,7 @@ public class ProductionButton : MonoBehaviour
     {
         m_autoCoRoutine = StartCoroutine(AutoProgression());
         m_productionButton.interactable = true;
-        m_isUnlocked = false;
+        //m_isUnlocked = false;
         m_lockedObject.SetActive(false);
 
         GameManager.ressourceManager.availableIngredients[m_productType] = true;

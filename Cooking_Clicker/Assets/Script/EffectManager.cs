@@ -26,7 +26,7 @@ public class EffectManager : MonoBehaviour
     public void CreateEffect(Vector3 position, _effectImg image)
     {
        GameObject newEffect = Instantiate(m_effectPrefab, position, Quaternion.identity);
-       newEffect.transform.parent = m_customerParent;
+       newEffect.transform.SetParent(m_customerParent);
        newEffect.GetComponent<Image>().sprite = m_effectSprite[(int) image];
     }
 }
