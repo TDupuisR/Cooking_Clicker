@@ -1,3 +1,4 @@
+using GameManagerSpace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,12 @@ public class WaiterBehavior : MonoBehaviour
     [SerializeField] private bool m_isWaiting;
     [SerializeField] private bool m_isServed;
     [SerializeField] private bool m_isServing;
+
+    [Header("Upgrades")]
+    [SerializeField] private uint m_upgradePrice;
+    [SerializeField] private AudioClip m_upgradeSound;
+
+
     public bool IsWaiting { get => m_isWaiting; set => m_isWaiting = value; }
     public bool IsServed { get => m_isServed; set => m_isServed = value; }
 
@@ -19,7 +26,11 @@ public class WaiterBehavior : MonoBehaviour
     {
         m_isWaiting = true;
         m_isServed = false;
-        m_speed = 20.0f;
+
+        if (PlayerPrefs.HasKey("waiterSpeed"))
+            m_speed = PlayerPrefs.GetFloat("waiterSpeed");
+        else
+            m_speed = 20.0f;
 
         m_targetPosition = m_origin.localPosition;
         transform.localPosition = m_origin.localPosition;
@@ -68,6 +79,11 @@ public class WaiterBehavior : MonoBehaviour
 
     public void UpgradeWaiter()
     {
-        m_speed *= 1.1f;
+        if(GameManager.Instance.Money >= m_upgradePrice)
+        {
+            GameManager.Instance.Money -= m_upgradePrice;
+            m_speed *= 1.1f;
+            PlayerPrefs.SetFloat("waiterSpeed", m_speed);
+        }
     }
 }
