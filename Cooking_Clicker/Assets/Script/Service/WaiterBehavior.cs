@@ -1,12 +1,14 @@
 using GameManagerSpace;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaiterBehavior : MonoBehaviour
 {
     [SerializeField] Transform m_origin;
-    [SerializeField] float m_speed;
+    [SerializeField] float m_speed = 20f;
+    float m_initSpeed;
     [SerializeField] Vector3 m_targetPosition;
     [SerializeField] float m_tolerance = 5f;
 
@@ -17,6 +19,8 @@ public class WaiterBehavior : MonoBehaviour
     [Header("Upgrades")]
     [SerializeField] private uint m_upgradePrice;
     [SerializeField] private AudioClip m_upgradeSound;
+    [SerializeField] TMP_Text m_upgradePriceText;
+    int m_currentUpgrade = 0;
 
 
     public bool IsWaiting { get => m_isWaiting; set => m_isWaiting = value; }
@@ -26,11 +30,13 @@ public class WaiterBehavior : MonoBehaviour
     {
         m_isWaiting = true;
         m_isServed = false;
+        m_initSpeed = 20.0f;
 
-        if (PlayerPrefs.HasKey("waiterSpeed"))
-            m_speed = PlayerPrefs.GetFloat("waiterSpeed");
-        else
-            m_speed = 20.0f;
+        if (PlayerPrefs.HasKey("Waiter_level"))
+            m_currentUpgrade = PlayerPrefs.GetInt("Waiter_level");
+
+        m_speed = m_initSpeed * Mathf.Pow(1.1f, m_currentUpgrade);
+        m_upgradePriceText.text = (m_upgradePrice * (m_currentUpgrade +1)).ToString() + "$";
 
         m_targetPosition = m_origin.localPosition;
         transform.localPosition = m_origin.localPosition;
@@ -79,11 +85,17 @@ public class WaiterBehavior : MonoBehaviour
 
     public void UpgradeWaiter()
     {
-        if(GameManager.Instance.Money >= m_upgradePrice)
+        if(GameManager.Instance.Money >= m_upgradePrice * m_currentUpgrade)
         {
-            GameManager.Instance.Money -= m_upgradePrice;
-            m_speed *= 1.1f;
-            PlayerPrefs.SetFloat("waiterSpeed", m_speed);
+            GameManager.Instance.Money -= (uint)(m_upgradePrice * (m_currentUpgrade+1));
+
+            m_currentUpgrade += 1;
+            m_speed = m_initSpeed * Mathf.Pow(1.1f, m_currentUpgrade);
+
+            PlayerPrefs.SetInt("Waiter_level", m_currentUpgrade);
+            PlayerPrefs.Save();
+
+            m_upgradePriceText.text = (m_upgradePrice * (m_currentUpgrade + 1)).ToString() + "$";
         }
     }
 }

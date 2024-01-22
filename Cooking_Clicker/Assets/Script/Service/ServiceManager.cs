@@ -277,9 +277,10 @@ public class ServiceManager : MonoBehaviour
         {
             //Debug.Log("Service: " + i + " | " + m_dishOrdered.Count + " - " + m_dishIsReady.Count);
 
-            if(i > m_dishOrdered.Count)
+            if(i > m_dishIsReady.Count)
             {
                 Debug.LogWarning("attention");
+                return;
             }
 
 

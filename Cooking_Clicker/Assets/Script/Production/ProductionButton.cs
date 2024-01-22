@@ -17,11 +17,13 @@ public class ProductionButton : MonoBehaviour
     [Space(5)]
     [SerializeField] TMP_Text m_productPriceText;
     [SerializeField] TMP_Text m_upgradePriceText;
+    int m_currentUpgrade = 0;
 
     [Header("Field")]
     [SerializeField] int m_productType;
     [SerializeField] int m_progression;
     [SerializeField] float m_progressionTime;
+    float m_initProgressionTime;
     [Space(5)]
     //[SerializeField] bool m_isUnlocked;
     [SerializeField] GameObject m_lockedObject;
@@ -52,9 +54,15 @@ public class ProductionButton : MonoBehaviour
         m_productImage.sprite = GameManager.ressourceManager.ReturnRessourceSprite(m_productType);
         m_productPriceText.text = m_ingredientPrice.ToString() + " $";
 
-        m_upgradePriceText.text = m_upgradePrice.ToString() + "$";
-        if (PlayerPrefs.HasKey(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed"))
-            m_progressionTime = PlayerPrefs.GetFloat(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed");
+        m_initProgressionTime = m_progressionTime;
+
+        if (PlayerPrefs.HasKey(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_level"))
+        {
+            m_currentUpgrade = PlayerPrefs.GetInt(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_level", m_currentUpgrade);
+        }
+
+        m_progressionTime = m_initProgressionTime / Mathf.Pow(2f, m_currentUpgrade);
+        m_upgradePriceText.text = (m_upgradePrice * (m_currentUpgrade +1)).ToString() + "$";
     }
 
     private void FixedUpdate()
@@ -127,14 +135,18 @@ public class ProductionButton : MonoBehaviour
 
     public void UpgradeAutoProgression()
     {
-        if(GameManager.Instance.Money >= m_upgradePrice)
+        if(GameManager.Instance.Money >= m_upgradePrice * m_currentUpgrade)
         {
-            GameManager.Instance.Money -= (uint)m_upgradePrice;
+            GameManager.Instance.Money -= (uint)(m_upgradePrice * (m_currentUpgrade+1));
             GameManager.soundManager.SpawnSound(m_buyUpgrade);
 
-            m_progressionTime /= 2.0f;
-            PlayerPrefs.SetFloat(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_speed", m_progressionTime);
+            m_currentUpgrade += 1;
+            m_progressionTime /= Mathf.Pow(2f, m_currentUpgrade);
+
+            PlayerPrefs.SetInt(GameManager.ressourceManager.ReturnRessourceName(m_productType) + "_level", m_currentUpgrade);
             PlayerPrefs.Save();
+
+            m_upgradePriceText.text = (m_upgradePrice * (m_currentUpgrade +1)).ToString() + "$";
         }
     }
 }

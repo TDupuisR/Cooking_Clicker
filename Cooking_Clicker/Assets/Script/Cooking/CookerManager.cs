@@ -82,8 +82,8 @@ public class CookerManager : MonoBehaviour
 
             if (m_dishIndexNeedDecrement[m_machineIndex])
             {
-                recepieIndex--; //Possible cause of indexOutOfRange Error
-                Debug.Log("Decrement: " + dish.name + " | " + recepieIndex);
+                recepieIndex--;
+                //Debug.Log("Decrement: " + dish.name + " | " + recepieIndex);
                 m_dishIndexNeedDecrement[m_machineIndex] = false;
             }
             progress++;

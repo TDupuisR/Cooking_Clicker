@@ -1350,10 +1350,9 @@ MonoBehaviour:
   m_productType: 0
   m_progression: 0
   m_progressionTime: 1
-  m_isUnlocked: 0
   m_lockedObject: {fileID: 6678021794801962816}
   m_ingredientPrice: 0
-  m_upgradePrice: 100
+  m_upgradePrice: 50
   m_speedProgressionAudio:
   - {fileID: 8300000, guid: 598c48fcac3c8254bb7128849c2a2cfc, type: 3}
   - {fileID: 8300000, guid: a3bda212f04c4fa4d88427cf79015e99, type: 3}
