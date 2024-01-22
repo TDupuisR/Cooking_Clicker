@@ -57,6 +57,9 @@ public class CookerManager : MonoBehaviour
                 m_ustensilRecipeIndexList[linkedSeat] = m_iteration;
                 LinkedPrepButton[m_iteration].currentState = GameManagerStatic.DishStates.Cook;
                 m_ustensilCoroutine[dishUstensils] = StartCoroutine( UseMachine(dish, m_iteration, linkedSeat, m_fillgradient) );
+                m_dishQueue.RemoveAt(m_iteration);
+                LinkedPrepButton.RemoveAt(m_iteration);
+                return;
             }
             m_iteration++;
         }
@@ -98,11 +101,14 @@ public class CookerManager : MonoBehaviour
                 m_dishIndexNeedDecrement[i] = true;
         }
 
+<<<<<<< Updated upstream
         Debug.Log("Remove queue: " + dish.name + " | " + recepieIndex);
 
         m_dishQueue.RemoveAt(recepieIndex); //Bug to fix: sometime indexOutOfRange in negative numbers
         LinkedPrepButton.RemoveAt(recepieIndex);
 
+=======
+>>>>>>> Stashed changes
         m_ustensilSeatList[seat] = -1;
 
         m_machineUsed[m_machineIndex] = false;
@@ -116,13 +122,10 @@ public class CookerManager : MonoBehaviour
             return;
 
         int machineIndex = m_ustensilSeatList[seat];
-        int recepieIndex = m_ustensilRecipeIndexList[seat];
 
         if(m_ustensilCoroutine[machineIndex] != null)
             StopCoroutine(m_ustensilCoroutine[machineIndex]);
 
-        m_dishQueue.RemoveAt(recepieIndex);
-        LinkedPrepButton.RemoveAt(recepieIndex);
         m_ustensilSeatList[seat] = -1;
 
         m_machineUsed[machineIndex] = false;
