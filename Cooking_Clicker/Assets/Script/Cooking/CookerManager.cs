@@ -100,15 +100,6 @@ public class CookerManager : MonoBehaviour
             if (m_currentDishIndex[i] > recepieIndex)
                 m_dishIndexNeedDecrement[i] = true;
         }
-
-<<<<<<< Updated upstream
-        Debug.Log("Remove queue: " + dish.name + " | " + recepieIndex);
-
-        m_dishQueue.RemoveAt(recepieIndex); //Bug to fix: sometime indexOutOfRange in negative numbers
-        LinkedPrepButton.RemoveAt(recepieIndex);
-
-=======
->>>>>>> Stashed changes
         m_ustensilSeatList[seat] = -1;
 
         m_machineUsed[m_machineIndex] = false;
