@@ -29,7 +29,6 @@ namespace GameManagerSpace
                 PlayerPrefs.SetInt("money", (int)m_money);
                 PlayerPrefs.Save();
 
-                Debug.Log("change money: " + value);
                 m_moneyText.text = value.ToString();
             }
         }
