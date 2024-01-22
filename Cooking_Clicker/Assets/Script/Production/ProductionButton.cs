@@ -135,7 +135,7 @@ public class ProductionButton : MonoBehaviour
 
     public void UpgradeAutoProgression()
     {
-        if(GameManager.Instance.Money >= m_upgradePrice * m_currentUpgrade)
+        if(GameManager.Instance.Money >= m_upgradePrice * (m_currentUpgrade+1))
         {
             GameManager.Instance.Money -= (uint)(m_upgradePrice * (m_currentUpgrade+1));
             GameManager.soundManager.SpawnSound(m_buyUpgrade);

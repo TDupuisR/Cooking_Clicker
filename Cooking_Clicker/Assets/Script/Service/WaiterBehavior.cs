@@ -85,7 +85,7 @@ public class WaiterBehavior : MonoBehaviour
 
     public void UpgradeWaiter()
     {
-        if(GameManager.Instance.Money >= m_upgradePrice * m_currentUpgrade)
+        if(GameManager.Instance.Money >= m_upgradePrice * (m_currentUpgrade+1))
         {
             GameManager.Instance.Money -= (uint)(m_upgradePrice * (m_currentUpgrade+1));
 

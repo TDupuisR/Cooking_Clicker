@@ -25,7 +25,14 @@ namespace GameManagerSpace
             get => m_money; 
             set
             {
-                m_money = value;
+                if (0 > value)
+                {
+                    Debug.LogError("Cannot Take out the money amount!");
+                    m_money = 0;
+                }
+                else
+                    m_money = value;
+
                 PlayerPrefs.SetInt("money", (int)m_money);
                 PlayerPrefs.Save();
 
@@ -68,6 +75,8 @@ namespace GameManagerSpace
             m_ressourceManager.LoadIngredients();
             m_dishManager.CheckForNewDish();
             LoadMoney();
+
+            //PlayerPrefs.DeleteAll();
         }
 
         public DishBehavior GetRandomDish()

@@ -6813,7 +6813,7 @@ MonoBehaviour:
   m_isWaiting: 0
   m_isServed: 0
   m_isServing: 0
-  m_upgradePrice: 250
+  m_upgradePrice: 100
   m_upgradeSound: {fileID: 8300000, guid: c2bd0c756d68cef4a868ee253185d52d, type: 3}
   m_upgradePriceText: {fileID: 735916884}
 --- !u!114 &1113190676
