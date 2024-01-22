@@ -275,7 +275,8 @@ public class ServiceManager : MonoBehaviour
     {
         for(int i = 0;i < m_dishOrdered.Count; i++)
         {
-            if (m_dishOrdered[i] == dish && !m_dishIsReady[i])
+            Debug.Log("Service: " + i + " | " + m_dishOrdered.Count + " - " + m_dishIsReady.Count);
+            if (m_dishOrdered[i] == dish && !m_dishIsReady[i]) //Bug to fix: sometime indexOutOfRange Wich???
             {
                 m_waiterList[i].SetActive(true);
                 m_dishIsReady[i] = true;

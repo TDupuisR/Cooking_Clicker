@@ -79,7 +79,8 @@ public class CookerManager : MonoBehaviour
 
             if (m_dishIndexNeedDecrement[m_machineIndex])
             {
-                recepieIndex--;
+                recepieIndex--; //Possible cause of indexOutOfRange Error
+                Debug.Log("Decrement: " + dish.name + " | " + recepieIndex);
                 m_dishIndexNeedDecrement[m_machineIndex] = false;
             }
             progress++;
@@ -97,8 +98,11 @@ public class CookerManager : MonoBehaviour
                 m_dishIndexNeedDecrement[i] = true;
         }
 
-        m_dishQueue.RemoveAt(recepieIndex); //Bug to fix: sometime indexOutOfRange
+        Debug.Log("Remove queue: " + dish.name + " | " + recepieIndex);
+
+        m_dishQueue.RemoveAt(recepieIndex); //Bug to fix: sometime indexOutOfRange in negative numbers
         LinkedPrepButton.RemoveAt(recepieIndex);
+
         m_ustensilSeatList[seat] = -1;
 
         m_machineUsed[m_machineIndex] = false;
