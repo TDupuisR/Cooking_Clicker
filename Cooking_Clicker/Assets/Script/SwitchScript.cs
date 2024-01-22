@@ -26,19 +26,18 @@ public class SwitchScript : MonoBehaviour
         //Definition de PLEIN de variables importantes
         float timeElapsed = 0;
         float m_universalYPosition = CookingGameObject.position.y; //Determine la position y des écrans
-        float m_startingOffset = Camera.main.pixelWidth / 2;
+        float m_startingOffset = (Camera.main.pixelWidth / 2) +0.5f;
 
         //Determine start and ending position of each Screens
         Vector3 startServicePosition = ServiceGameObject.position;
-        Vector3 endServicePosition = new Vector3(-Camera.main.pixelWidth * Offset + m_startingOffset, m_universalYPosition, 0f);
+        Vector3 endServicePosition = new Vector3(-(Camera.main.pixelWidth) * Offset + m_startingOffset, m_universalYPosition, 0f);
 
         Vector3 startCookingPosition = CookingGameObject.position;
-        Vector3 endCookingPosition = new Vector3(-Camera.main.pixelWidth * Offset + m_startingOffset * 3, m_universalYPosition, 0f);
+        Vector3 endCookingPosition = new Vector3(-(Camera.main.pixelWidth) * Offset + m_startingOffset * 3, m_universalYPosition, 0f);
 
         Vector3 startProductionPosition = ProductionGameObject.position;
-        Vector3 endProductionPosition = new Vector3(-Camera.main.pixelWidth * Offset + m_startingOffset * 5, m_universalYPosition, 0f);
+        Vector3 endProductionPosition = new Vector3(-(Camera.main.pixelWidth) * Offset + m_startingOffset * 5, m_universalYPosition, 0f);
 
-        
 
         while (timeElapsed < m_transitionSpeed)
         {
