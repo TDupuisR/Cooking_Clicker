@@ -786,8 +786,8 @@ MonoBehaviour:
   - {fileID: 561337775}
   - {fileID: 154398230}
   m_progressionSlidersFill:
-  - {fileID: 388486270}
   - {fileID: 817239589}
+  - {fileID: 388486270}
   - {fileID: 1786207649}
   - {fileID: 474507137}
   - {fileID: 12489740}
